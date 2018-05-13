@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: dbfa04c0879d63649a9e17601f0911d8
-timeCreated: 1526103703
+guid: 287a51ce5a2c8a74a995fbff2f74b185
+timeCreated: 1526187096
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: unnamed
+    2100000: BedCoversBlue__AO
+    2100002: BedWhite__AO
+    2100004: BedMetal__AO
+    2100006: BedWood__AO
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Body
+    4300000: Cube
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
