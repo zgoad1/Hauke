@@ -1,19 +1,18 @@
 fileFormatVersion: 2
-guid: 287a51ce5a2c8a74a995fbff2f74b185
-timeCreated: 1526187096
+guid: e7d73339f1d84b94e9b2309ca8e00ebd
+timeCreated: 1526439588
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: BedCoversBlue__AO
-    2100002: BedWhite__AO
-    2100004: BedMetal__AO
-    2100006: BedWood__AO
+    2100000: Wood2__desk1_AO
+    2100002: Material__desk1_AO
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
+    6400000: //RootNode
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -48,7 +47,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

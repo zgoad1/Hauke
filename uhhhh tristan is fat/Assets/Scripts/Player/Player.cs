@@ -103,9 +103,8 @@ public class Player : MonoBehaviour {
 			if(dodgeKey && onGround) {
 				StartCoroutine("Dodge");
 			}
-
-			onGround = false;
 		}
+		onGround = false;
 	}
 
 	// called once per physics update
@@ -119,10 +118,9 @@ public class Player : MonoBehaviour {
 			movDirec.z += -upMov * hitNormal.z * (1f - slideFriction);
 			hitNormal = Vector3.zero;
 			onGround = false;
+			canStillJump = false;
 		}
 		cc.Move(movDirec);  // triggers collision detection
-		// notOnSlope = we're on ground level enough to walk OR we're hitting a straight-up wall
-		notOnSlope = Vector3.Angle(Vector3.up, hitNormal) <= cc.slopeLimit || Vector3.Angle(Vector3.up, hitNormal) >= 89;
 		if(!notOnSlope) {
 			Debug.Log("hit angle: " + Vector3.Angle(Vector3.up, hitNormal));
 		}
@@ -130,22 +128,23 @@ public class Player : MonoBehaviour {
 		playerRot.y = transform.rotation.y;
 		playerRot.w = transform.rotation.w;
 		transform.rotation = playerRot;
+
+		// jumping
+		if(jKey && (onGround || canStillJump) && !dodging) {
+			onGround = false;
+			Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+			upMov = jumpForce;
+			canStillJump = false;
+		} else if(!onGround || !notOnSlope) {
+			upMov -= grav;
+			//Debug.Log("Increasing gravity: " + upMov);
+			if(jKey) Debug.Log("Falling\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+		} else {
+			upMov = -grav;
+			if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+		}
+
 		if(!dodging) {
-			// jumping
-			if(jKey && (onGround || canStillJump)) {
-				onGround = false;
-				Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-				upMov = jumpForce;
-				canStillJump = false;
-			} else if(!onGround || !notOnSlope) {
-				upMov -= grav;
-				//Debug.Log("Increasing gravity: " + upMov);
-				if(jKey) Debug.Log("Falling\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-			} else {
-				upMov = -grav;
-				if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-			}
-			
 			movDirec.x = 0f;
 			movDirec.z = 0f;
 		}
@@ -154,9 +153,11 @@ public class Player : MonoBehaviour {
 	void OnControllerColliderHit(ControllerColliderHit hit) {
 		if(hit.gameObject.tag != "Transparent") {
 			hitNormal = hit.normal;
+			// notOnSlope = we're on ground level enough to walk OR we're hitting a straight-up wall
+			notOnSlope = Vector3.Angle(Vector3.up, hitNormal) <= cc.slopeLimit || Vector3.Angle(Vector3.up, hitNormal) >= 89;
 			if(movDirec.y <= 0 && hit.point.y < transform.position.y - .5f) {
 				// hit ground
-				onGround = true;
+				if(notOnSlope) onGround = true;
 				//Debug.Log("Hit ground");
 			// else if the hit point is from above and inside our radius (on top of head rather than on outer edge)
 			} else if(hit.point.y > transform.position.y + .5f && Mathf.Sqrt(Mathf.Pow(transform.position.x - hit.point.x, 2) + Mathf.Pow(transform.position.z - hit.point.z, 2)) < cc.radius) {
