@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : Ally {
 
 	[SerializeField] private Transform camTransform;
 	[SerializeField] private float speed = 0.3f;
 	[SerializeField] private float accel = 0.3f;
 	[SerializeField] private float decel = 0.3f;
-	[SerializeField] private float jumpForce = 3f;
-	[SerializeField] private float grav = 0.2f;
+	[SerializeField] private float jumpForce = 0.5f;
+	[SerializeField] private float grav = 0.03f;
 
 	private bool og = false;	// whether Percy can jump
 	public bool onGround {
@@ -30,15 +30,16 @@ public class Player : MonoBehaviour {
 	private float rightKey;
 	private float fwdKey;
 	private bool jKey;
+	private bool dodgeKey;
 	private float rightMov = 0f;
 	private float fwdMov = 0f;
 	private float upMov = 0f;
 	private Quaternion playerRot = new Quaternion(0f, 0f, 0f, 0f);
 	private Vector3 hitNormal = Vector3.zero;
 	private bool notOnSlope = false;
-	private bool dodgeKey = false;
 	private bool canStillJump = true;
 	private bool dodging = false;
+	private float stopSpeed = 0.075f;
 
 	public void Die() {
 		Debug.Log("ded");
@@ -61,8 +62,8 @@ public class Player : MonoBehaviour {
 		//controls
 		rightKey = Input.GetAxisRaw("Horizontal");
 		fwdKey = Input.GetAxisRaw("Vertical");
-		jKey = Input.GetButtonDown("Jump");    // sometimes this is inaccurate - doesn't update when it should. Updates when another button is pressed though, so it works in motion. Close enough
-		dodgeKey = Input.GetButtonDown("Run");	// use this as more of a dodge
+		jKey = Input.GetButtonDown("Jump")? true : jKey;
+		dodgeKey = Input.GetButtonDown("Run")? true : dodgeKey;	
 
 		// change forward's y to 0 then normalize, in case the camera is pointed down or up
 		Vector3 tempForward = camTransform.forward;
@@ -100,10 +101,15 @@ public class Player : MonoBehaviour {
 				transform.position = ipos + new Vector3(0, 5, 0);
 			}
 
-			if(dodgeKey && onGround) {
+			if(dodgeKey && (onGround || canStillJump)) {
 				StartCoroutine("Dodge");
+				canStillJump = false;
 			}
 		}
+		//if(jKey) Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+		//if(dodgeKey) Debug.LogWarning("Dodging\ndodgeKey = " + dodgeKey + "\nonGround = " + onGround);
+
+		// physics calculations (executions go in FixedUpdate)
 		onGround = false;
 	}
 
@@ -143,6 +149,8 @@ public class Player : MonoBehaviour {
 			upMov = -grav;
 			if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
 		}
+		jKey = false;		// keep these true after they're pressed until FixedUpdate is called
+		dodgeKey = false;
 
 		if(!dodging) {
 			movDirec.x = 0f;
@@ -155,15 +163,17 @@ public class Player : MonoBehaviour {
 			hitNormal = hit.normal;
 			// notOnSlope = we're on ground level enough to walk OR we're hitting a straight-up wall
 			notOnSlope = Vector3.Angle(Vector3.up, hitNormal) <= cc.slopeLimit || Vector3.Angle(Vector3.up, hitNormal) >= 89;
-			if(movDirec.y <= 0 && hit.point.y < transform.position.y - .5f) {
+			if(movDirec.y <= 0 && hit.point.y < transform.position.y + .5f) {
 				// hit ground
 				if(notOnSlope) onGround = true;
-				//Debug.Log("Hit ground");
-			// else if the hit point is from above and inside our radius (on top of head rather than on outer edge)
+				Debug.Log("Hit ground");
+				// else if the hit point is from above and inside our radius (on top of head rather than on outer edge)
 			} else if(hit.point.y > transform.position.y + .5f && Mathf.Sqrt(Mathf.Pow(transform.position.x - hit.point.x, 2) + Mathf.Pow(transform.position.z - hit.point.z, 2)) < cc.radius) {
 				// hit something going up
 				upMov = Mathf.Min(0f, upMov);
 				Debug.Log("I hit my head!");
+			} else {
+				Debug.Log("Actually hit nothing!");
 			}
 		}
 	}
@@ -177,8 +187,9 @@ public class Player : MonoBehaviour {
 
 	private IEnumerator Dodge() {
 		dodging = true;
-		movDirec = (movDirec == Vector3.zero)? transform.forward * speed * 2f : movDirec.normalized * speed * 2f;
-		yield return new WaitForSeconds(0.4f);
+		movDirec = (Mathf.Abs(movDirec.x) - stopSpeed <= 0 && Mathf.Abs(movDirec.z) - stopSpeed <= 0)? camTransform.forward * speed * 3f : movDirec.normalized * speed * 3f;
+		transform.forward = movDirec;
+		yield return new WaitForSeconds(0.3f);
 		dodging = false;
 	}
 }

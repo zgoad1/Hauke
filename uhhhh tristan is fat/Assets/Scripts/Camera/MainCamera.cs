@@ -15,6 +15,7 @@ public class MainCamera : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider collision) {
+		Debug.Log("Camera hit a " + collision.gameObject);
 		FadeWhenClose fader = collision.gameObject.GetComponent<FadeWhenClose>();
 		if(fader != null) {
 			fader.StartCoroutine("FadeOut", 8);

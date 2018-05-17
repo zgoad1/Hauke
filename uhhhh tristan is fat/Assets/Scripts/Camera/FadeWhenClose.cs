@@ -6,7 +6,9 @@ public class FadeWhenClose : MonoBehaviour {
 	
 	void Start () {
 		if(GetComponent<Renderer>() != null) {
-			GetComponent<Renderer>().material.SetInt("_ZWrite", 1);
+			foreach(Material m in GetComponent<Renderer>().materials) {
+				m.SetInt("_ZWrite", 1);
+			}
 		}
 		if(GetComponent<Rigidbody>() == null) {
 			Rigidbody rb = gameObject.AddComponent<Rigidbody>();
@@ -22,9 +24,13 @@ public class FadeWhenClose : MonoBehaviour {
 			// initial i corresponds to current alpha
 			for(float i = (1 - r.material.color.a) * frames; i < frames; i++) {
 				yield return null;
-				r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 1 - i / frames);
+				foreach(Material m in r.materials) {
+					m.color = new Color(m.color.r, m.color.g, m.color.b, 1 - i / frames);
+				}
 			}
-			r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 0);
+			foreach(Material m in r.materials) {
+				m.color = new Color(m.color.r, m.color.g, m.color.b, 0);
+			}
 		}
 	}
 
@@ -34,9 +40,13 @@ public class FadeWhenClose : MonoBehaviour {
 		if(r != null) {
 			for(float i = r.material.color.a * frames; i < frames; i++) {
 				yield return null;
-				r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, i / frames);
+				foreach(Material m in r.materials) {
+					m.color = new Color(m.color.r, m.color.g, m.color.b, i / frames);
+				}
 			}
-			r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 1);
+			foreach(Material m in r.materials) {
+				m.color = new Color(m.color.r, m.color.g, m.color.b, 1);
+			}
 		}
 	}
 }
