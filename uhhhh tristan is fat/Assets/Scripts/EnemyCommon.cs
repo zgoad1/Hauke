@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyCommon : MonoBehaviour {
+public class EnemyCommon : Enemy {
 
 	private NavMeshAgent agent;
 	private Player player;
@@ -20,8 +20,18 @@ public class EnemyCommon : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		agent.SetDestination(target.transform.position);
+		if(agent.enabled) {
+			agent.SetDestination(target.transform.position);
+		}
 	}
 
-
+	public override void Knockback() {
+		agent.enabled = false;
+	}
+	
+	private void OnCollisionEnter(Collision collision) {
+		if(LayerMask.LayerToName(collision.gameObject.layer) == "Ground") {
+			agent.enabled = true;
+		}
+	}
 }

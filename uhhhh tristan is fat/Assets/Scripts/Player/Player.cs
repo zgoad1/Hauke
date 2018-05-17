@@ -161,19 +161,17 @@ public class Player : Ally {
 	void OnControllerColliderHit(ControllerColliderHit hit) {
 		if(hit.gameObject.tag != "Transparent") {
 			hitNormal = hit.normal;
-			// notOnSlope = we're on ground level enough to walk OR we're hitting a straight-up wall
+			// notOnSlope = we're on ground level enough to walk on OR we're hitting a straight-up wall
 			notOnSlope = Vector3.Angle(Vector3.up, hitNormal) <= cc.slopeLimit || Vector3.Angle(Vector3.up, hitNormal) >= 89;
-			if(movDirec.y <= 0 && hit.point.y < transform.position.y + .5f) {
+			if(movDirec.y <= 0 && hit.point.y < transform.position.y + .9f) {
 				// hit ground
 				if(notOnSlope) onGround = true;
-				Debug.Log("Hit ground");
+				//Debug.Log("Hit ground");
 				// else if the hit point is from above and inside our radius (on top of head rather than on outer edge)
-			} else if(hit.point.y > transform.position.y + .5f && Mathf.Sqrt(Mathf.Pow(transform.position.x - hit.point.x, 2) + Mathf.Pow(transform.position.z - hit.point.z, 2)) < cc.radius) {
+			} else if(hit.point.y > transform.position.y + 4f && Mathf.Sqrt(Mathf.Pow(transform.position.x - hit.point.x, 2) + Mathf.Pow(transform.position.z - hit.point.z, 2)) < transform.localScale.x) {
 				// hit something going up
 				upMov = Mathf.Min(0f, upMov);
 				Debug.Log("I hit my head!");
-			} else {
-				Debug.Log("Actually hit nothing!");
 			}
 		}
 	}
