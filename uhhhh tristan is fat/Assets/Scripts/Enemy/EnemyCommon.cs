@@ -13,10 +13,15 @@ public class EnemyCommon : Enemy {
 
 	// Use this for initialization
 	void Start () {
+		attacking = new bool[1];
+		atkDamage = new int[] { 10 };	// hack
+
+		maxHp = 100;
+
 		agent = GetComponent<NavMeshAgent>();
 		player = FindObjectOfType<Player>();
 		//companion = FindObjectOfType<Companion>();
-		target = player;
+		target = player;								// TODO: Choose the player or the companion for target
 	}
 	
 	void FixedUpdate () {
@@ -25,13 +30,20 @@ public class EnemyCommon : Enemy {
 		}
 	}
 
-	public override void Knockback() {
-		agent.enabled = false;
+	public override void Knockback(Vector3 force) {
+		if(!invincible) {
+			GetComponent<Rigidbody>().AddForce(force);
+			agent.enabled = false;
+		}
 	}
 	
 	private void OnCollisionEnter(Collision collision) {
 		if(LayerMask.LayerToName(collision.gameObject.layer) == "Ground") {
 			agent.enabled = true;
 		}
+	}
+
+	public override void Attack() {
+		throw new System.NotImplementedException();
 	}
 }

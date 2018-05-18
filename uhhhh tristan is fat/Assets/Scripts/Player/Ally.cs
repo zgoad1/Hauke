@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ally : MonoBehaviour {
+public class Ally : BattleEntity {
 
-	private int h = 100;
-	public int hp {
-		get {
-			return h;
-		}
-		set {
-			h = Mathf.Clamp(value, 0, 100);
-			if(h == 0) {
-				Die();
-			}
-		}
-	}
+	/** Player and companion.
+	 * 
+	 * SET UPON START: 
+	 * - maxHp
+	 * - attacking (array)
+	 * - atkDamage (array & elements)
+	 */
+
 	private int s = 100;
-	public int st {
+	protected int st {
 		get {
 			return s;
 		}
@@ -26,17 +22,4 @@ public class Ally : MonoBehaviour {
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	private void Die() {
-
-	}
 }

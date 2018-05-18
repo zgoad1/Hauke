@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
 public class Player : Ally {
 
 	[SerializeField] private Transform camTransform;
@@ -9,9 +11,10 @@ public class Player : Ally {
 	[SerializeField] private float decel = 0.3f;
 	[SerializeField] private float jumpForce = 0.5f;
 	[SerializeField] private float grav = 0.03f;
+	[SerializeField] private GameObject boomerang;
 
-	private bool og = false;	// whether Percy can jump
-	public bool onGround {
+	private bool og = false;    // whether Percy can jump
+	[HideInInspector] public bool onGround {
 		get {
 			return og;
 		}
@@ -23,7 +26,7 @@ public class Player : Ally {
 			}
 		}
 	}
-	public Vector3 movDirec = Vector3.zero;    // direction of movement
+	[HideInInspector] public Vector3 movDirec = Vector3.zero;    // direction of movement
 
 	private CharacterController cc;
 	private Vector3 ipos;   // keeps track of starting position so we can return
@@ -41,15 +44,12 @@ public class Player : Ally {
 	private bool dodging = false;
 	private float stopSpeed = 0.075f;
 
-	public void Die() {
-		Debug.Log("ded");
-		gameObject.SetActive(false);
-		Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
-	}
-
 	// Use this for initialization
 	void Start() {
+		attacking = new bool[2];
+		atkDamage = new int[] { 35, 25 };	// hack, boomerang
+		maxHp = 100;
+
 		ipos = transform.position;
 		cc = GetComponent<CharacterController>();
 
@@ -63,7 +63,23 @@ public class Player : Ally {
 		rightKey = Input.GetAxisRaw("Horizontal");
 		fwdKey = Input.GetAxisRaw("Vertical");
 		jKey = Input.GetButtonDown("Jump")? true : jKey;
-		dodgeKey = Input.GetButtonDown("Run")? true : dodgeKey;	
+		dodgeKey = Input.GetButtonDown("Run")? true : dodgeKey;
+		attacking[0] = Input.GetButtonDown("Fire1") ? true : attacking[0];
+		attacking[1] = Input.GetButtonDown("Fire2") ? true : attacking[1];
+
+		// activate boomerang upon right click
+		if(attacking[1]) {
+			if(!boomerang.gameObject.activeSelf) {
+				MTSBBI.SetActiveChildren(boomerang.transform, true);
+				Debug.Log(boomerang + " is still active: " + boomerang.gameObject.activeSelf);
+				boomerang.GetComponentInChildren<HaukeAtkHitbox1>().Begin();
+			}
+			//Vector3 keepPos = boomerang.transform.position;
+			//boomerang.transform.SetParent(null);
+			//boomerang.transform.position = keepPos;
+		}
+
+		//Debug.Log("position: " + boomerang.transform.position + "\nlocalpos: " + boomerang.transform.localPosition);
 
 		// change forward's y to 0 then normalize, in case the camera is pointed down or up
 		Vector3 tempForward = camTransform.forward;
@@ -127,9 +143,6 @@ public class Player : Ally {
 			canStillJump = false;
 		}
 		cc.Move(movDirec);  // triggers collision detection
-		if(!notOnSlope) {
-			Debug.Log("hit angle: " + Vector3.Angle(Vector3.up, hitNormal));
-		}
 		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.6f);
 		playerRot.y = transform.rotation.y;
 		playerRot.w = transform.rotation.w;
@@ -189,5 +202,12 @@ public class Player : Ally {
 		transform.forward = movDirec;
 		yield return new WaitForSeconds(0.3f);
 		dodging = false;
+	}
+
+	protected override void Die() {
+		Debug.Log("ded");
+		gameObject.SetActive(false);
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 	}
 }
