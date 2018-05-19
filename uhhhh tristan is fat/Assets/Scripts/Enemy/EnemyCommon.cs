@@ -10,6 +10,7 @@ public class EnemyCommon : Enemy {
 	private Player player;
 	//private Companion companion;
 	private Ally target;
+	private Vector3 knockbackOffset = new Vector3(0f, 0.5f, 0f);
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +33,8 @@ public class EnemyCommon : Enemy {
 
 	public override void Knockback(Vector3 force) {
 		if(!invincible) {
-			GetComponent<Rigidbody>().AddForce(force);
+			if(agent.enabled) transform.position += knockbackOffset;	// only force them up if they're on the ground, because that's the only place we have that problem
+			GetComponent<Rigidbody>().AddForce(force + verticalForce);
 			agent.enabled = false;
 		}
 	}

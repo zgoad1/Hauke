@@ -38,4 +38,16 @@ public class AHBType1 : AtkHitbox {
 			collision.Remove(other.GetComponent<Rigidbody>());
 		}
 	}
+
+	protected override void Hit(Rigidbody hit) {
+		List<Rigidbody> toRemove = new List<Rigidbody>();
+		foreach(Rigidbody rb in collision) {
+			Enemy enemy = rb.gameObject.GetComponent<Enemy>();
+			Debug.Log("Damaging enemy for " + me.atkDamage[hbIndex]);
+			enemy.TakeDamage(me.atkDamage[hbIndex]);
+			if(enemy.hp == 0) toRemove.Add(rb);
+		}
+		foreach(Rigidbody rb in toRemove) collision.Remove(rb);
+		base.Hit(hit);
+	}
 }

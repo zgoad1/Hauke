@@ -8,7 +8,7 @@ public class HaukeAtkHitbox0 : AHBType1 {
 
 	private Transform camT;
 	private Transform meT;
-	private int rotOffset = -90;
+	private int rotOffset = -90;	// to keep the rotation from aiming towards the ground
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +28,8 @@ public class HaukeAtkHitbox0 : AHBType1 {
 	protected override void Hit(Rigidbody hit) {
 		foreach(Rigidbody rb in collision) {
 			Enemy enemy = rb.gameObject.GetComponent<Enemy>();
-			enemy.Knockback(meT.forward * 2000 + verticalForce);
-			enemy.TakeDamage(me.atkDamage[hbIndex]);
+			enemy.Knockback(meT.forward * 2000);
 		}
+		base.Hit(hit);
 	}
 }

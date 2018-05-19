@@ -15,11 +15,11 @@ public class AtkHitbox : MonoBehaviour {
 	protected BattleEntity me;
 	protected int hbIndex;
 	protected bool isAlly;
-	protected Vector3 verticalForce = new Vector3(0, 2000, 0);
 
 	protected bool isAttacking() {
 		return me.attacking[hbIndex];
 	}
 
-	protected virtual void Hit(Rigidbody hit) { }
+	protected virtual void Hit(Rigidbody hit) {
+	}
 }

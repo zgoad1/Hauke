@@ -27,10 +27,12 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	private Rigidbody rb;
 	private Animator anim;
 	private Vector3 prevPos = Vector3.zero;
-	private Vector3 playerOffset = new Vector3(0f, 3f, 0f);
-	private float startOffset = 3f;
+	private Vector3 playerOffset = new Vector3(0f, 3f, 0f);	// how high up to throw from
+	private float startOffset = 3f;	// how far forward from the player we should start
 	private float iFollowFactor = 0f;
 	private float followFactor = 0f;
+	private Transform camT;
+	private int rotOffset = -90;
 
 	// Use this for initialization
 	void Start () {
@@ -48,21 +50,21 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		switch(s) {
 			case state.animating:
 				rb.velocity = (transform.position - prevPos) * 60;
-				Debug.Log(rb.velocity);
+				//Debug.Log(rb.velocity);
 				break;
 			case state.returning:
 				Vector3 distance = (me.transform.position + playerOffset) - transform.position;
-				Vector3 asdf;
+				Vector3 toPlayer;
 				if(Mathf.Abs(distance.magnitude) < 5) {
-					// do some maths
+					// keep the vector from going below 5 in magnitude by multiplying it by a scalar
+					// (if it slows down too much, it'll just follow the player as they move)
 					float alpha = 25 / distance.magnitude;
-					asdf = alpha * distance * 5;
+					toPlayer = alpha * distance * 5;
 				} else {
-					asdf = distance * 5;
+					toPlayer = distance * 5;
 				}
-				rb.velocity = (1 - followFactor) * rb.velocity + followFactor * asdf;
+				rb.velocity = (1 - followFactor) * rb.velocity + followFactor * toPlayer;
 				if(followFactor < 1) followFactor += 0.001f;
-				Debug.Log(rb.velocity);
 				break;
 		}
 		prevPos = transform.position;
@@ -76,18 +78,29 @@ public class HaukeAtkHitbox1 : AHBType2 {
 
 	protected override void Hit(Rigidbody rb) {
 		Enemy enemy = rb.gameObject.GetComponent<Enemy>();
-		enemy.Knockback(transform.forward * 2000 + verticalForce);
-		enemy.TakeDamage(me.atkDamage[hbIndex]);
+		enemy.Knockback(transform.forward * 2000);
+		base.Hit(rb);
 	}
 
 	public void Begin() {
-		me = FindObjectOfType<Player>();	// this is necessary because it can't find it in Start() (?????????????????)
-		//Debug.Log("parentT: " + parentT + "\nme: " + me);
-		parentT.SetPositionAndRotation(me.transform.position + playerOffset + startOffset * me.transform.forward, me.transform.rotation);
+		camT = FindObjectOfType<MainCamera>().transform;
+		me = FindObjectOfType<Player>();    // this is necessary because it can't find it in Start() (?????????????????)
+		Vector3 newForward = new Vector3(camT.forward.x, 0f, camT.forward.z).normalized;
+		me.transform.forward = newForward;
+		parentT.position = me.transform.position + playerOffset + startOffset * newForward;
+		float newx = camT.rotation.eulerAngles.x + rotOffset;
+		parentT.forward = camT.forward;//parentT.rotation = Quaternion.Euler(newx < 0 ? rotOffset : newx, meT.rotation.eulerAngles.y, meT.rotation.eulerAngles.z);
+		if(((Player)me).onGround || ((Player)me).canStillJump) {
+			Vector3 newEuler = parentT.rotation.eulerAngles;
+			Debug.Log("x rotation is " + newEuler.x);
+			newEuler.x = newEuler.x < 180 ? 0 : newEuler.x;
+			Debug.Log("Setting x rotation to: " + newEuler.x);
+			parentT.rotation = Quaternion.Euler(newEuler);
+		}
 	}
 
 	private void FinishAnim() {
-		Debug.Log("Finished animation");
+		Debug.Log("Finished boomerang animation");
 		anim.enabled = false;
 		rb.isKinematic = false;
 		s = state.returning;
