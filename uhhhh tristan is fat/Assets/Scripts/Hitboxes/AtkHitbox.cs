@@ -21,5 +21,6 @@ public class AtkHitbox : MonoBehaviour {
 	}
 
 	protected virtual void Hit(Rigidbody hit) {
+		Debug.Log("Damaging enemy for " + me.atkDamage[hbIndex]);
 	}
 }

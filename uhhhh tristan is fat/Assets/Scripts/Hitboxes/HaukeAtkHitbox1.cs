@@ -23,7 +23,6 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		returning = 2
 	}
 	private state s = state.animating;
-	//private Vector3 iPos;
 	private Rigidbody rb;
 	private Animator anim;
 	private Vector3 prevPos = Vector3.zero;
@@ -39,7 +38,6 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		isAlly = true;
 		me = FindObjectOfType<Player>();
 		hbIndex = 1;
-		//iPos = transform.position;
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 		prevPos = transform.position;
@@ -50,7 +48,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		switch(s) {
 			case state.animating:
 				rb.velocity = (transform.position - prevPos) * 60;
-				//Debug.Log(rb.velocity);
+				//Debug.Log("velocity: " + rb.velocity);
 				break;
 			case state.returning:
 				Vector3 distance = (me.transform.position + playerOffset) - transform.position;
@@ -76,10 +74,10 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		}
 	}
 
-	protected override void Hit(Rigidbody rb) {
-		Enemy enemy = rb.gameObject.GetComponent<Enemy>();
-		enemy.Knockback(transform.forward * 2000);
-		base.Hit(rb);
+	protected override void Hit(Rigidbody hit) {
+		Enemy enemy = hit.gameObject.GetComponent<Enemy>();
+		enemy.Knockback(rb.velocity.normalized * 2000);
+		base.Hit(hit);
 	}
 
 	public void Begin() {
@@ -88,13 +86,10 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		Vector3 newForward = new Vector3(camT.forward.x, 0f, camT.forward.z).normalized;
 		me.transform.forward = newForward;
 		parentT.position = me.transform.position + playerOffset + startOffset * newForward;
-		float newx = camT.rotation.eulerAngles.x + rotOffset;
-		parentT.forward = camT.forward;//parentT.rotation = Quaternion.Euler(newx < 0 ? rotOffset : newx, meT.rotation.eulerAngles.y, meT.rotation.eulerAngles.z);
+		parentT.forward = camT.forward;
 		if(((Player)me).onGround || ((Player)me).canStillJump) {
 			Vector3 newEuler = parentT.rotation.eulerAngles;
-			Debug.Log("x rotation is " + newEuler.x);
 			newEuler.x = newEuler.x < 180 ? 0 : newEuler.x;
-			Debug.Log("Setting x rotation to: " + newEuler.x);
 			parentT.rotation = Quaternion.Euler(newEuler);
 		}
 	}

@@ -39,8 +39,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191689227071554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.89, y: 1.75, z: 53.17}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 82.5, y: 3.8671875, z: 40}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46deea594b054c045a7eb5198297ae5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacking: 
+  atkDamage: 
 --- !u!135 &135939284581011768
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -144,9 +146,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 1191689227071554}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.7
+  m_Radius: 1
   m_Speed: 6
-  m_Acceleration: 8
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 500
   m_StoppingDistance: 4.5

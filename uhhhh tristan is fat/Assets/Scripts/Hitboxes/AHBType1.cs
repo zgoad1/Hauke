@@ -43,7 +43,6 @@ public class AHBType1 : AtkHitbox {
 		List<Rigidbody> toRemove = new List<Rigidbody>();
 		foreach(Rigidbody rb in collision) {
 			Enemy enemy = rb.gameObject.GetComponent<Enemy>();
-			Debug.Log("Damaging enemy for " + me.atkDamage[hbIndex]);
 			enemy.TakeDamage(me.atkDamage[hbIndex]);
 			if(enemy.hp == 0) toRemove.Add(rb);
 		}

@@ -98,6 +98,9 @@ public class Player : Ally {
 			attacking[0] = true;
 
 			// attack effects
+			if(hackCharged) {
+				// more/cooler effects
+			}
 
 			hackCharged = false;
 			StartCoroutine("ResetAtkDamage");
