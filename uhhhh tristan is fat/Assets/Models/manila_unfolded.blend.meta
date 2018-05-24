@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: b6e0c7e7ea5182444bf314efab1cdd64
-timeCreated: 1527121889
+guid: 76aa9532078d4284e9ef98044e997c56
+timeCreated: 1527123447
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material__monitor_AO
-    2100002: Screen__monitor_AO
+    2100000: manila__manila_unfolded_ao
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: Plane
     6400000: //RootNode
     7400000: Default Take
     9500000: //RootNode

@@ -1,18 +1,16 @@
 fileFormatVersion: 2
-guid: b6e0c7e7ea5182444bf314efab1cdd64
-timeCreated: 1527121889
+guid: c3cb3bcce052ee548be24a2236525cf9
+timeCreated: 1527114090
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material__monitor_AO
-    2100002: Screen__monitor_AO
+    2100000: Material
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-    6400000: //RootNode
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -47,7 +45,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -89,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
