@@ -37,7 +37,7 @@ QualitySettings:
     - Standalone
   - serializedVersion: 2
     name: If your computer can't handle this I don't know what to tell you
-    pixelLightCount: 4
+    pixelLightCount: 20
     shadows: 1
     shadowResolution: 2
     shadowProjection: 1
