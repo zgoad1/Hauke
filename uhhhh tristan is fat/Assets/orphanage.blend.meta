@@ -1,18 +1,25 @@
 fileFormatVersion: 2
-guid: e4e5572c355c357478cb15ffd7d264e4
-timeCreated: 1527296048
+guid: 04509ac89d84f1d4492d1cc1fcba99b3
+timeCreated: 1527381790
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Wall1__orphanage_ao
-    2100002: White1__orphanage_ao
-    2100004: Floor__orphanage_ao
+    2100000: Wall1__orphanage1f_ao
+    2100002: White1__orphanage1f_ao
+    2100004: Floor__orphanage1f_ao
+    2100006: White1__orphanage3f_ao
+    2100008: Wall1__orphanage3f_ao
+    2100010: Wall2__orphanage2f_ao
+    2100012: White1__orphanage2f_ao
+    2100014: Wall1__orphanage2f_ao
+    2100016: Floor__orphanage2f_ao
+    2100018: Wall3__orphanage2f_ao
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: 1f
     6400000: //RootNode
     7400000: Default Take
     9500000: //RootNode
