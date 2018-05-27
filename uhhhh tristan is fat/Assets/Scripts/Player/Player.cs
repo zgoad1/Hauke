@@ -201,7 +201,7 @@ public class Player : Ally {
 		playerRot.w = transform.rotation.w;
 		transform.rotation = playerRot;
 
-		// jumping
+		// jumping & falling
 		if(jKey && (onGround || canStillJump) && !dodging) {
 			onGround = false;
 			Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
