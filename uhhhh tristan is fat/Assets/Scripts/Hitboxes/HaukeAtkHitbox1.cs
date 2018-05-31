@@ -31,12 +31,12 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	private float iFollowFactor = 0f;
 	private float followFactor = 0f;
 	private Transform camT;
-	private int rotOffset = -90;
+	//private int rotOffset = -90;
 
 	// Use this for initialization
 	void Start () {
 		isAlly = true;
-		me = FindObjectOfType<Player>();
+		me = FindObjectOfType<HaukePlayer>();
 		hbIndex = 1;
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
@@ -69,7 +69,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	}
 
 	protected void OnTriggerEnter(Collider other) {
-		if(other.GetComponent<Player>() != null || LayerMask.LayerToName(other.gameObject.layer) == "Ground") {
+		if(other.GetComponent<HaukePlayer>() != null || LayerMask.LayerToName(other.gameObject.layer) == "Ground") {
 			Reset();
 		}
 	}
@@ -82,12 +82,12 @@ public class HaukeAtkHitbox1 : AHBType2 {
 
 	public void Begin() {
 		camT = FindObjectOfType<MainCamera>().transform;
-		me = FindObjectOfType<Player>();    // this is necessary because it can't find it in Start() (?????????????????)
+		me = FindObjectOfType<HaukePlayer>();    // this is necessary because it can't find it in Start() (?????????????????)
 		Vector3 newForward = new Vector3(camT.forward.x, 0f, camT.forward.z).normalized;
 		me.transform.forward = newForward;
 		parentT.position = me.transform.position + playerOffset + startOffset * newForward;
 		parentT.forward = camT.forward;
-		if(((Player)me).onGround || ((Player)me).canStillJump) {
+		if(((HaukePlayer)me).onGround || ((HaukePlayer)me).canStillJump) {
 			Vector3 newEuler = parentT.rotation.eulerAngles;
 			newEuler.x = newEuler.x < 180 ? 0 : newEuler.x;
 			parentT.rotation = Quaternion.Euler(newEuler);

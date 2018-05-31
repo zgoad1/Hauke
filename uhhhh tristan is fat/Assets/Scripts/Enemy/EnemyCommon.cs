@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class EnemyCommon : Enemy {
 
 	private NavMeshAgent agent;
-	private Player player;
+	private BattlePlayer player;
 	//private Companion companion;
 	private Ally target;
 	private Vector3 knockbackOffset = new Vector3(0f, 0.5f, 0f);
@@ -20,8 +20,8 @@ public class EnemyCommon : Enemy {
 		maxHp = 100;
 
 		agent = GetComponent<NavMeshAgent>();
-		player = FindObjectOfType<Player>();
-		//companion = FindObjectOfType<Companion>();
+		player = FindObjectOfType<BattlePlayer>();
+		//companion = FindObjectOfType<BattleCompanion>();
 		target = player;								// TODO: Choose the player or the companion for target
 	}
 	

@@ -4,81 +4,45 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Rigidbody))]
-public class Player : Ally {
-
-	[SerializeField] private Transform camTransform;
+public class HaukePlayer : BattlePlayer {
+	
 	[SerializeField] private GameObject boomerang;
 	[SerializeField] private Image crosshair;
-	[SerializeField] private float speed = 0.3f;
-	[SerializeField] private float accel = 0.3f;
-	[SerializeField] private float decel = 0.3f;
 	[SerializeField] private float jumpForce = 0.5f;
-	[SerializeField] private float grav = 0.03f;
 
-	private bool og = false;    // whether Percy can jump
-	[HideInInspector]
-	public bool onGround {
-		get {
-			return og;
-		}
-		set {
-			og = value;
-			if(value) {
-				StopCoroutine("CanStillJump");
-				StartCoroutine("CanStillJump");
-			}
-		}
-	}
-	[HideInInspector] public Vector3 movDirec = Vector3.zero;    // direction of movement
 	[HideInInspector] public bool canStillJump = true;
+	
+	// Water bar variables
 
-	private CharacterController cc;
-	private Vector3 ipos;   // keeps track of starting position so we can return
-	private float rightKey;
-	private float fwdKey;
 	private bool jKey;
 	private bool dodgeKey;
-	private float rightMov = 0f;
-	private float fwdMov = 0f;
-	private float upMov = 0f;
-	private Quaternion playerRot = new Quaternion(0f, 0f, 0f, 0f);
-	private Vector3 hitNormal = Vector3.zero;
-	private bool notOnSlope = false;
 	private bool dodging = false;
-	private float stopSpeed = 0.075f;
-	private CameraControl cam;
-	private float camDist;
 	private bool shifting;  // shifting from 3rd person to 1st (also true while in 1st person)
-	private Color newColor;
+	private Color newColor;	// for crosshair alpha fading
 	private bool hackCharged = false;   // whether boomerang hack will do the cool version
 	private int[] iAtkDamage;
 
 	// Use this for initialization
-	void Start() {
+	protected override void Start() {
 		attacking = new bool[2];
 		atkDamage = new int[] { 35, 25 };   // hack, boomerang
 		iAtkDamage = new int[atkDamage.Length];
 		for(int i = 0; i < atkDamage.Length; i++) iAtkDamage[i] = atkDamage[i];
 		maxHp = 100;
-
-		ipos = transform.position;
-		cc = GetComponent<CharacterController>();
-		cam = FindObjectOfType<CameraControl>();
-		camDist = cam.idistance;
+		
 		newColor = crosshair.color;
-
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
 
 		// set emission to yellow for charge flash
 		Color yellowey = new Color(0.3f, 0.3f, 0);
 		foreach(Material m in GetComponent<Renderer>().materials) {
 			m.SetColor("_EmissionColor", yellowey);
 		}
+
+		base.Start();
 	}
 
 	// Update is called once per frame
-	void Update() {
+	protected override void Update() {
 		//controls
 		rightKey = Input.GetAxisRaw("Horizontal");
 		fwdKey = Input.GetAxisRaw("Vertical");
@@ -178,8 +142,7 @@ public class Player : Ally {
 		}
 		//if(jKey) Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
 		//if(dodgeKey) Debug.LogWarning("Dodging\ndodgeKey = " + dodgeKey + "\nonGround = " + onGround);
-
-		// physics calculations (executions go in FixedUpdate)
+		
 		onGround = false;
 
 		// vvv STUFF THAT USED TO BE IN FIXEDUPDATE vvv
@@ -221,24 +184,6 @@ public class Player : Ally {
 		if(!dodging) {
 			movDirec.x = 0f;
 			movDirec.z = 0f;
-		}
-	}
-
-	void OnControllerColliderHit(ControllerColliderHit hit) {
-		if(hit.gameObject.tag != "Transparent") {
-			hitNormal = hit.normal;
-			// notOnSlope = we're on ground level enough to walk on OR we're hitting a straight-up wall
-			notOnSlope = Vector3.Angle(Vector3.up, hitNormal) <= cc.slopeLimit || Vector3.Angle(Vector3.up, hitNormal) >= 89;
-			if(movDirec.y <= 0 && hit.point.y < transform.position.y + .9f) {
-				// hit ground
-				if(notOnSlope) onGround = true;
-				//Debug.Log("Hit ground");
-				// else if the hit point is from above and inside our radius (on top of head rather than on outer edge)
-			} else if(hit.point.y > transform.position.y + 4f && Mathf.Sqrt(Mathf.Pow(transform.position.x - hit.point.x, 2) + Mathf.Pow(transform.position.z - hit.point.z, 2)) < transform.localScale.x) {
-				// hit something going up
-				upMov = Mathf.Min(0f, upMov);
-				Debug.Log("I hit my head!");
-			}
 		}
 	}
 

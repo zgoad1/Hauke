@@ -13,7 +13,7 @@ public class HaukeAtkHitbox0 : AHBType1 {
 	// Use this for initialization
 	void Start () {
 		isAlly = true;
-		me = FindObjectOfType<Player>();
+		me = FindObjectOfType<BattlePlayer>();
 		hbIndex = 0;
 		camT = FindObjectOfType<MainCamera>().transform;
 		meT = me.transform;

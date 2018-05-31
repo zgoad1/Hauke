@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ally : BattleEntity {
 
-	/** Player and companion.
+	/** BattlePlayer and companion.
 	 * 
 	 * SET UPON START: 
 	 * - maxHp

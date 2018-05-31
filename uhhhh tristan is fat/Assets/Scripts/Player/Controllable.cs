@@ -6,11 +6,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class Controllable : Ally {
 
-	[SerializeField] private Transform camTransform;
-	[SerializeField] private float speed = 0.225f;
-	[SerializeField] private float accel = 0.175f;
-	[SerializeField] private float decel = 0.2f;
-	[SerializeField] private float grav = 0.03f;
+	[SerializeField] protected Transform camTransform;
+	[SerializeField] protected float speed = 0.225f;
+	[SerializeField] protected float accel = 0.175f;
+	[SerializeField] protected float decel = 0.2f;
+	[SerializeField] protected float grav = 0.03f;
 
 	private bool og = false;    // whether Percy can jump
 	[HideInInspector]
@@ -24,22 +24,22 @@ public class Controllable : Ally {
 	}
 	[HideInInspector] public Vector3 movDirec = Vector3.zero;    // direction of movement
 
-	private CharacterController cc;
-	private Vector3 ipos;   // keeps track of starting position so we can return
-	private float rightKey;
-	private float fwdKey;
-	private float rightMov = 0f;
-	private float fwdMov = 0f;
-	private float upMov = 0f;
-	private Quaternion playerRot = new Quaternion(0f, 0f, 0f, 0f);
-	private Vector3 hitNormal = Vector3.zero;
-	private bool notOnSlope = false;
-	private float stopSpeed = 0.075f;
-	private CameraControl cam;
-	private float camDist;
+	protected CharacterController cc;
+	protected Vector3 ipos;   // keeps track of starting position so we can return
+	protected float rightKey;
+	protected float fwdKey;
+	protected float rightMov = 0f;
+	protected float fwdMov = 0f;
+	protected float upMov = 0f;
+	protected Quaternion playerRot = new Quaternion(0f, 0f, 0f, 0f);
+	protected Vector3 hitNormal = Vector3.zero;
+	protected bool notOnSlope = false;
+	protected float stopSpeed = 0.075f;
+	protected CameraControl cam;
+	protected float camDist;
 
 	// Use this for initialization
-	void Start() {
+	protected virtual void Start() {
 		ipos = transform.position;
 		cc = GetComponent<CharacterController>();
 		cam = FindObjectOfType<CameraControl>();
@@ -50,7 +50,7 @@ public class Controllable : Ally {
 	}
 
 	// Update is called once per frame
-	void Update() {
+	protected virtual void Update() {
 		//controls
 		rightKey = Input.GetAxisRaw("Horizontal");
 		fwdKey = Input.GetAxisRaw("Vertical");
@@ -118,7 +118,7 @@ public class Controllable : Ally {
 		movDirec.z = 0f;
 	}
 
-	void OnControllerColliderHit(ControllerColliderHit hit) {
+	protected virtual void OnControllerColliderHit(ControllerColliderHit hit) {
 		if(hit.gameObject.tag != "Transparent") {
 			hitNormal = hit.normal;
 			// notOnSlope = we're on ground level enough to walk on OR we're hitting a straight-up wall
@@ -128,10 +128,10 @@ public class Controllable : Ally {
 				if(notOnSlope) onGround = true;
 				//Debug.Log("Hit ground");
 				// else if the hit point is from above and inside our radius (on top of head rather than on outer edge)
-			} else if(hit.point.y > transform.position.y + 4f && Mathf.Sqrt(Mathf.Pow(transform.position.x - hit.point.x, 2) + Mathf.Pow(transform.position.z - hit.point.z, 2)) < transform.localScale.x) {
+			} else if(hit.point.y > transform.position.y + 4f && Mathf.Sqrt(Mathf.Pow(transform.position.x - hit.point.x, 2f) + Mathf.Pow(transform.position.z - hit.point.z, 2f)) < 2f * transform.localScale.x) {
 				// hit something going up
 				upMov = Mathf.Min(0f, upMov);
-				Debug.Log("I hit my head!");
+				//Debug.Log("I hit my head!");
 			}
 		}
 	}
