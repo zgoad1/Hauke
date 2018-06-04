@@ -20,6 +20,10 @@ public class Controllable : Ally {
 		}
 		set {
 			og = value;
+			if(value) {
+				StopCoroutine("CanStillJump");
+				StartCoroutine("CanStillJump");
+			}
 		}
 	}
 	[HideInInspector] public Vector3 movDirec = Vector3.zero;    // direction of movement
@@ -37,6 +41,7 @@ public class Controllable : Ally {
 	protected float stopSpeed = 0.075f;
 	protected CameraControl cam;
 	protected float camDist;
+	public bool canStillJump = false;	// whether we're in the grace period in which we can still jump after walking off an edge
 
 	// Use this for initialization
 	protected virtual void Start() {
@@ -134,5 +139,13 @@ public class Controllable : Ally {
 				//Debug.Log("I hit my head!");
 			}
 		}
+	}
+
+	// Grace period in which you can still jump after moving off of an edge
+	protected virtual IEnumerator CanStillJump() {
+		canStillJump = true;
+		yield return new WaitForSeconds(0.2f);
+		Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
+		canStillJump = false;
 	}
 }

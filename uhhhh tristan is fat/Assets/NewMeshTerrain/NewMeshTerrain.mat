@@ -23,20 +23,20 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Splat0:
-        m_Texture: {fileID: 2800000, guid: 60a7dbcf5fbb3ef468b3068104d4ad40, type: 3}
-        m_Scale: {x: 15, y: 15}
+        m_Texture: {fileID: 2800000, guid: bcd17949763284f4f95e16ced8de80ed, type: 3}
+        m_Scale: {x: 8, y: 8}
         m_Offset: {x: 0, y: 0}
     - _Splat1:
-        m_Texture: {fileID: 2800000, guid: 9a6485640a79f7d44acd53826990c600, type: 3}
-        m_Scale: {x: 15, y: 15}
+        m_Texture: {fileID: 2800000, guid: 415e6ea99c7be6c42b99edeeac223427, type: 3}
+        m_Scale: {x: 8, y: 8}
         m_Offset: {x: 0, y: 0}
     - _Splat2:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 15, y: 15}
+        m_Texture: {fileID: 2800000, guid: b8fc06dccf9b1584580531f6c3022eb5, type: 3}
+        m_Scale: {x: 8, y: 8}
         m_Offset: {x: 0, y: 0}
     - _Splat3:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 15, y: 15}
+        m_Texture: {fileID: 2800000, guid: bbae2bffae910dc43a1be7d7b9c4f811, type: 3}
+        m_Scale: {x: 8, y: 8}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors: []

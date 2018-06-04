@@ -9,8 +9,6 @@ public class HaukePlayer : BattlePlayer {
 	[SerializeField] private GameObject boomerang;
 	[SerializeField] private Image crosshair;
 	[SerializeField] private float jumpForce = 0.5f;
-
-	[HideInInspector] public bool canStillJump = true;
 	
 	// Water bar variables
 
@@ -138,6 +136,9 @@ public class HaukePlayer : BattlePlayer {
 			if(dodgeKey && (onGround || canStillJump)) {
 				StartCoroutine("Dodge");
 				canStillJump = false;
+				Debug.Log("Dodging, setting CSJ to false");
+			} else if(dodgeKey) {
+				Debug.Log("Dodge failed. onGround = " + onGround + "\ncanStillJump = " + canStillJump);
 			}
 		}
 		//if(jKey) Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
@@ -157,6 +158,7 @@ public class HaukePlayer : BattlePlayer {
 			hitNormal = Vector3.zero;
 			onGround = false;
 			canStillJump = false;
+			Debug.Log("Sliding on slope, setting CSJ to false");
 		}
 		cc.Move(movDirec);  // triggers collision detection
 		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.6f);
@@ -170,6 +172,7 @@ public class HaukePlayer : BattlePlayer {
 			Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
 			upMov = jumpForce;
 			canStillJump = false;
+			Debug.Log("Jumping, setting CSJ to false");
 		} else if(!onGround || !notOnSlope) {
 			upMov -= grav;
 			//Debug.Log("Increasing gravity: " + upMov);
@@ -195,11 +198,14 @@ public class HaukePlayer : BattlePlayer {
 	}
 
 	// Grace period in which you can still jump after moving off of an edge
+	/*
 	private IEnumerator CanStillJump() {
 		canStillJump = true;
 		yield return new WaitForSeconds(0.2f);
+		Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
 		canStillJump = false;
 	}
+	*/
 
 	private IEnumerator Dodge() {
 		dodging = true;

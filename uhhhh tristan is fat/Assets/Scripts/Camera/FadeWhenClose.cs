@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FadeWhenClose : MonoBehaviour {
+
+	public bool visible = true;
 	
 	void Start () {
 		if(GetComponent<Renderer>() != null) {
@@ -31,6 +33,7 @@ public class FadeWhenClose : MonoBehaviour {
 			foreach(Material m in r.materials) {
 				m.color = new Color(m.color.r, m.color.g, m.color.b, 0);
 			}
+			visible = false;
 		}
 	}
 
@@ -47,6 +50,7 @@ public class FadeWhenClose : MonoBehaviour {
 			foreach(Material m in r.materials) {
 				m.color = new Color(m.color.r, m.color.g, m.color.b, 1);
 			}
+			visible = true;
 		}
 	}
 }

@@ -17,8 +17,8 @@ TagManager:
   - IgnoreCollision
   - IgnoreRaycast&Collision
   - Ground
-  - 
-  - 
+  - EnemyPass
+  - Enemy
   - 
   - 
   - 
