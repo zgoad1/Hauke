@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class FadeWhenClose : MonoBehaviour {
 
-	public bool visible = true;
+	[HideInInspector] public bool visible = true;
+	[SerializeField] private Renderer r;
 	
 	void Start () {
-		if(GetComponent<Renderer>() != null) {
-			foreach(Material m in GetComponent<Renderer>().materials) {
+		if(r == null) r = GetComponent<Renderer>();
+		if(r != null) {
+			foreach(Material m in r.materials) {
 				m.SetInt("_ZWrite", 1);
 			}
 		}
@@ -21,7 +23,6 @@ public class FadeWhenClose : MonoBehaviour {
 
 	public IEnumerator FadeOut(int frames) {
 		StopCoroutine("FadeIn");
-		Renderer r = gameObject.GetComponent<Renderer>();
 		if(r != null) {
 			// initial i corresponds to current alpha
 			for(float i = (1 - r.material.color.a) * frames; i < frames; i++) {
@@ -39,7 +40,6 @@ public class FadeWhenClose : MonoBehaviour {
 
 	public IEnumerator FadeIn(int frames) {
 		StopCoroutine("FadeOut");
-		Renderer r = GetComponent<Renderer>();
 		if(r != null) {
 			for(float i = r.material.color.a * frames; i < frames; i++) {
 				yield return null;

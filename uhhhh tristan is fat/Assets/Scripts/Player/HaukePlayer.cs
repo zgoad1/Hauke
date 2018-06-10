@@ -19,6 +19,8 @@ public class HaukePlayer : BattlePlayer {
 	private Color newColor;	// for crosshair alpha fading
 	private bool hackCharged = false;   // whether boomerang hack will do the cool version
 	private int[] iAtkDamage;
+	private Renderer r;     // for making the player flash for the charge effect
+	private Animator anim;
 
 	// Use this for initialization
 	protected override void Start() {
@@ -29,10 +31,12 @@ public class HaukePlayer : BattlePlayer {
 		maxHp = 100;
 		
 		newColor = crosshair.color;
+		r = GetComponentInChildren<Renderer>();
+		anim = GetComponent<Animator>();
 
 		// set emission to yellow for charge flash
 		Color yellowey = new Color(0.3f, 0.3f, 0);
-		foreach(Material m in GetComponent<Renderer>().materials) {
+		foreach(Material m in r.materials) {
 			m.SetColor("_EmissionColor", yellowey);
 		}
 
@@ -54,7 +58,7 @@ public class HaukePlayer : BattlePlayer {
 		} else if(Input.GetButtonUp("Fire1")) {
 			StopCoroutine("ChargeHack");
 			StopCoroutine("ChargeFlash");
-			foreach(Material m in GetComponent<Renderer>().materials) {
+			foreach(Material m in r.materials) {
 				m.DisableKeyword("_EMISSION");
 			}
 			attacking[0] = true;
@@ -161,6 +165,7 @@ public class HaukePlayer : BattlePlayer {
 			Debug.Log("Sliding on slope, setting CSJ to false");
 		}
 		cc.Move(movDirec);  // triggers collision detection
+		anim.SetFloat("speed", movDirec.magnitude);
 		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.6f);
 		playerRot.y = transform.rotation.y;
 		playerRot.w = transform.rotation.w;
@@ -228,11 +233,11 @@ public class HaukePlayer : BattlePlayer {
 	}
 
 	private IEnumerator ChargeFlash() {
-		foreach(Material m in GetComponent<Renderer>().materials) {
+		foreach(Material m in r.materials) {
 			m.EnableKeyword("_EMISSION");
 		}
 		yield return new WaitForSeconds(0.03f);
-		foreach(Material m in GetComponent<Renderer>().materials) {
+		foreach(Material m in r.materials) {
 			m.DisableKeyword("_EMISSION");
 		}
 		yield return new WaitForSeconds(0.1f);

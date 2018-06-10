@@ -48,6 +48,7 @@ public class Controllable : Ally {
 		ipos = transform.position;
 		cc = GetComponent<CharacterController>();
 		cam = FindObjectOfType<CameraControl>();
+		Debug.Log("Setting cam to " + cam);
 		camDist = cam.idistance;
 
 		Cursor.lockState = CursorLockMode.Locked;
