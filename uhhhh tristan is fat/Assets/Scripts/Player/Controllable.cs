@@ -41,7 +41,8 @@ public class Controllable : Ally {
 	protected float stopSpeed = 0.075f;
 	protected CameraControl cam;
 	protected float camDist;
-	public bool canStillJump = false;	// whether we're in the grace period in which we can still jump after walking off an edge
+	protected Animator anim;
+	[HideInInspector] public bool canStillJump = false;	// whether we're in the grace period in which we can still jump after walking off an edge
 
 	// Use this for initialization
 	protected virtual void Start() {
@@ -50,6 +51,7 @@ public class Controllable : Ally {
 		cam = FindObjectOfType<CameraControl>();
 		Debug.Log("Setting cam to " + cam);
 		camDist = cam.idistance;
+		anim = GetComponent<Animator>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -89,6 +91,7 @@ public class Controllable : Ally {
 
 		// get movement direction
 		movDirec = tempForward.normalized * fwdMov + camTransform.right.normalized * rightMov;
+		anim.SetFloat("speed", movDirec.magnitude);
 
 		// return to starting point
 		if(Input.GetKeyDown(KeyCode.Return)) {

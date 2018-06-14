@@ -7,12 +7,12 @@ public class CameraControl : MonoBehaviour {
 	public Transform adjTransform;      // adjusted position
 	public Transform camTransform;      // camera position (lerps towards adjusted position)
 	public float rad = 0.5f;            // distance from solid to stop at
-	public float lerpFac;
+	[HideInInspector] public float lerpFac;
 	public float iLerpFac = 0.2f;
 	public float camSensitivity = 1f;
 	public float idistance = 14;
-	public float distance;
-	public bool firstPerson = false;
+	[HideInInspector] public float distance;
+	[HideInInspector] public bool firstPerson = false;
 
 	private float currentX = 0;
 	private float currentY = 0;
@@ -65,6 +65,12 @@ public class CameraControl : MonoBehaviour {
 		if(!firstPerson) {
 			camTransform.LookAt(lookAt.position + lookOffset);
 		}
+	}
+
+	private void Reset() {
+		lookAt = FindObjectOfType<Controllable>().transform;
+		adjTransform = GameObject.Find("CamPos Adjusted").transform;
+		camTransform = FindObjectOfType<MainCamera>().transform;
 	}
 
 	void setCam(float distance) {

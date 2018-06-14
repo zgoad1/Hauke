@@ -20,7 +20,7 @@ public class HaukePlayer : BattlePlayer {
 	private bool hackCharged = false;   // whether boomerang hack will do the cool version
 	private int[] iAtkDamage;
 	private Renderer r;     // for making the player flash for the charge effect
-	private Animator anim;
+	//private Animator anim;
 
 	// Use this for initialization
 	protected override void Start() {
@@ -32,7 +32,7 @@ public class HaukePlayer : BattlePlayer {
 		
 		newColor = crosshair.color;
 		r = GetComponentInChildren<Renderer>();
-		anim = GetComponent<Animator>();
+		//anim = GetComponent<Animator>();
 
 		// set emission to yellow for charge flash
 		Color yellowey = new Color(0.3f, 0.3f, 0);
@@ -149,6 +149,8 @@ public class HaukePlayer : BattlePlayer {
 		//if(dodgeKey) Debug.LogWarning("Dodging\ndodgeKey = " + dodgeKey + "\nonGround = " + onGround);
 		
 		onGround = false;
+
+		///////////////////					Yo, aren't further sets and checks of onGround obsolete because of ^ that?
 
 		// vvv STUFF THAT USED TO BE IN FIXEDUPDATE vvv
 
