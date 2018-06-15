@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,6 +43,7 @@ public class Controllable : Ally {
 	protected CameraControl cam;
 	protected float camDist;
 	protected Animator anim;
+	public List<Interactable> interactables = new List<Interactable>();
 	[HideInInspector] public bool canStillJump = false;	// whether we're in the grace period in which we can still jump after walking off an edge
 
 	// Use this for initialization
@@ -59,9 +61,12 @@ public class Controllable : Ally {
 
 	// Update is called once per frame
 	protected virtual void Update() {
+
 		//controls
 		rightKey = Input.GetAxisRaw("Horizontal");
 		fwdKey = Input.GetAxisRaw("Vertical");
+
+		#region Set move directions
 
 		// change forward's y to 0 then normalize, in case the camera is pointed down or up
 		Vector3 tempForward = camTransform.forward;
@@ -78,7 +83,13 @@ public class Controllable : Ally {
 			fwdMov = Mathf.Lerp(fwdMov, 0f, decel);
 		}
 
-		// pausing
+		// get movement direction vector
+		movDirec = tempForward.normalized * fwdMov + camTransform.right.normalized * rightMov;
+		anim.SetFloat("speed", movDirec.magnitude);
+
+		#endregion
+
+		#region Pause
 		if(Input.GetButtonDown("Pause")) {
 			if(Cursor.lockState != CursorLockMode.Locked) {
 				Cursor.lockState = CursorLockMode.Locked;
@@ -88,17 +99,9 @@ public class Controllable : Ally {
 				Cursor.visible = true;
 			}
 		}
+		#endregion
 
-		// get movement direction
-		movDirec = tempForward.normalized * fwdMov + camTransform.right.normalized * rightMov;
-		anim.SetFloat("speed", movDirec.magnitude);
-
-		// return to starting point
-		if(Input.GetKeyDown(KeyCode.Return)) {
-			transform.position = ipos + new Vector3(0, 5, 0);
-		}
-
-		// physics calculations (executions go in FixedUpdate)
+		#region Calculate movement
 		onGround = false;
 
 		// calculate movement
@@ -125,6 +128,13 @@ public class Controllable : Ally {
 
 		movDirec.x = 0f;
 		movDirec.z = 0f;
+		#endregion
+
+		// Interacting
+		if(Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
+			Debug.Log("Interacting");
+			interactables[0].Interact();
+		}
 	}
 
 	protected virtual void OnControllerColliderHit(ControllerColliderHit hit) {
@@ -151,5 +161,13 @@ public class Controllable : Ally {
 		yield return new WaitForSeconds(0.2f);
 		Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
 		canStillJump = false;
+	}
+
+	public void AddInteractable(Interactable toAdd) {
+		interactables.Add(toAdd);
+	}
+
+	public void RemoveInteractable(Interactable toRemove) {
+		interactables.Remove(toRemove);
 	}
 }

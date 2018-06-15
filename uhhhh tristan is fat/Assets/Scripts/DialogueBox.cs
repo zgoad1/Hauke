@@ -9,6 +9,7 @@ public class DialogueBox : MonoBehaviour {
 	private Text text;
 	private Image face;
 	private string[] lines;
+	private Sprite[] faces;
 	private int index = 0;
 	private int letters = 0;
 	private bool typing = false;
@@ -20,14 +21,14 @@ public class DialogueBox : MonoBehaviour {
 		Debug.Log("Start()");
 		anim = GetComponent<Animator>();
 		text = GameObject.Find("DboxText").GetComponent<Text>();
-		face = GetComponentInChildren<Image>();
+		foreach(Image i in GetComponentsInChildren<Image>()) {
+			if(i.name == "DboxFace") {
+				face = i;
+			}
+		}
 		enabled = false;
 
 		faceColor = face.color;
-
-		// test
-		string[] cat = { "This is a line of dialogue.", "This one in particular is\ntwo lines of dialogue." };
-		ShowDialogue(cat, new int[1], new int[1]);
 	}
 	
 	// Update is called once per frame
@@ -37,7 +38,7 @@ public class DialogueBox : MonoBehaviour {
 		}
 	}
 
-	public void ShowDialogue(string[] lines, int[] chars, int[] faces) {
+	public void ShowDialogue(string[] lines, Sprite[] faces) {
 		Debug.Log("ShowDialogue()");
 		// Start looking for input in Update()
 		enabled = true;
@@ -45,6 +46,10 @@ public class DialogueBox : MonoBehaviour {
 		anim.SetBool("active", true);
 		// Set variables
 		this.lines = lines;
+		this.faces = faces;
+
+		// Set initial face image
+		face.sprite = faces[0];
 
 		// Start showing text
 		StartCoroutine("WaitForShowText");
@@ -70,9 +75,8 @@ public class DialogueBox : MonoBehaviour {
 				Reset();
 				return;
 			}
-			// Go to the next character and face
-
-			// TODO: that
+			// Go to the next face
+			face.sprite = faces[index];
 
 			// Start showing the dialogue
 			StartCoroutine("ShowText");
@@ -82,7 +86,11 @@ public class DialogueBox : MonoBehaviour {
 	private void Reset() {
 		anim = GetComponent<Animator>();
 		text = GameObject.Find("DboxText").GetComponent<Text>();
-		face = GetComponentInChildren<Image>();
+		foreach(Image i in GetComponentsInChildren<Image>()) {
+			if(i.name == "DboxFace") {
+				face = i;
+			}
+		}
 		Debug.Log("Reset()");
 		index = 0;
 		letters = 0;
@@ -91,6 +99,21 @@ public class DialogueBox : MonoBehaviour {
 	}
 
 	private IEnumerator ShowText() {
+		// Manually insert line breaks
+		if(!lines[index].Contains("\n")) {
+			int maxChars = 27;  // Number of characters before we assume end of line
+			int startPos = 0;
+			while(startPos < lines[index].Length && lines[index].Substring(startPos).Length > maxChars) {
+				for(int i = startPos + maxChars; i > startPos; i--) {
+					if(lines[index][i] == ' ') {
+						Debug.Log("Found a space");
+						lines[index] = lines[index].Insert(i + 1, "\n");
+						startPos = i + 3;
+					}
+				}
+			}
+		}
+
 		Debug.Log("ShowText()");
 		Debug.Log("Line length: " + lines[index].Length);
 		typing = true;

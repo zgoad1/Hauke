@@ -3555,7 +3555,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: cd7ccc1d2701a2b429d4c30467178ae0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000018305391
+      value: 8.67
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: cd7ccc1d2701a2b429d4c30467178ae0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7704,6 +7704,53 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 682b8a8f23bafe342aeaf1655cb4577a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2024258634 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: 6edf60cf72e51274a94b00c707123802, type: 3}
+  m_PrefabInternal: {fileID: 2020700797}
+--- !u!114 &2024258637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024258634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533e987f3334abe4daf777bb0672006c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 10
+  dialogue:
+  - faces:
+    - {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    - {fileID: 21300004, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    - {fileID: 21300016, guid: 4d8ea7ac8d146f6408382698b9a7e987, type: 3}
+    - {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    - {fileID: 21300006, guid: 4d8ea7ac8d146f6408382698b9a7e987, type: 3}
+    - {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    text:
+    - Hey there, little bro.
+    - Heh. I can't belive you'll already be eight tomorrow!
+    - Yeah! And you'll be sixteen!
+    - '...Yeah.'
+    - What's wrong, sis?
+    - I was just thinking... Nah, it's nothing.
+  - faces:
+    - {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    text:
+    - Go get some supper. I bet you're hungry.
+--- !u!135 &2024258638
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024258634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 8, z: 0}
 --- !u!1 &2028361888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7874,6 +7921,7 @@ MonoBehaviour:
   decel: 0.2
   grav: 0.03
   movDirec: {x: 0, y: 0, z: 0}
+  interactables: []
   canStillJump: 0
 --- !u!114 &2073150531
 MonoBehaviour:
