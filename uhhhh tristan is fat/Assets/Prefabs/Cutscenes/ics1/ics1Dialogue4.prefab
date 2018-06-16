@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1556844178939800}
+  m_IsPrefabParent: 1
+--- !u!1 &1556844178939800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4808133611634502}
+  - component: {fileID: 114993975288102494}
+  m_Layer: 0
+  m_Name: ics1Dialogue4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4808133611634502
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556844178939800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 601, y: 339, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114993975288102494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556844178939800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c727588e8006a84caf790adc9274176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - faces:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    text:
+    - I lived at the orphanage with five other kids. It was on the small side.
+    - I'll tell you about the others later, but you should probably know a little
+      about me before we get going.
+    - Like I said, I was 8. I was the second youngest kid there. And I was also the
+      least interesting.
+    - I had no real personality. I was stupidly optimistic and naive, if that counts.
+      No one seemed to dislike me for it, at least.
+    - Over the past couple years, I'd been discovering this sort of power I had.
+    - I could make things get colder by willing them to do so.
+    - Ellie, my best friend at the time, told me it was magic, but I asked a caretaker
+      and she said magic wasn't real.
+    - Then Ellie told me I wasn't supposed to tell anyone, and she started helping
+      me figure out how to use it.
+    - She was able to explain some of it to me, but I still couldn't do much more
+      than make ice cubes.
+    - But I was confident we would figure it all out together. After all, Ellie was
+      the smartest person I knew.
