@@ -22,6 +22,7 @@ public class DialogueBox : MonoBehaviour {
 	protected int maxChars;  // Number of characters before we assume end of line
 	protected Vector3 textPosNoFace;
 	protected Vector3 textPosFace;
+	protected AudioManager am;
 
 	// Use this for initialization
 	protected virtual void Start () {
@@ -38,6 +39,7 @@ public class DialogueBox : MonoBehaviour {
 		maxChars = maxCharsNoFace;
 		textPosNoFace = new Vector3(textXNoFace, 76, 0);
 		textPosFace = new Vector3(textXFace, 76, 0);
+		am = FindObjectOfType<AudioManager>();
 	}
 	
 	// Update is called once per frame
@@ -137,10 +139,11 @@ public class DialogueBox : MonoBehaviour {
 		// Reset number of characters to show
 		for(letters = 0; letters < lines[index].Length; letters++) {
 			// Show the next character
-			letters++;
-			text.text = lines[index].Substring(0, letters);	// Can't let letters reach lines[index].length or chaos ensues. Another Unity bug? Probably.
-			// Wait 2 frames
-			yield return null;
+			text.text = lines[index].Substring(0, letters); // Can't let letters reach lines[index].length or chaos ensues. Another Unity bug? Probably.
+			if(lines[index][Mathf.Min(lines[index].Length - 1, letters)] != ' ' && letters % 3 == 0) {
+				am.Play("textbeep" + (letters % 2));    // use alternating text beep sounds because Unity assumes you want to make a weird pop sound if you call Play() on a sound before it's finished playing
+			}
+
 			yield return null;
 		}
 		text.text = lines[index];

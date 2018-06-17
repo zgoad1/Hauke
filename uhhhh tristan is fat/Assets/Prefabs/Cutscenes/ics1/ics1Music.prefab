@@ -51,4 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652b097d8212d9242a729c140d59a287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: orphanage2
+  sound: orphanage1
+  fadeIn: 1
+  fadeFrames: 2400

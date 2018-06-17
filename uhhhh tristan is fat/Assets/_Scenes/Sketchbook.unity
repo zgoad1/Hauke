@@ -147,7 +147,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1602107817}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &60850891
 MonoBehaviour:
@@ -268,8 +268,8 @@ Transform:
   m_LocalPosition: {x: -59.64698, y: -6.2089405, z: 36.69941}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1602107817}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &451676318
 MonoBehaviour:
@@ -290,6 +290,24 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - clip: {fileID: 8300000, guid: 787b73394e4ede247b371f727b0c7c0a, type: 3}
+    name: orphanage1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: 2a854b71312a5c949bcdc35e69361291, type: 3}
+    name: textbeep0
+    volume: 0.17
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 21e2fad1453509f4183e02bf7122869e, type: 3}
+    name: textbeep1
+    volume: 0.17
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!1 &501049124
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +341,7 @@ RectTransform:
   - {fileID: 1538851948}
   - {fileID: 552084012}
   m_Father: {fileID: 1602107817}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -582,7 +600,7 @@ Transform:
   m_LocalScale: {x: 16, y: 1, z: 9}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!1 &789575177
 GameObject:
@@ -764,12 +782,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 451676317}
   - {fileID: 501049125}
   - {fileID: 60850890}
   - {fileID: 1819630323}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1766497813
 GameObject:
@@ -905,7 +922,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1602107817}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!124 &1819630324
 Behaviour:
@@ -1087,7 +1104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1978087612
 Light:
   m_ObjectHideFlags: 0
