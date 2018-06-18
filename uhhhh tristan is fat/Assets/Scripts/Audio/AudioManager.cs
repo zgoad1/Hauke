@@ -38,12 +38,20 @@ public class AudioManager : MonoBehaviour {
 
     public void Play(string name) {
         Sound sound = Array.Find(sounds, s => s.name == name);
-        sound.source.Play();
+		if(sound != null) {
+			sound.source.Play();
+		} else {
+			Debug.LogError("AUDIO: could not find sound: " + name + "\nProbably because you aren't using the first audio manager in the Sketchbook scene\naka this isn't a bug");
+		}
     }
 
     public void Stop(string name) {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Stop();
+        Sound sound = Array.Find(sounds, s => s.name == name);
+		if(sound != null) {
+			sound.source.Stop();
+		} else {
+			Debug.LogError("AUDIO: could not find sound: " + name + "\nProbably because you aren't using the first audio manager in the Sketchbook scene\naka this isn't a bug");
+		}
 	}
 
 	IEnumerator FadeInTrack(string name, int fadeFrames) {

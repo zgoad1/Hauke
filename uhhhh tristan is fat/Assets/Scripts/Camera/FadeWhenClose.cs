@@ -6,9 +6,13 @@ public class FadeWhenClose : MonoBehaviour {
 
 	[HideInInspector] public bool visible = true;
 	[SerializeField] private Renderer r;
-	
+
+	private void Reset() {
+		r = GetComponentInChildren<Renderer>();
+	}
+
 	void Start () {
-		if(r == null) r = GetComponent<Renderer>();
+		Reset();
 		if(r != null) {
 			foreach(Material m in r.materials) {
 				m.SetInt("_ZWrite", 1);
@@ -19,10 +23,12 @@ public class FadeWhenClose : MonoBehaviour {
 			rb.useGravity = false;
 			rb.isKinematic = true;
 		}
+		Debug.Log("Setting " + gameObject + "'s renderer to: " + r);
 	}
 
 	public IEnumerator FadeOut(int frames) {
 		StopCoroutine("FadeIn");
+		Debug.Log("Renderer: " + r);
 		if(r != null) {
 			// initial i corresponds to current alpha
 			for(float i = (1 - r.material.color.a) * frames; i < frames; i++) {
@@ -31,8 +37,10 @@ public class FadeWhenClose : MonoBehaviour {
 					m.color = new Color(m.color.r, m.color.g, m.color.b, 1 - i / frames);
 				}
 			}
+			Debug.Log("Materials: " + r.materials);
 			foreach(Material m in r.materials) {
 				m.color = new Color(m.color.r, m.color.g, m.color.b, 0);
+				Debug.Log("Fading material: " + m);
 			}
 			visible = false;
 		}

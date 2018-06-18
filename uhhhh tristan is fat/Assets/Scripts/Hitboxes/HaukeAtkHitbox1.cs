@@ -51,6 +51,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 				//Debug.Log("velocity: " + rb.velocity);
 				break;
 			case state.returning:
+				Debug.Log("attepmtnthing to return boomeroh");
 				Vector3 distance = (me.transform.position + playerOffset) - transform.position;
 				Vector3 toPlayer;
 				if(Mathf.Abs(distance.magnitude) < 5) {
@@ -69,6 +70,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	}
 
 	protected void OnTriggerEnter(Collider other) {
+		// reset if we collide with Hauke or we hit the ground
 		if(other.GetComponent<HaukePlayer>() != null || LayerMask.LayerToName(other.gameObject.layer) == "Ground") {
 			Reset();
 		}
@@ -101,7 +103,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		s = state.returning;
 	}
 
-	/* Parents the object back to the player, resets the transform, stops
+	/* Resets the transform, stops
 	 * the animation, and deactivates the object.
 	 */
 	private void Reset() {

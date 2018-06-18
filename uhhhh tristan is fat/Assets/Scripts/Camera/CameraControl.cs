@@ -3,10 +3,10 @@
 public class CameraControl : MonoBehaviour {
 
 	public Transform lookAt;
-	private Transform desTransform;      // desired position
 	public Transform adjTransform;      // adjusted position
 	public Transform camTransform;      // camera position (lerps towards adjusted position)
 	public float rad = 0.5f;            // distance from solid to stop at
+	[SerializeField] private float height = 4f;
 	[HideInInspector] public float lerpFac;
 	public float iLerpFac = 0.2f;
 	public float camSensitivity = 1f;
@@ -14,17 +14,23 @@ public class CameraControl : MonoBehaviour {
 	[HideInInspector] public float distance;
 	[HideInInspector] public bool firstPerson = false;
 
+	private Vector3 dir;
+	private Quaternion rot;
 	private float currentX = 0;
 	private float currentY = 0;
 	private float sensitivityX = 4;
 	private float sensitivityY = 2;
-	private Vector3 lookOffset = new Vector3(0f, 4f, 0f);
+	private Vector3 lookOffset;
 	private int inverted = 1;
 	private int raymask;
 
-	// Use this for initialization
+		// Use this for initialization
 	void Start() {
-		desTransform = transform;
+		Reset();
+
+		dir = new Vector3(0, 0, -distance);
+		lookOffset = new Vector3(0f, height, 0f);
+
 		lerpFac = iLerpFac;
 		sensitivityX *= camSensitivity;
 		sensitivityY *= camSensitivity;
@@ -48,10 +54,11 @@ public class CameraControl : MonoBehaviour {
 			// keep the camera from going through solid colliders
 			RaycastHit hit;
 			Vector3 rayDir = Vector3.zero;
-			rayDir = desTransform.position - (lookAt.position + lookOffset);
+			rayDir = transform.position - (lookAt.position + lookOffset);
 			if(Physics.Raycast(lookAt.position + lookOffset, rayDir, out hit, idistance, raymask)) {
 				Vector3 newPos = hit.point + hit.normal * rad;
 				distance = Mathf.Min(idistance, Vector3.Distance(lookAt.position + lookOffset, newPos));
+				//Debug.Log("Camera raycasted upon a " + hit.transform.gameObject);
 				setCam(distance);
 				adjTransform.position = newPos;
 			} else {
@@ -74,15 +81,15 @@ public class CameraControl : MonoBehaviour {
 	}
 
 	void setCam(float distance) {
-		Vector3 dir = new Vector3(0, 0, -distance);
-		Quaternion rot = Quaternion.Euler(currentY, currentX, 0);
+		dir.z = -distance;
+		rot = Quaternion.Euler(currentY, currentX, 0);
 
 		// move adjusted camera position
 		adjTransform.position = (lookAt.position + lookOffset) + rot * dir;
 
 		// move desired camera position
 		Vector3 dDir = new Vector3(0, 0, -idistance);
-		desTransform.position = (lookAt.position + lookOffset) + rot * dDir;
+		transform.position = (lookAt.position + lookOffset) + rot * dDir;
 
 		// first-person camera rotation
 		if(firstPerson) camTransform.rotation = Quaternion.Lerp(camTransform.rotation, rot, 0.4f);

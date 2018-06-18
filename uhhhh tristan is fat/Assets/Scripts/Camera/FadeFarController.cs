@@ -9,8 +9,13 @@ public class FadeFarController : MonoBehaviour {
 
 	public static Transform cam;
 
+	private void Reset() {
+		gameCam = FindObjectOfType<MainCamera>().transform;
+	}
+
 	// Use this for initialization
 	void Start () {
+		Reset();
 		cam = gameCam;
 	}
 	

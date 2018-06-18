@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class Controllable : Ally {
 
-	[SerializeField] protected Transform camTransform;
 	[SerializeField] protected float speed = 0.225f;
 	[SerializeField] protected float accel = 0.175f;
 	[SerializeField] protected float decel = 0.2f;
@@ -29,6 +28,7 @@ public class Controllable : Ally {
 	}
 	[HideInInspector] public Vector3 movDirec = Vector3.zero;    // direction of movement
 
+	protected Transform camTransform;
 	protected CharacterController cc;
 	protected Vector3 ipos;   // keeps track of starting position so we can return
 	protected float rightKey;
@@ -44,16 +44,23 @@ public class Controllable : Ally {
 	protected float camDist;
 	protected Animator anim;
 	public List<Interactable> interactables = new List<Interactable>();
-	[HideInInspector] public bool canStillJump = false;	// whether we're in the grace period in which we can still jump after walking off an edge
+	protected List<Door> doors = new List<Door>();
+	[HideInInspector] public bool canStillJump = false; // whether we're in the grace period in which we can still jump after walking off an edge
+
+	protected virtual void Reset() {
+		camTransform = FindObjectOfType<MainCamera>().transform;
+		cc = GetComponent<CharacterController>();
+		cam = FindObjectOfType<CameraControl>();
+		Debug.Log("cam: " + cam);
+		anim = GetComponent<Animator>();
+	}
 
 	// Use this for initialization
 	protected virtual void Start() {
+		Reset();
+
 		ipos = transform.position;
-		cc = GetComponent<CharacterController>();
-		cam = FindObjectOfType<CameraControl>();
-		Debug.Log("Setting cam to " + cam);
 		camDist = cam.idistance;
-		anim = GetComponent<Animator>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -130,6 +137,11 @@ public class Controllable : Ally {
 		movDirec.z = 0f;
 		#endregion
 
+		// Update doors
+		foreach(Door d in doors) {
+			d.SetDistance(Vector3.Distance(transform.position, d.transform.position));
+		}
+
 		// Interacting
 		if(Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
 			Debug.Log("Interacting");
@@ -152,6 +164,11 @@ public class Controllable : Ally {
 				upMov = Mathf.Min(0f, upMov);
 				//Debug.Log("I hit my head!");
 			}
+			Door door = hit.gameObject.GetComponent<Door>();
+			if(door != null) {
+				Debug.Log("Collision. Opening door.");
+				door.Open();
+			}
 		}
 	}
 
@@ -169,5 +186,13 @@ public class Controllable : Ally {
 
 	public void RemoveInteractable(Interactable toRemove) {
 		interactables.Remove(toRemove);
+	}
+
+	public void AddDoor(Door toAdd) {
+		doors.Add(toAdd);
+	}
+
+	public void RemoveDoor(Door toRemove) {
+		doors.Remove(toRemove);
 	}
 }

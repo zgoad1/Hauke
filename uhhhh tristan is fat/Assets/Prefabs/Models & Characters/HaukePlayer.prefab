@@ -99,7 +99,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4005250550620176}
   - component: {fileID: 137984798454923882}
-  - component: {fileID: 114078340817344678}
   m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
@@ -862,7 +861,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702010583223162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 114.93458, y: 0, z: 124.61247}
+  m_LocalPosition: {x: 85.80403, y: 0.000006992836, z: 141.33983}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4595366430527164}
@@ -1126,26 +1125,13 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114078340817344678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1237783384946886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a2b4a8b79361543b4995e651349668, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visible: 1
-  r: {fileID: 0}
 --- !u!114 &114785134221193536
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702010583223162}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06a2b4a8b79361543b4995e651349668, type: 3}
   m_Name: 
@@ -1165,12 +1151,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacking: 0000
   atkDamage: 0000000000000000
-  camTransform: {fileID: 0}
   speed: 0.3
   accel: 0.3
   decel: 0.3
   grav: 0.03
   movDirec: {x: 0, y: 0, z: 0}
+  interactables: []
   canStillJump: 1
   boomerang: {fileID: 0}
   crosshair: {fileID: 0}

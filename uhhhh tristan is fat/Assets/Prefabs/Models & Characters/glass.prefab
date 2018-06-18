@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1919522236279496}
+  m_RootGameObject: {fileID: 1141204847944830}
   m_IsPrefabParent: 1
---- !u!1 &1919522236279496
+--- !u!1 &1141204847944830
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4867416443988170}
-  - component: {fileID: 33915792325117406}
-  - component: {fileID: 23923697112773036}
-  - component: {fileID: 64212721615370072}
-  - component: {fileID: 114443953662564518}
-  m_Layer: 0
-  m_Name: deskchair
+  - component: {fileID: 4524150545860684}
+  - component: {fileID: 33749720541899500}
+  - component: {fileID: 23801909664227378}
+  - component: {fileID: 64768266193969912}
+  - component: {fileID: 114463549001395606}
+  m_Layer: 2
+  m_Name: glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4867416443988170
+--- !u!4 &4524150545860684
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919522236279496}
-  m_LocalRotation: {x: -0.4055798, y: 0.579228, z: 0.579228, w: 0.4055798}
-  m_LocalPosition: {x: -6.07, y: 0.0000022481308, z: -17.86}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_GameObject: {fileID: 1141204847944830}
+  m_LocalRotation: {x: -0.6532815, y: -0.27059805, z: -0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: -22.268385, y: 10.615794, z: -7.7305775}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 110, z: 0}
---- !u!23 &23923697112773036
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23801909664227378
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919522236279496}
+  m_GameObject: {fileID: 1141204847944830}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,8 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 07631a9397943354395e9675b998abb7, type: 2}
-  - {fileID: 2100000, guid: 07631a9397943354395e9675b998abb7, type: 2}
+  - {fileID: 2100000, guid: f5f1c1193bb833146bf071a97d8f69a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,19 +77,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33915792325117406
+--- !u!33 &33749720541899500
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919522236279496}
-  m_Mesh: {fileID: 4300000, guid: 05a3df626fe4d2f4e9f44d0648d8721b, type: 3}
---- !u!64 &64212721615370072
+  m_GameObject: {fileID: 1141204847944830}
+  m_Mesh: {fileID: 4300000, guid: 66561a849811fd44895ac6b15561f86d, type: 3}
+--- !u!64 &64768266193969912
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919522236279496}
+  m_GameObject: {fileID: 1141204847944830}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -98,15 +97,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 05a3df626fe4d2f4e9f44d0648d8721b, type: 3}
---- !u!114 &114443953662564518
+  m_Mesh: {fileID: 4300000, guid: 66561a849811fd44895ac6b15561f86d, type: 3}
+--- !u!114 &114463549001395606
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1919522236279496}
+  m_GameObject: {fileID: 1141204847944830}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06a2b4a8b79361543b4995e651349668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visible: 1
+  r: {fileID: 0}
