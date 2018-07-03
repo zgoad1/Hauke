@@ -7196,23 +7196,17 @@ MonoBehaviour:
   radius: 10
   dialogue:
   - faces:
-    - {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
-    - {fileID: 21300004, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    - {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
     - {fileID: 21300016, guid: 4d8ea7ac8d146f6408382698b9a7e987, type: 3}
-    - {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
-    - {fileID: 21300006, guid: 4d8ea7ac8d146f6408382698b9a7e987, type: 3}
-    - {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    - {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
     text:
-    - Hey there, little bro.
-    - Heh. I can't belive you'll already be eight tomorrow!
-    - Yeah! And you'll be sixteen!
-    - '...That''s true.'
-    - What's wrong, sis?
-    - I was just thinking... Nah, it's nothing. Why don't you go get some supper?
+    - Oh why if it is not my good friend Hauke Balaqvne.n
+    - My name isn't Balavan yet you stupid idiot!
+    - Yay!
   - faces:
-    - {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+    - {fileID: 21300010, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
     text:
-    - Go get some supper. I bet you're hungry.
+    - Woohoo it is dialogue I love dialogue see how it properly wraps around the box
 --- !u!135 &2024258638
 SphereCollider:
   m_ObjectHideFlags: 0
