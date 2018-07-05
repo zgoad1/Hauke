@@ -6882,11 +6882,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 6edf60cf72e51274a94b00c707123802, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3897424
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 6edf60cf72e51274a94b00c707123802, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.1043572
+      value: 2.105
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 6edf60cf72e51274a94b00c707123802, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7207,6 +7207,9 @@ MonoBehaviour:
     - {fileID: 21300010, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
     text:
     - Woohoo it is dialogue I love dialogue see how it properly wraps around the box
+  head: {fileID: 0}
+  turnBody: 1
+  turnHead: 1
 --- !u!135 &2024258638
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7383,6 +7386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacking: 
   atkDamage: 
+  head: {fileID: 0}
   speed: 0.225
   accel: 0.175
   decel: 0.2
@@ -7391,6 +7395,7 @@ MonoBehaviour:
   movDirec: {x: 0, y: 0, z: 0}
   interactables: []
   canStillJump: 0
+  readInput: 1
 --- !u!114 &2073150531
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,10 +24,21 @@ public class NPC : Interactable {
 	}
 
 	public override void Interact() {
-		player.FaceTransform(true, head.transform);
-		if(turnHead) head.SetFacing(player.head);
+		player.head.FaceTransform(head.transform);
+		if(turnBody) TurnBody(player.transform);
+		if(turnHead) head.FaceTransform(player.head.transform);
+
 		dbox.ShowDialogue(dialogue[ttt].text, dialogue[ttt].faces);
 		ttt++;
+	}
+
+	// SmoothTurn the body along the Y axis to face a target
+	private void TurnBody(Transform target) {
+		Quaternion oldRot = transform.localRotation;
+		MTSBBI.LookAtXYZ(transform, target.transform, 2, 1);
+		Quaternion newRot = transform.localRotation;
+		transform.rotation = oldRot;
+		SmoothTurn(newRot);
 	}
 
 	public void SmoothTurn(Quaternion q) {

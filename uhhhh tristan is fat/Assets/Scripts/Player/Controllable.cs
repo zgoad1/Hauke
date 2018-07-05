@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Controllable : Ally {
 
 	// NOTE: COLLISION DETECTION MUST BE CONTINUOUS or animations will be wacky
-
+	#region Variables
 	[SerializeField] protected float speed = 0.225f;
 	[SerializeField] protected float accel = 0.175f;
 	[SerializeField] protected float decel = 0.2f;
@@ -55,6 +55,9 @@ public class Controllable : Ally {
 	protected bool facing = false;    // whether we're facing an interactable
 	protected Transform facingTransform;
 	protected Quaternion iRotation;
+	public bool readInput = true;
+	protected IEnumerator HeadTurnCR;
+	#endregion
 
 	protected virtual void Reset() {
 		camTransform = FindObjectOfType<MainCamera>().transform;
@@ -92,7 +95,7 @@ public class Controllable : Ally {
 		Vector3 tempForward = camTransform.forward;
 		tempForward.y = 0f;
 
-		if(!dodging) {
+		if(!dodging && readInput) {
 			if(rightKey != 0) {
 				rightMov = Mathf.Lerp(rightMov, (rightKey * speed), accel);
 			} else {
@@ -185,13 +188,6 @@ public class Controllable : Ally {
 		if(Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
 			Interact(interactables[0]);
 		}
-
-		// Facing interactables (head turning)
-		if(facing) {
-			MTSBBI.LookAtXYZ(head.transform, facingTransform, 7, 0.2f);
-		} else {
-			SmoothTurn(head.transform, iRotation);
-		}
 	}
 
 	protected virtual void OnControllerColliderHit(ControllerColliderHit hit) {
@@ -217,21 +213,7 @@ public class Controllable : Ally {
 		}
 	}
 
-	protected void Interact(Interactable i) {
-		Debug.Log("Interacting");
-		if(i is NPC) {
-			TurnBody(((NPC)i).head.transform);
-			head.LookAt(((NPC)i).head.transform);
-			Vector3 newRot = head.localRotation.eulerAngles;
-			newRot.z = 0;	// Adjust rotation because Unity is actually an idiot and likes to slap extra numbers everywhere for no distinguisable reason
-			head.localRotation = Quaternion.Euler(newRot);
-		} else {
-			TurnBody(i.transform);
-			head.LookAt(i.transform);
-		}
-		i.Interact();
-	}
-
+	#region Movement functions
 	protected virtual IEnumerator Dodge() {
 		yield return null;
 	}
@@ -242,6 +224,20 @@ public class Controllable : Ally {
 		yield return new WaitForSeconds(0.2f);
 		//Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
 		canStillJump = false;
+	}
+	#endregion
+
+	#region Interactable / Door functions
+	protected void Interact(Interactable i) {
+		Debug.Log("Interacting");
+		if(i is NPC) {
+			TurnBody(((NPC)i).head.transform);
+			// head turning is handled by the NPC
+		} else {
+			TurnBody(i.transform);
+			// head turning is handled by the interactable
+		}
+		i.Interact();
 	}
 
 	public void AddInteractable(Interactable toAdd) {
@@ -259,7 +255,9 @@ public class Controllable : Ally {
 	public void RemoveDoor(Door toRemove) {
 		doors.Remove(toRemove);
 	}
+	#endregion
 
+	#region SmoothTurning
 	// SmoothTurn the body along the Y axis to face a target
 	private void TurnBody(Transform target) {
 		Quaternion oldRot = transform.localRotation;
@@ -277,14 +275,10 @@ public class Controllable : Ally {
 
 	// This has to go in this class because Unity sucks
 	public static IEnumerator SmoothTurnCR(Transform t, Quaternion q, float lerpFac) {
-		for(int i = 0; i < 300; i++) {
+		for(int i = 0; i < 60; i++) {
 			t.localRotation = Quaternion.Slerp(t.localRotation, q, lerpFac);
 			yield return null;
 		}
 	}
-
-	public void FaceTransform(bool facing, Transform facingTransform) {
-		this.facing = facing;
-		this.facingTransform = facingTransform;
-	}
+	#endregion
 }

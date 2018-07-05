@@ -12,7 +12,7 @@ public class Ally : BattleEntity {
 	 * - attacking (array)
 	 * - atkDamage (array & elements)
 	 */
-	[HideInInspector] public Transform head;
+	[HideInInspector] public NPCHead head;
 	private float s = 100;
 	protected float maxSt = 100;
 	protected float st {
@@ -25,6 +25,10 @@ public class Ally : BattleEntity {
 	}
 
 	protected virtual void Start() {
-		head = Array.Find(GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Head");
+		Transform h = Array.Find(GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Head");
+		head = h.GetComponent<NPCHead>();
+		if(head == null) {
+			head = h.gameObject.AddComponent<NPCHead>();
+		}
 	}
 }

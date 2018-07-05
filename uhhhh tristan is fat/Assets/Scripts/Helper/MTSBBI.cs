@@ -25,6 +25,7 @@ public class MTSBBI {
 		Vector3 oldRot = t1.localRotation.eulerAngles;
 		t1.LookAt(t2);
 		Vector3 newRot = t1.localRotation.eulerAngles;
+		t1.localRotation = Quaternion.Euler(oldRot);
 		if((oct & 1) == 1) {
 			oldRot.x = newRot.x;
 		}

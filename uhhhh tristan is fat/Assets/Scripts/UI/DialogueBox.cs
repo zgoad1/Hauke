@@ -65,7 +65,7 @@ public class DialogueBox : MonoBehaviour {
 		SetFace(faces[0]);
 
 		// Pause the player
-		player.enabled = false;
+		player.readInput = false;
 
 		// Start showing text
 		StartCoroutine("WaitForShowText");
@@ -112,8 +112,8 @@ public class DialogueBox : MonoBehaviour {
 	protected virtual void Finish() {
 		anim.SetBool("active", false);  // exit animation
 										// reset NPCs (head/body turning)
-		player.enabled = true;
-		player.FaceTransform(false, null);
+		player.readInput = true;
+		player.head.FaceTransform(null);
 		Reset();
 	}
 
