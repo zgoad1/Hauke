@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	private void OnTriggerEnter(Collider collision) {
 		Debug.Log("Camera hit a " + collision.gameObject);
 		FadeWhenClose fader = collision.gameObject.GetComponent<FadeWhenClose>();

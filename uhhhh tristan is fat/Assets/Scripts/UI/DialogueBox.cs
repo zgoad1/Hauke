@@ -23,9 +23,11 @@ public class DialogueBox : MonoBehaviour {
 	protected Vector3 textPosNoFace;
 	protected Vector3 textPosFace;
 	protected AudioManager am;
+	protected Controllable player;
 
 	// Use this for initialization
 	protected virtual void Start () {
+		/*
 		anim = GetComponent<Animator>();
 		text = GameObject.Find("DboxText").GetComponent<Text>();
 		foreach(Image i in GetComponentsInChildren<Image>()) {
@@ -34,12 +36,12 @@ public class DialogueBox : MonoBehaviour {
 			}
 		}
 		enabled = false;
-
+		*/
+		Reset();
 		faceColor = face.color;
 		maxChars = maxCharsNoFace;
 		textPosNoFace = new Vector3(textXNoFace, 76, 0);
 		textPosFace = new Vector3(textXFace, 76, 0);
-		am = FindObjectOfType<AudioManager>();
 	}
 	
 	// Update is called once per frame
@@ -49,6 +51,7 @@ public class DialogueBox : MonoBehaviour {
 		}
 	}
 
+	// Sets dialogue and activates all necessary items
 	public void ShowDialogue(string[] lines, Sprite[] faces) {
 		// Start looking for input in Update()
 		enabled = true;
@@ -60,6 +63,9 @@ public class DialogueBox : MonoBehaviour {
 
 		// Set initial face image
 		SetFace(faces[0]);
+
+		// Pause the player
+		player.enabled = false;
 
 		// Start showing text
 		StartCoroutine("WaitForShowText");
@@ -78,6 +84,7 @@ public class DialogueBox : MonoBehaviour {
 		}
 	}
 
+	// Button pressed to show next dialogue
 	protected void AdvanceDialogue() {
 		// If the dialogue is still typing out, advance to the end
 		if(typing) {
@@ -103,13 +110,18 @@ public class DialogueBox : MonoBehaviour {
 	}
 
 	protected virtual void Finish() {
-		anim.SetBool("active", false);
+		anim.SetBool("active", false);  // exit animation
+										// reset NPCs (head/body turning)
+		player.enabled = true;
+		player.FaceTransform(false, null);
 		Reset();
 	}
 
 	protected void Reset() {
 		anim = GetComponent<Animator>();
 		text = GameObject.Find("DboxText").GetComponent<Text>();
+		player = FindObjectOfType<Controllable>();
+		am = FindObjectOfType<AudioManager>();
 		foreach(Image i in GetComponentsInChildren<Image>()) {
 			if(i.name == "DboxFace") {
 				face = i;

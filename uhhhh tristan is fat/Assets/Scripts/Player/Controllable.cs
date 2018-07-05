@@ -7,10 +7,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class Controllable : Ally {
 
+	// NOTE: COLLISION DETECTION MUST BE CONTINUOUS or animations will be wacky
+
 	[SerializeField] protected float speed = 0.225f;
 	[SerializeField] protected float accel = 0.175f;
 	[SerializeField] protected float decel = 0.2f;
 	[SerializeField] protected float grav = 0.03f;
+	[SerializeField] private float jumpForce = 0.5f;
 
 	private bool og = false;    // whether Percy can jump
 	[HideInInspector]
@@ -33,9 +36,12 @@ public class Controllable : Ally {
 	protected Vector3 ipos;   // keeps track of starting position so we can return
 	protected float rightKey;
 	protected float fwdKey;
+	protected bool jKey;
 	protected float rightMov = 0f;
 	protected float fwdMov = 0f;
 	protected float upMov = 0f;
+	protected bool dodgeKey;
+	protected bool dodging = false;
 	protected Quaternion playerRot = new Quaternion(0f, 0f, 0f, 0f);
 	protected Vector3 hitNormal = Vector3.zero;
 	protected bool notOnSlope = false;
@@ -43,20 +49,25 @@ public class Controllable : Ally {
 	protected CameraControl cam;
 	protected float camDist;
 	protected Animator anim;
-	public List<Interactable> interactables = new List<Interactable>();
+	[HideInInspector] public List<Interactable> interactables = new List<Interactable>();
 	protected List<Door> doors = new List<Door>();
 	[HideInInspector] public bool canStillJump = false; // whether we're in the grace period in which we can still jump after walking off an edge
+	protected bool facing = false;    // whether we're facing an interactable
+	protected Transform facingTransform;
+	protected Quaternion iRotation;
 
 	protected virtual void Reset() {
 		camTransform = FindObjectOfType<MainCamera>().transform;
 		cc = GetComponent<CharacterController>();
 		cam = FindObjectOfType<CameraControl>();
-		Debug.Log("cam: " + cam);
 		anim = GetComponent<Animator>();
+		iRotation = head.transform.localRotation;
 	}
 
 	// Use this for initialization
-	protected virtual void Start() {
+	protected override void Start() {
+		base.Start();
+
 		Reset();
 
 		ipos = transform.position;
@@ -72,6 +83,8 @@ public class Controllable : Ally {
 		//controls
 		rightKey = Input.GetAxisRaw("Horizontal");
 		fwdKey = Input.GetAxisRaw("Vertical");
+		jKey = Input.GetButtonDown("Jump") ? true : jKey;
+		dodgeKey = Input.GetButtonDown("Run") ? true : dodgeKey;
 
 		#region Set move directions
 
@@ -79,25 +92,34 @@ public class Controllable : Ally {
 		Vector3 tempForward = camTransform.forward;
 		tempForward.y = 0f;
 
-		if(rightKey != 0) {
-			rightMov = Mathf.Lerp(rightMov, (rightKey * speed), accel);
-		} else {
-			rightMov = Mathf.Lerp(rightMov, 0f, decel);
-		}
-		if(fwdKey != 0) {
-			fwdMov = Mathf.Lerp(fwdMov, (fwdKey * speed), accel);
-		} else {
-			fwdMov = Mathf.Lerp(fwdMov, 0f, decel);
-		}
+		if(!dodging) {
+			if(rightKey != 0) {
+				rightMov = Mathf.Lerp(rightMov, (rightKey * speed), accel);
+			} else {
+				rightMov = Mathf.Lerp(rightMov, 0f, decel);
+			}
+			if(fwdKey != 0) {
+				fwdMov = Mathf.Lerp(fwdMov, (fwdKey * speed), accel);
+			} else {
+				fwdMov = Mathf.Lerp(fwdMov, 0f, decel);
+			}
 
-		// get movement direction vector
-		movDirec = tempForward.normalized * fwdMov + camTransform.right.normalized * rightMov;
-		anim.SetFloat("speed", movDirec.magnitude);
+			// get movement direction vector
+			movDirec = tempForward.normalized * fwdMov + camTransform.right.normalized * rightMov;
+			anim.SetFloat("speed", movDirec.magnitude);
 
+			if(dodgeKey && (onGround || canStillJump)) {
+				StartCoroutine("Dodge");
+				canStillJump = false;
+				//Debug.Log("Dodging, setting CSJ to false");
+			} else if(dodgeKey) {
+				//Debug.Log("Dodge failed. onGround = " + onGround + "\ncanStillJump = " + canStillJump);
+			}
+		}
 		#endregion
 
 		#region Pause
-		if(Input.GetButtonDown("Pause")) {
+			if(Input.GetButtonDown("Pause")) {
 			if(Cursor.lockState != CursorLockMode.Locked) {
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
@@ -120,21 +142,38 @@ public class Controllable : Ally {
 			movDirec.z += -upMov * hitNormal.z * (1f - slideFriction);
 			hitNormal = Vector3.zero;
 			onGround = false;
+			canStillJump = false;
 		}
-		cc.Move(movDirec);  // triggers collision detection
+		cc.Move(movDirec);  // T R I G G E R S   C O L L I S I O N   D E T E C T I O N  (AND CAN SET ONGROUND TO TRUE)
+
+		anim.SetFloat("speed", movDirec.magnitude);
+		//Debug.Log("speed: " + anim.GetFloat("speed") + "\nmovDirec: " + movDirec);
 		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.6f);
 		playerRot.y = transform.rotation.y;
 		playerRot.w = transform.rotation.w;
 		transform.rotation = playerRot;
 
-		if(!onGround || !notOnSlope) {
+		// jumping & falling
+		if(jKey && (onGround || canStillJump) && !dodging) {
+			onGround = false;
+			//Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+			upMov = jumpForce;
+			canStillJump = false;
+		} else if(!onGround || !notOnSlope) {
 			upMov -= grav;
+			//Debug.Log("Increasing gravity: " + upMov);
+			if(jKey) Debug.LogWarning("Falling\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
 		} else {
 			upMov = -grav;
+			if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
 		}
+		jKey = false;       // keep these true after they're pressed until FixedUpdate is called
+		dodgeKey = false;
 
-		movDirec.x = 0f;
-		movDirec.z = 0f;
+		if(!dodging) {
+			movDirec.x = 0f;
+			movDirec.z = 0f;
+		}
 		#endregion
 
 		// Update doors
@@ -144,8 +183,14 @@ public class Controllable : Ally {
 
 		// Interacting
 		if(Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
-			Debug.Log("Interacting");
-			interactables[0].Interact();
+			Interact(interactables[0]);
+		}
+
+		// Facing interactables (head turning)
+		if(facing) {
+			MTSBBI.LookAtXYZ(head.transform, facingTransform, 7, 0.2f);
+		} else {
+			SmoothTurn(head.transform, iRotation);
 		}
 	}
 
@@ -166,17 +211,36 @@ public class Controllable : Ally {
 			}
 			Door door = hit.gameObject.GetComponent<Door>();
 			if(door != null) {
-				Debug.Log("Collision. Opening door.");
+				//Debug.Log("Collision. Opening door.");
 				door.Open();
 			}
 		}
+	}
+
+	protected void Interact(Interactable i) {
+		Debug.Log("Interacting");
+		if(i is NPC) {
+			TurnBody(((NPC)i).head.transform);
+			head.LookAt(((NPC)i).head.transform);
+			Vector3 newRot = head.localRotation.eulerAngles;
+			newRot.z = 0;	// Adjust rotation because Unity is actually an idiot and likes to slap extra numbers everywhere for no distinguisable reason
+			head.localRotation = Quaternion.Euler(newRot);
+		} else {
+			TurnBody(i.transform);
+			head.LookAt(i.transform);
+		}
+		i.Interact();
+	}
+
+	protected virtual IEnumerator Dodge() {
+		yield return null;
 	}
 
 	// Grace period in which you can still jump after moving off of an edge
 	protected virtual IEnumerator CanStillJump() {
 		canStillJump = true;
 		yield return new WaitForSeconds(0.2f);
-		Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
+		//Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
 		canStillJump = false;
 	}
 
@@ -194,5 +258,33 @@ public class Controllable : Ally {
 
 	public void RemoveDoor(Door toRemove) {
 		doors.Remove(toRemove);
+	}
+
+	// SmoothTurn the body along the Y axis to face a target
+	private void TurnBody(Transform target) {
+		Quaternion oldRot = transform.localRotation;
+		MTSBBI.LookAtXYZ(transform, target.transform, 2, 1);
+		Quaternion newRot = transform.localRotation;
+		transform.rotation = oldRot;
+		SmoothTurn(transform, newRot);
+	}
+
+	// Slerp to a new rotation Quaternion
+	public void SmoothTurn(Transform t, Quaternion q) {
+		IEnumerator cr = SmoothTurnCR(t, q, 0.2f);
+		StartCoroutine(cr);
+	}
+
+	// This has to go in this class because Unity sucks
+	public static IEnumerator SmoothTurnCR(Transform t, Quaternion q, float lerpFac) {
+		for(int i = 0; i < 300; i++) {
+			t.localRotation = Quaternion.Slerp(t.localRotation, q, lerpFac);
+			yield return null;
+		}
+	}
+
+	public void FaceTransform(bool facing, Transform facingTransform) {
+		this.facing = facing;
+		this.facingTransform = facingTransform;
 	}
 }

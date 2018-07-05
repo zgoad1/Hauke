@@ -8,13 +8,22 @@ public class HaukePlayer : BattlePlayer {
 	
 	[SerializeField] private GameObject boomerang;
 	[SerializeField] private Image crosshair;
-	[SerializeField] private float jumpForce = 0.5f;
-	
-	// Water bar variables
 
-	private bool jKey;
-	private bool dodgeKey;
-	private bool dodging = false;
+	#region Water bar variables
+	private int w = 100;
+	private int maxWater = 100;
+	private int water {
+		get {
+			return w;
+		}
+		set {
+			w = Mathf.Clamp(value, 0, maxWater);
+		}
+	}
+	private WaterBar waterBar;
+	private Vector3 wiScale;
+	#endregion
+
 	private bool shifting;  // shifting from 3rd person to 1st (also true while in 1st person)
 	private Color newColor;	// for crosshair alpha fading
 	private bool hackCharged = false;   // whether boomerang hack will do the cool version
@@ -40,19 +49,17 @@ public class HaukePlayer : BattlePlayer {
 			m.SetColor("_EmissionColor", yellowey);
 		}
 
+		waterBar = FindObjectOfType<WaterBar>();
+		wiScale = waterBar.transform.localScale;
+
 		base.Start();
 	}
 
 	// Update is called once per frame
 	protected override void Update() {
-		//controls
-		rightKey = Input.GetAxisRaw("Horizontal");
-		fwdKey = Input.GetAxisRaw("Vertical");
-		jKey = Input.GetButtonDown("Jump") ? true : jKey;
-		dodgeKey = Input.GetButtonDown("Run") ? true : dodgeKey;
-		//attacking[0] = Input.GetButtonDown("Fire1") ? true : attacking[0];
-		//attacking[1] = Input.GetButtonUp("Fire2")? true : attacking[1];
+		base.Update();
 
+		#region Attack checks
 		if(Input.GetButtonDown("Fire1")) {
 			StartCoroutine("ChargeHack");
 		} else if(Input.GetButtonUp("Fire1")) {
@@ -61,11 +68,21 @@ public class HaukePlayer : BattlePlayer {
 			foreach(Material m in r.materials) {
 				m.DisableKeyword("_EMISSION");
 			}
-			attacking[0] = true;
-
-			// attack effects
 			if(hackCharged) {
+				if(st >= 15) {
+					attacking[0] = true;
+					st -= 15;
+				}
+
 				// more/cooler effects
+
+			} else {
+				if(st >= 5) {
+					attacking[0] = true;
+					st -= 5;
+				}
+
+				// attack effects
 			}
 
 			hackCharged = false;
@@ -76,11 +93,19 @@ public class HaukePlayer : BattlePlayer {
 			StartCoroutine("ShiftPerspective");
 		} else if(Input.GetButtonUp("Fire2")) {
 			StopCoroutine("ShiftPerspective");
-			attacking[1] = true;
+			if(!attacking[1] && st >= 5) {
+				if(!boomerang.gameObject.activeSelf) {
+					MTSBBI.SetActiveChildren(boomerang.transform, true);
+					boomerang.GetComponentInChildren<HaukeAtkHitbox1>().Begin();
+				}
+				attacking[1] = true;
+				st -= 5;
+			}
 			shifting = false;
 		}
+		#endregion
 
-		// zoom into first person view upon right click hold
+		#region First person shifting
 		if(shifting) {
 			cam.SetFirstPerson(true);
 			cam.idistance = Mathf.Lerp(cam.idistance, 0.2f, 0.2f);
@@ -92,109 +117,14 @@ public class HaukePlayer : BattlePlayer {
 			newColor.a = Mathf.Lerp(newColor.a, 0f, 0.2f);
 			crosshair.color = newColor;
 		}
-
-		// activate boomerang upon right click release
-		if(attacking[1]) {
-			if(!boomerang.gameObject.activeSelf) {
-				MTSBBI.SetActiveChildren(boomerang.transform, true);
-				boomerang.GetComponentInChildren<HaukeAtkHitbox1>().Begin();
-			}
-		}
-
-		// change forward's y to 0 then normalize, in case the camera is pointed down or up
-		Vector3 tempForward = camTransform.forward;
-		tempForward.y = 0f;
-
-		if(!dodging) {
-
-			if(rightKey != 0) {
-				rightMov = Mathf.Lerp(rightMov, (rightKey * speed), accel);
-			} else {
-				rightMov = Mathf.Lerp(rightMov, 0f, decel);
-			}
-			if(fwdKey != 0) {
-				fwdMov = Mathf.Lerp(fwdMov, (fwdKey * speed), accel);
-			} else {
-				fwdMov = Mathf.Lerp(fwdMov, 0f, decel);
-			}
-
-			// pausing
-			if(Input.GetButtonDown("Pause")) {
-				if(Cursor.lockState != CursorLockMode.Locked) {
-					Cursor.lockState = CursorLockMode.Locked;
-					Cursor.visible = false;
-				} else {
-					Cursor.lockState = CursorLockMode.None;
-					Cursor.visible = true;
-				}
-			}
-
-			// get movement direction
-			movDirec = tempForward.normalized * fwdMov + camTransform.right.normalized * rightMov;
-
-			// return to starting point
-			if(Input.GetKeyDown(KeyCode.Return)) {
-				transform.position = ipos + new Vector3(0, 5, 0);
-			}
-
-			if(dodgeKey && (onGround || canStillJump)) {
-				StartCoroutine("Dodge");
-				canStillJump = false;
-				Debug.Log("Dodging, setting CSJ to false");
-			} else if(dodgeKey) {
-				Debug.Log("Dodge failed. onGround = " + onGround + "\ncanStillJump = " + canStillJump);
-			}
-		}
-		//if(jKey) Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-		//if(dodgeKey) Debug.LogWarning("Dodging\ndodgeKey = " + dodgeKey + "\nonGround = " + onGround);
+		#endregion
 		
-		onGround = false;
+		// set water bar
+		wiScale.y = Mathf.Lerp(wiScale.y, (float) water / maxWater, lerpFac);
+		waterBar.transform.localScale = wiScale;
 
-		///////////////////					Yo, aren't further sets and checks of onGround obsolete because of ^ that?
-
-		// vvv STUFF THAT USED TO BE IN FIXEDUPDATE vvv
-
-		// calculate movement
-		movDirec.y = upMov;
-		//Character sliding of surfaces
-		float slideFriction = 0.5f;
-		if(!notOnSlope) {
-			movDirec.x += -upMov * hitNormal.x * (1f - slideFriction);
-			movDirec.z += -upMov * hitNormal.z * (1f - slideFriction);
-			hitNormal = Vector3.zero;
-			onGround = false;
-			canStillJump = false;
-			Debug.Log("Sliding on slope, setting CSJ to false");
-		}
-		cc.Move(movDirec);  // triggers collision detection
-		anim.SetFloat("speed", movDirec.magnitude);
-		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.6f);
-		playerRot.y = transform.rotation.y;
-		playerRot.w = transform.rotation.w;
-		transform.rotation = playerRot;
-
-		// jumping & falling
-		if(jKey && (onGround || canStillJump) && !dodging) {
-			onGround = false;
-			Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-			upMov = jumpForce;
-			canStillJump = false;
-			Debug.Log("Jumping, setting CSJ to false");
-		} else if(!onGround || !notOnSlope) {
-			upMov -= grav;
-			//Debug.Log("Increasing gravity: " + upMov);
-			if(jKey) Debug.Log("Falling\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-		} else {
-			upMov = -grav;
-			if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-		}
-		jKey = false;       // keep these true after they're pressed until FixedUpdate is called
-		dodgeKey = false;
-
-		if(!dodging) {
-			movDirec.x = 0f;
-			movDirec.z = 0f;
-		}
+		// increment stamina
+		st += 0.15f;
 	}
 
 	protected override void Die() {
@@ -204,22 +134,15 @@ public class HaukePlayer : BattlePlayer {
 		Cursor.visible = true;
 	}
 
-	// Grace period in which you can still jump after moving off of an edge
-	/*
-	private IEnumerator CanStillJump() {
-		canStillJump = true;
-		yield return new WaitForSeconds(0.2f);
-		Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
-		canStillJump = false;
-	}
-	*/
-
-	private IEnumerator Dodge() {
-		dodging = true;
-		movDirec = (Mathf.Abs(movDirec.x) - stopSpeed <= 0 && Mathf.Abs(movDirec.z) - stopSpeed <= 0) ? camTransform.forward * speed * 3f : movDirec.normalized * speed * 3f;
-		transform.forward = movDirec;
-		yield return new WaitForSeconds(0.3f);
-		dodging = false;
+	protected override IEnumerator Dodge() {
+		if(st >= 20) {
+			st -= 20;
+			dodging = true;
+			movDirec = (Mathf.Abs(movDirec.x) - stopSpeed <= 0 && Mathf.Abs(movDirec.z) - stopSpeed <= 0) ? camTransform.forward * speed * 3f : movDirec.normalized * speed * 3f;
+			transform.forward = movDirec;
+			yield return new WaitForSeconds(0.3f);
+			dodging = false;
+		}
 	}
 
 	private IEnumerator ShiftPerspective() {

@@ -12,5 +12,8 @@ EditorBuildSettings:
     path: Assets/_Scenes/Sketchbook.unity
     guid: b8a51b667cefa334eb07514f3406557a
   - enabled: 1
+    path: Assets/_Scenes/Battlefield 1.unity
+    guid: b1e97482d3b996341a28b0cb59a2de3c
+  - enabled: 1
     path: Assets/_Scenes/Orphanage.unity
     guid: 0e91f9d0898945f429a7232d9af2401f
