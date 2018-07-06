@@ -24,6 +24,8 @@ public class DialogueBox : MonoBehaviour {
 	protected Vector3 textPosFace;
 	protected AudioManager am;
 	protected Controllable player;
+	[HideInInspector] public List<NPCHead> heads;
+	[HideInInspector] public List<NPC> bodies;
 
 	// Use this for initialization
 	protected virtual void Start () {
@@ -111,9 +113,17 @@ public class DialogueBox : MonoBehaviour {
 
 	protected virtual void Finish() {
 		anim.SetBool("active", false);  // exit animation
-										// reset NPCs (head/body turning)
+		// Turn back heads and bodies of player and NPCs
+		foreach(NPC n in bodies) {
+			n.TurnBack();
+		}
+		bodies.Clear();
+		foreach(NPCHead h in heads) {
+			h.FaceTransform(null);
+		}
+		heads.Clear();
+		// Unpause player
 		player.readInput = true;
-		player.head.FaceTransform(null);
 		Reset();
 	}
 

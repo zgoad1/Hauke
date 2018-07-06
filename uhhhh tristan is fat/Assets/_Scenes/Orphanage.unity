@@ -7104,6 +7104,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 073feea8b0214bc4b8292c04f58e992a, type: 2}
+    - target: {fileID: 9500000, guid: 6edf60cf72e51274a94b00c707123802, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 6edf60cf72e51274a94b00c707123802, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 6edf60cf72e51274a94b00c707123802, type: 3}
@@ -7208,7 +7212,7 @@ MonoBehaviour:
     text:
     - Woohoo it is dialogue I love dialogue see how it properly wraps around the box
   head: {fileID: 0}
-  turnBody: 1
+  turnBody: 0
   turnHead: 1
 --- !u!135 &2024258638
 SphereCollider:
@@ -7420,7 +7424,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 12
-  m_Radius: 2
+  m_Radius: 2.5
   m_SlopeLimit: 45
   m_StepOffset: 1
   m_SkinWidth: 0.08

@@ -31,7 +31,6 @@ public class Door : MonoBehaviour {
 	}
 
 	public void AnimCloseFinish() {
-		Debug.LogWarning("Finished door animation");
 		anim.SetBool("open", false);
 		player.RemoveDoor(this);
 	}

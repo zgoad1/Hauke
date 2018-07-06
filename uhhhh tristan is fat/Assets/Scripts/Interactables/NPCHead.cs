@@ -9,6 +9,7 @@ public class NPCHead : MonoBehaviour {
 	private Transform toFace;
 	private Quaternion irot;
 	private IEnumerator HeadTurnCR;
+	public string namee = "";
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,17 @@ public class NPCHead : MonoBehaviour {
 	void Update () {
 		// Facing interactables (head turning)
 		if(toFace != null) {
+			// limit rotation along x to 70, y to 30
 			MTSBBI.LookAtXYZ(transform, toFace, 3, 0.2f);
+			Vector3 newRot = transform.localEulerAngles;
+			if(namee == "") Debug.Log("BEFORE ADJUSTMENT: " + newRot);
+			if(newRot.x >= 180) newRot.x = newRot.x - 360;
+			if(newRot.y >= 180) newRot.y = newRot.y - 360;
+			newRot.x = Mathf.Clamp(newRot.x, -70, 70);
+			newRot.y = Mathf.Clamp(newRot.y, -30, 30);
+			newRot.z = 0;	// Unity likes to set z to ~350 for no distinguishable reason
+			if(namee == "asdf") Debug.Log("AFTER ADJUSTMENT: " + newRot);
+			transform.localRotation = Quaternion.Euler(newRot);
 		}
 	}
 
@@ -37,10 +48,12 @@ public class NPCHead : MonoBehaviour {
 
 	// Coroutine for above method
 	protected IEnumerator SmoothTurnHeadCR(Transform t, Quaternion q, float lerpFac) {
+		Debug.Log("Smoothturning head");
 		for(int i = 0; i < 60; i++) {
-			t.localRotation = Quaternion.Slerp(t.localRotation, q, lerpFac);
+			t.localRotation = Quaternion.Lerp(t.localRotation, q, lerpFac);
 			yield return null;
 		}
+		Debug.Log("Finished head smoothturn");
 	}
 
 	// Set transform for the head to look at
@@ -48,6 +61,7 @@ public class NPCHead : MonoBehaviour {
 		if(HeadTurnCR != null) StopCoroutine(HeadTurnCR);
 		toFace = facingTransform;
 		if(toFace == null) LookBack();
+		if(facingTransform != null) Debug.Log("Setting face target of " + this + " to " + facingTransform.gameObject);
 	}
 	#endregion
 }

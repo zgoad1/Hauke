@@ -65,6 +65,7 @@ public class Controllable : Ally {
 		cam = FindObjectOfType<CameraControl>();
 		anim = GetComponent<Animator>();
 		iRotation = head.transform.localRotation;
+		head.namee = "asdf";
 	}
 
 	// Use this for initialization
