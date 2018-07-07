@@ -5,23 +5,19 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-    private static int number;
     private static AudioManager instance;
 
     [SerializeField] private Sound[] sounds;
-    private int index;
 
 	// Use this for initialization
 	void Awake () {
-
-        index = number;
-        number++;
+		
         if(instance == null) {
             instance = this;
-            Debug.Log("Creating audio manager #" + index);
+            Debug.Log("Creating audio manager");
         } else {
             Destroy(gameObject);
-            Debug.Log("Destroying extra audio manager #" + index);
+            Debug.Log("Destroying extra audio manager");
             return;
         }
 		
@@ -29,7 +25,8 @@ public class AudioManager : MonoBehaviour {
 
         foreach(Sound s in sounds) {
             s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+			Debug.LogWarning("Setting sound source to: " + s.source);
+			s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -39,6 +36,7 @@ public class AudioManager : MonoBehaviour {
     public void Play(string name) {
         Sound sound = Array.Find(sounds, s => s.name == name);
 		if(sound != null) {
+			Debug.Log("Playing sound: " + sound.name + "\nSource: " + sound.source);
 			sound.source.Play();
 		} else {
 			Debug.LogError("AUDIO: could not find sound: " + name + "\nProbably because you aren't using the first audio manager in the Sketchbook scene\naka this isn't a bug");

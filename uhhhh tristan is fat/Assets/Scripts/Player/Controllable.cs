@@ -65,7 +65,6 @@ public class Controllable : Ally {
 		cam = FindObjectOfType<CameraControl>();
 		anim = GetComponent<Animator>();
 		iRotation = head.transform.localRotation;
-		head.namee = "asdf";
 	}
 
 	// Use this for initialization
@@ -282,4 +281,14 @@ public class Controllable : Ally {
 		}
 	}
 	#endregion
+
+	public void Pause() {
+		readInput = false;
+		movDirec = Vector3.zero;
+		anim.SetFloat("speed", 0);
+	}
+
+	public void Unpause() {
+		readInput = true;
+	}
 }

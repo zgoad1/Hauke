@@ -7,6 +7,7 @@ public class MTSBBI {
 
 	// methods that should be built in
 
+	// When I made this I didn't know that deactivating an object kind of does its children as well
 	public static void SetActiveChildren(Transform transform, bool value) {
 		if(transform != null) {
 			//Debug.Log("Setting active: " + transform + ", " + value);
@@ -28,15 +29,12 @@ public class MTSBBI {
 		t1.localRotation = Quaternion.Euler(oldRot);
 		if((oct & 1) == 1) {
 			oldRot.x = newRot.x;
-			if(t1.gameObject.name == "Ellie") Debug.Log("Rotating X axis");
 		}
 		if((oct & 2) == 2) {
 			oldRot.y = newRot.y;
-			if(t1.gameObject.name == "Ellie") Debug.Log("Rotating Y axis");
 		}
 		if((oct & 4) == 4) {
 			oldRot.z = newRot.z;
-			Debug.Log("Rotating Z axis");
 		}
 		t1.localRotation = Quaternion.Lerp(t1.localRotation, Quaternion.Euler(oldRot), lerpFac);
 	}

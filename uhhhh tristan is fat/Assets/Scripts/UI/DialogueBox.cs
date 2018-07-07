@@ -67,7 +67,7 @@ public class DialogueBox : MonoBehaviour {
 		SetFace(faces[0]);
 
 		// Pause the player
-		player.readInput = false;
+		if(player != null) player.Pause();
 
 		// Start showing text
 		StartCoroutine("WaitForShowText");
@@ -123,7 +123,7 @@ public class DialogueBox : MonoBehaviour {
 		}
 		heads.Clear();
 		// Unpause player
-		player.readInput = true;
+		if(player != null) player.Unpause();
 		Reset();
 	}
 
