@@ -22,7 +22,7 @@ public class DialogueBox : MonoBehaviour {
 	protected int maxChars;  // Number of characters before we assume end of line
 	protected Vector3 textPosNoFace;
 	protected Vector3 textPosFace;
-	protected AudioManager am;
+	protected AudioManager am = AudioManager.instance;
 	protected Controllable player;
 	[HideInInspector] public List<NPCHead> heads;
 	[HideInInspector] public List<NPC> bodies;
@@ -40,6 +40,7 @@ public class DialogueBox : MonoBehaviour {
 		enabled = false;
 		*/
 		Reset();
+		if(am == null) am = AudioManager.instance;	// NOTE: SINGLETON OBJECTS THAT PERSIST BETWEEN ROOMS AND HAVE INSTANCES IN EACH ROOM CANNOT BE SET IN RESET()
 		faceColor = face.color;
 		maxChars = maxCharsNoFace;
 		textPosNoFace = new Vector3(textXNoFace, 76, 0);
@@ -131,7 +132,6 @@ public class DialogueBox : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		text = GameObject.Find("DboxText").GetComponent<Text>();
 		player = FindObjectOfType<Controllable>();
-		am = FindObjectOfType<AudioManager>();
 		foreach(Image i in GetComponentsInChildren<Image>()) {
 			if(i.name == "DboxFace") {
 				face = i;

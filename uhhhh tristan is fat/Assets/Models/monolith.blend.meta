@@ -6,15 +6,41 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cube
+    100004: Empty
+    100006: Empty_001
+    100008: Empty_002
+    100010: Hook
+    100012: Armature
+    100014: Bone
+    100016: Monolith
     400000: //RootNode
+    400002: Cube
+    400004: Empty
+    400006: Empty_001
+    400008: Empty_002
+    400010: Hook
+    400012: Armature
+    400014: Bone
+    400016: Monolith
     2100000: Material__texture
     2100002: Material_001__texture
     2300000: //RootNode
+    2300002: Cube
+    2300004: Monolith
     3300000: //RootNode
+    3300002: Cube
+    3300004: Monolith
     4300000: Cube
+    4300002: Monolith
     6400000: //RootNode
+    6400002: Cube
+    6400004: Monolith
     7400000: Default Take
+    7400002: monolith_open
     9500000: //RootNode
+    13700000: Cube
+    13700002: Monolith
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -34,7 +60,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -89,7 +115,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

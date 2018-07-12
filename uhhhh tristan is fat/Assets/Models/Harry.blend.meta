@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: c154814ac31726f42859c92cfb86d982
+timeCreated: 1531335074
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Chest
+    100004: Fingers1_L
+    100006: Fingers1_R
+    100008: Fingers2_L
+    100010: Fingers2_R
+    100012: Foot_L
+    100014: Foot_R
+    100016: Forearm_L
+    100018: Forearm_R
+    100020: Hand_L
+    100022: Hand_R
+    100024: //RootNode
+    100026: Harry
+    100028: Head
+    100030: LowerLeg_L
+    100032: LowerLeg_R
+    100034: Neck
+    100036: Root
+    100038: Shoulder_L
+    100040: Shoulder_R
+    100042: Thigh_L
+    100044: Thigh_R
+    100046: Thumb_L
+    100048: Thumb_R
+    100050: Toes_L
+    100052: Toes_R
+    100054: UpperArm_L
+    100056: UpperArm_R
+    100058: Waist
+    400000: Armature
+    400002: Chest
+    400004: Fingers1_L
+    400006: Fingers1_R
+    400008: Fingers2_L
+    400010: Fingers2_R
+    400012: Foot_L
+    400014: Foot_R
+    400016: Forearm_L
+    400018: Forearm_R
+    400020: Hand_L
+    400022: Hand_R
+    400024: //RootNode
+    400026: Harry
+    400028: Head
+    400030: LowerLeg_L
+    400032: LowerLeg_R
+    400034: Neck
+    400036: Root
+    400038: Shoulder_L
+    400040: Shoulder_R
+    400042: Thigh_L
+    400044: Thigh_R
+    400046: Thumb_L
+    400048: Thumb_R
+    400050: Toes_L
+    400052: Toes_R
+    400054: UpperArm_L
+    400056: UpperArm_R
+    400058: Waist
+    2100000: Overshirt__harry_flattex
+    2100002: Pants__harry_flattex
+    2100004: Soles__harry_flattex
+    2100006: Shoes__harry_flattex
+    2100008: Skin__harry_flattex
+    2100010: Undershirt__harry_flattex
+    2100012: Hair__harry_flattex
+    4300000: Harry
+    7400000: Default Take
+    7400002: harry_wallstand
+    9500000: //RootNode
+    13700000: Harry
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 74
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: harry_wallstand
+      takeName: harry_wallstand
+      firstFrame: 0
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
