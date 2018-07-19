@@ -24,7 +24,6 @@ public class AudioManager : MonoBehaviour {
 
 			foreach(Sound s in sounds) {
 				s.source = gameObject.AddComponent<AudioSource>();
-				Debug.LogWarning("Setting sound source to: " + s.source);
 				s.source.clip = s.clip;
 				s.source.volume = s.volume;
 				s.source.pitch = s.pitch;
@@ -39,14 +38,13 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	private void Update() {
-		Debug.Log("Audio manager #" + number + " exists.");
 	}
 
 	public void Play(string name) {
 		PrintSources("PLAY:");
 		Sound sound = Array.Find(sounds, s => s.name == name);
 		if(sound != null) {
-			Debug.Log("Playing sound: " + sound.name + "\nSource: " + sound.source);
+			//Debug.Log("Playing sound: " + sound.name + "\nSource: " + sound.source);
 			sound.source.Play();
 		} else {
 			Debug.LogError("AUDIO: could not find sound: " + name + "\nProbably because you aren't using the first audio manager in the Sketchbook scene\naka this isn't a bug");
@@ -54,7 +52,6 @@ public class AudioManager : MonoBehaviour {
 	}
 
     public void Stop(string name) {
-		PrintSources("STOP:");
 		Sound sound = Array.Find(sounds, s => s.name == name);
 		if(sound != null) {
 			sound.source.Stop();
@@ -69,7 +66,6 @@ public class AudioManager : MonoBehaviour {
 			sound.source.volume = (i + 1) / fadeFrames * sound.volume;
 			yield return null;
 		}
-		PrintSources();
 	}
 
 	IEnumerator FadeOutTrack(string name, int fadeFrames) {
@@ -79,7 +75,6 @@ public class AudioManager : MonoBehaviour {
 			yield return null;
 		}
 		Stop(name);
-		PrintSources();
 		//Debug.Log("Faded out " + name);
 	}
 

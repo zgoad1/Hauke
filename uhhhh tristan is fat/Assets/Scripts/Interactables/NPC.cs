@@ -25,19 +25,23 @@ public class NPC : Interactable {
 	}
 
 	public override void Interact() {
-		irot = transform.localRotation;
-		player.head.FaceTransform(head.transform);
-		dbox.heads.Add(player.head);
-		if(turnBody) {
-			TurnBody(player.transform);
-			dbox.bodies.Add(this);
+		if(dialogue[0].text.Length != 0) {
+			irot = transform.localRotation;
+			player.head.FaceTransform(head.transform);
+			dbox.heads.Add(player.head);
+			if(turnBody) {
+				TurnBody(player.transform);
+				dbox.bodies.Add(this);
+			}
+			if(turnHead) {
+				head.FaceTransform(player.head.transform);
+				dbox.heads.Add(head);
+			}
+			dbox.ShowDialogue(dialogue[ttt].text, dialogue[ttt].faces);
+			ttt++;
+		} else if(dialogue[0]._event != null) {
+			Instantiate(dialogue[0]._event);
 		}
-		if(turnHead) {
-			head.FaceTransform(player.head.transform);
-			dbox.heads.Add(head);
-		}
-		dbox.ShowDialogue(dialogue[ttt].text, dialogue[ttt].faces);
-		ttt++;
 	}
 
 	// Turn body to pre-interaction rotation

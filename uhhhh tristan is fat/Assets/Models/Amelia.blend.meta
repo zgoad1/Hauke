@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: de17484e02b6b7b4abf0d88555d43f2e
+timeCreated: 1531943609
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armature
+    100004: Bone
+    100006: Bone_001
+    100008: Chest
+    100010: Cube
+    100012: Fingers1_L
+    100014: Fingers1_R
+    100016: Fingers2_L
+    100018: Fingers2_R
+    100020: Foot_L
+    100022: Foot_R
+    100024: Forearm_L
+    100026: Forearm_R
+    100028: Hand_L
+    100030: Hand_R
+    100032: Head
+    100034: LowerLeg_L
+    100036: LowerLeg_R
+    100038: Neck
+    100040: Root
+    100042: Shoulder_L
+    100044: Shoulder_R
+    100046: Thigh_L
+    100048: Thigh_R
+    100050: Thumb_L
+    100052: Thumb_R
+    100054: Toes_L
+    100056: Toes_R
+    100058: UpperArm_L
+    100060: UpperArm_R
+    100062: Waist
+    100064: Amelia
+    400000: //RootNode
+    400002: Armature
+    400004: Bone
+    400006: Bone_001
+    400008: Chest
+    400010: Cube
+    400012: Fingers1_L
+    400014: Fingers1_R
+    400016: Fingers2_L
+    400018: Fingers2_R
+    400020: Foot_L
+    400022: Foot_R
+    400024: Forearm_L
+    400026: Forearm_R
+    400028: Hand_L
+    400030: Hand_R
+    400032: Head
+    400034: LowerLeg_L
+    400036: LowerLeg_R
+    400038: Neck
+    400040: Root
+    400042: Shoulder_L
+    400044: Shoulder_R
+    400046: Thigh_L
+    400048: Thigh_R
+    400050: Thumb_L
+    400052: Thumb_R
+    400054: Toes_L
+    400056: Toes_R
+    400058: UpperArm_L
+    400060: UpperArm_R
+    400062: Waist
+    400064: Amelia
+    2100000: Material_001__amelia_tex
+    2100002: Skin__amelia_tex
+    2100004: Shoes__amelia_tex
+    2100006: Hair__amelia_tex
+    2100008: Bow__amelia_tex
+    4300000: Cube
+    4300002: Amelia
+    7400000: Default Take
+    7400002: amelia_idle
+    9500000: //RootNode
+    13700000: Cube
+    13700002: Amelia
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 63
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: amelia_idle
+      takeName: amelia_idle
+      firstFrame: 0
+      lastFrame: 64
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

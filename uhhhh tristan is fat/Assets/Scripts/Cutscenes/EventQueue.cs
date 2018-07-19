@@ -31,7 +31,8 @@ public class EventQueue : MonoBehaviour {
 				StartCoroutine("Wait");
 			}
 		} else {
-
+			Destroy(gameObject);
+			Debug.Log("Ending cutscene");
 		}
 	}
 

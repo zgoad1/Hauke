@@ -6,6 +6,7 @@ using UnityEngine;
 public class DialogueArray {
 	public Sprite[] faces;
 	public string[] text;
+	public GameObject _event;
 
 	public DialogueArray() {
 		faces = new Sprite[1];
@@ -15,9 +16,5 @@ public class DialogueArray {
 	public DialogueArray(Sprite[] f, string[] t) {
 		faces = f;
 		text = t;
-	}
-
-	public void Wow() {
-		Debug.LogError("Wow");
 	}
 }
