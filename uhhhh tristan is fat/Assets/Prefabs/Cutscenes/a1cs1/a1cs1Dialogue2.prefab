@@ -54,7 +54,7 @@ MonoBehaviour:
   dialogue:
   - items:
     - face: {fileID: 21300000, guid: 602b944dee1088a46857df136d14259d, type: 3}
-      text: Wh-wh-what was that?!
+      text: Wh-Wh-What was that?!
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'THAT was my magic.  '
     - face: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
     - face: {fileID: 21300004, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Oh, you did? I''m impressed! I didn''t think you''d figure it out.  '
     - face: {fileID: 0}
-      text: 'Don''t underdomesticate my intelligence. '
+      text: 'Hmph. Don''t underdomesticate my intelligence. '
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Yep. I can read people''s minds, and I just learned how to share memories
         with other people. '
@@ -118,7 +118,12 @@ MonoBehaviour:
       text: 'Oh, s-sorry. It''s just, people usually want to adopt the younger kids,
         right? '
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
-      text: 'Yeah, usually. But this is... They have "special needs," you could say. '
+      text: 'Yeah, usually. But this is... They have a different purpose in mind. '
+    - face: {fileID: 0}
+      text: Oh, like they'll make you work? I guess you can't really do work with
+        your body, so maybe on a computer?
+    - face: {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
+      text: '...Yeah, probably something along those lines.'
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "\u2981But if we escape soon enough, we won't have to worry about that.
         Want to try to escape tomorrow? "
