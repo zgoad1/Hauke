@@ -185,7 +185,7 @@ public class Controllable : Ally {
 		}
 
 		// Interacting
-		if(Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
+		if(readInput && Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
 			Interact(interactables[0]);
 		}
 	}

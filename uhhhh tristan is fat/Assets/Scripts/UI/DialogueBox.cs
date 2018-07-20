@@ -8,15 +8,14 @@ public class DialogueBox : MonoBehaviour {
 	protected Animator anim;
 	protected Text text;
 	protected Image face;
-	protected string[] lines;
-	protected Sprite[] faces;
+	protected FaceText[] items;
 	protected int index = 0;
 	protected int letters = 0;
 	protected bool typing = false;
 
 	protected Color faceColor;
-	[SerializeField] protected int maxCharsNoFace = 44;
-	[SerializeField] protected int maxCharsFace = 27;
+	[SerializeField] protected int maxCharsNoFace = 1000;//44;
+	[SerializeField] protected int maxCharsFace = 1000;//27;
 	[SerializeField] protected int textXNoFace = -492;
 	[SerializeField] protected int textXFace = -76;
 	protected int maxChars;  // Number of characters before we assume end of line
@@ -55,17 +54,16 @@ public class DialogueBox : MonoBehaviour {
 	}
 
 	// Sets dialogue and activates all necessary items
-	public void ShowDialogue(string[] lines, Sprite[] faces) {
+	public virtual void ShowDialogue(FaceText[] items) {//string[] lines, Sprite[] faces) {
 		// Start looking for input in Update()
 		enabled = true;
 		// Animate in
 		anim.SetBool("active", true);
 		// Set variables
-		this.lines = lines;
-		this.faces = faces;
+		this.items = items;
 
 		// Set initial face image
-		SetFace(faces[0]);
+		SetFace(items[0].face);
 
 		// Pause the player
 		if(player != null) player.Pause();
@@ -91,8 +89,8 @@ public class DialogueBox : MonoBehaviour {
 	protected void AdvanceDialogue() {
 		// If the dialogue is still typing out, advance to the end
 		if(typing) {
-			letters = lines[index].Length;
-			text.text = lines[index];
+			letters = items[index].text.Length;
+			text.text = items[index].text;
 			StopCoroutine("ShowText");
 			typing = false;
 		// Else show the next page of dialogue
@@ -100,12 +98,12 @@ public class DialogueBox : MonoBehaviour {
 			// Increment dialogue page index
 			index++;
 			// Check if we've passed the end
-			if(index >= lines.Length) {
+			if(index >= items.Length) {
 				Finish();
 				return;
 			}
 			// Go to the next face
-			SetFace(faces[index]);
+			SetFace(items[index].face);
 
 			// Start showing the dialogue
 			StartCoroutine("ShowText");
@@ -145,12 +143,12 @@ public class DialogueBox : MonoBehaviour {
 
 	protected IEnumerator ShowText() {
 		// Manually insert line breaks
-		if(!lines[index].Contains("\n")) {
+		if(!items[index].text.Contains("\n")) {
 			int startPos = 0;
-			while(startPos < lines[index].Length && lines[index].Substring(startPos).Length > maxChars) {
+			while(startPos < items[index].text.Length && items[index].text.Substring(startPos).Length > maxChars) {
 				for(int i = startPos + maxChars; i > startPos; i--) {
-					if(lines[index][i] == ' ') {
-						lines[index] = lines[index].Insert(i + 1, "\n");
+					if(items[index].text[i] == ' ') {
+						items[index].text = items[index].text.Insert(i + 1, "\n");
 						startPos = i + 3;
 					}
 				}
@@ -159,16 +157,16 @@ public class DialogueBox : MonoBehaviour {
 		
 		typing = true;
 		// Reset number of characters to show
-		for(letters = 0; letters < lines[index].Length; letters++) {
+		for(letters = 0; letters < items[index].text.Length; letters++) {
 			// Show the next character
-			text.text = lines[index].Substring(0, letters); // Can't let letters reach lines[index].length or chaos ensues. Another Unity bug? Probably.
-			if(lines[index][Mathf.Min(lines[index].Length - 1, letters)] != ' ' && letters % 3 == 0) {
+			text.text = items[index].text.Substring(0, letters); // Can't let letters reach items[index].text.length or chaos ensues. Another Unity bug? Probably.
+			if(items[index].text[Mathf.Min(items[index].text.Length - 1, letters)] != ' ' && letters % 3 == 0) {
 				am.Play("textbeep" + (letters % 2));    // use alternating text beep sounds because Unity assumes you want to make a weird pop sound if you call Play() on a sound before it's finished playing
 			}
 
 			yield return null;
 		}
-		text.text = lines[index];
+		text.text = items[index].text;
 		typing = false;
 	}
 

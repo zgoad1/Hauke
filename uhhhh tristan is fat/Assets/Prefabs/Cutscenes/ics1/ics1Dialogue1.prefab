@@ -52,14 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - faces:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    text:
-    - They call me Hauke.
-    - 'I don''t have the slightest idea where my name came from or who gave it to
-      me, but none of that matters to me. '
-    - It doesn't have any real significance. It's just a name.
-    - If you really want to know who I am, listen up. This is my story.
+  - items:
+    - face: {fileID: 0}
+      text: They call me Hauke.
+    - face: {fileID: 0}
+      text: I don't have the slightest idea where my name came from or who gave it
+        to me, but none of that matters to me.
+    - face: {fileID: 0}
+      text: It doesn't have any real significance. It's just a name.
+    - face: {fileID: 0}
+      text: If you really want to know who I am, listen up. This is my story.
+    _event: {fileID: 0}

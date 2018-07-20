@@ -13,6 +13,8 @@ public class CutsceneRoomChange : EventItem {
 		base.Start();
 		if(whiteFade) {
 			FindObjectOfType<RoomManager>().MakeWhite();
+		} else {
+			FindObjectOfType<RoomManager>().MakeBlack();
 		}
 		FindObjectOfType<RoomManager>().RoomChange(newScene);
 		Destroy(gameObject); 

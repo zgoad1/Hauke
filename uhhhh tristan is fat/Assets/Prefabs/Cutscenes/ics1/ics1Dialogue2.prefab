@@ -52,27 +52,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - faces:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    text:
-    - For as long as I could remember, I'd lived at the good old Miller Orphanage.
-    - 'This was--and still is--in the province of Avriston, in a city called Edomsley. '
-    - The land in this part of the province is pretty flat. It's near a river, and
-      lots of bugs live around town.
-    - 'We got two meals a day, which we were told would make us grow up big and strong. '
-    - I didn't have any problems with my life at the orphanage.
-    - Most of the other kids didn't seem to like it so much, but having gone all 8
-      of my years with that life, it was all I knew.
-    - 'On Sunday evenings, we got to go outside and play with our boomerang. '
-    - There was a toy chest for playing inside, but the boomerang was the only outside
-      toy we had. We all got pretty good at using it.
-    - The owner, Mr. Faulker, was super nice. Sometimes when he was around, we'd get
-      to eat meat that didn't taste like sand.
+  - items:
+    - face: {fileID: 0}
+      text: For as long as I could remember, I'd lived at the good old Miller Orphanage.
+    - face: {fileID: 0}
+      text: This was--and still is--in the province of Avriston, in a city called
+        Edomsley.
+    - face: {fileID: 0}
+      text: The land in this part of the province is pretty flat. It's near a river,
+        and lots of bugs live around town.
+    - face: {fileID: 0}
+      text: I didn't have any problems with my life at the orphanage. Most of the
+        other kids didn't seem to like it so much, but having gone all 8 of my years
+        with that life, it was all I knew.
+    - face: {fileID: 0}
+      text: 'We got two meals a day, which we were told would make us grow up big
+        and strong. '
+    - face: {fileID: 0}
+      text: On Sunday evenings, we got to go outside and play with our boomerang.
+        There was a toy chest for playing inside, but the boomerang was the only outside
+        toy we had. We all got pretty good at using it.
+    - face: {fileID: 0}
+      text: The owner, Mr. Faulker, was super nice. Sometimes when he was around,
+        we'd get to eat meat that didn't taste like sand.
+    _event: {fileID: 0}

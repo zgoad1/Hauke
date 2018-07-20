@@ -34,14 +34,12 @@ public class AudioManager : MonoBehaviour {
             Debug.Log("Destroying extra audio manager");
             return;
 		}
-		PrintSources();
 	}
 
 	private void Update() {
 	}
 
 	public void Play(string name) {
-		PrintSources("PLAY:");
 		Sound sound = Array.Find(sounds, s => s.name == name);
 		if(sound != null) {
 			//Debug.Log("Playing sound: " + sound.name + "\nSource: " + sound.source);

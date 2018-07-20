@@ -28,12 +28,18 @@ public class RoomManager : MonoBehaviour {
 		blackFade.color = new Color(color.r, color.g, color.b, blackFade.color.a);
 	}
 
+	public void MakeBlack() {
+		color = Color.black;
+		blackFade.color = new Color(color.r, color.g, color.b, blackFade.color.a);
+	}
+
 	public void RoomChange(string newScene) {
 		nextScene = newScene;
 		fadeAnim.SetTrigger("active");
 	}
 
 	public void OnAnimationFinish() {
+		eq = FindObjectOfType<EventQueue>();
 		eq.WaitFrames(60);//fadeFrames);
 		SceneManager.LoadScene(nextScene);
 	}

@@ -812,10 +812,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da66997f2e121d4a8d0ac83d8c2bc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCharsNoFace: 42
-  maxCharsFace: 27
+  maxCharsNoFace: 56
+  maxCharsFace: 36
   textXNoFace: -492
   textXFace: -76
+  heads: []
+  bodies: []
 --- !u!95 &1766497816
 Animator:
   serializedVersion: 3
@@ -1044,8 +1046,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 11e666d2dec42d44e80873eca627f372, type: 2}
-    m_FontSize: 52
+    m_Font: {fileID: 12800000, guid: b0334a9a70ce4a845a0c350219723543, type: 2}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2

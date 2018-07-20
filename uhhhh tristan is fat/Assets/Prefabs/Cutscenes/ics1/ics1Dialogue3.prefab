@@ -52,26 +52,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - faces:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    text:
-    - During the day, we went to Mr. Faulkner's factory and worked.
-    - I got to go to a section with lots of sharp metal parts that zipped around quickly.
-    - I got hurt every day. But I got used to it. It wasn't so bad.
-    - If we stopped working, they'd paddle us. This happened to me a few times when
-      I got sick.
-    - But I pushed through because I knew, as Mr. Faulker told us, that the work we
-      were doing would make people happy.
-    - That's what life is about, right?
-    - 'And what''s more, we were the only ones who could do it. '
-    - Only kids with small bodies could crawl into the crevices and reach into the
-      gaps.
-    - I was proud of us, and I thought Mr. Faulkner must have been, too.
+  - items:
+    - face: {fileID: 0}
+      text: 'During the day, we went to Mr. Faulkner''s factory and worked. '
+    - face: {fileID: 0}
+      text: I got to go to a section with lots of sharp metal parts that zipped around
+        quickly. I got hurt every day. But I got used to it. It wasn't so bad.
+    - face: {fileID: 0}
+      text: If we stopped working, we got paddled. This happened to me a few times
+        when I got sick.
+    - face: {fileID: 0}
+      text: But I pushed through because I knew, as Mr. Faulker told us, that the
+        work we were doing would make people happy.
+    - face: {fileID: 0}
+      text: That's what life is about, right?
+    - face: {fileID: 0}
+      text: And what's more, we were the only ones who could do it. Only kids with
+        small bodies could crawl into the crevices and reach into the gaps.
+    - face: {fileID: 0}
+      text: I was proud of us, and I thought Mr. Faulkner must have been, too.
+    _event: {fileID: 0}

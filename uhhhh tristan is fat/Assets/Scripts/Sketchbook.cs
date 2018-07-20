@@ -6,7 +6,7 @@ using UnityEngine.PostProcessing;
 public class Sketchbook : MonoBehaviour {
 
 	private PostProcessingProfile pp;
-	[SerializeField] private int fadeFrames = 120;
+	public int fadeFrames = 120;
 	[SerializeField] private float minExposure = -3.75f;
 	private float iPostExposure;
 	private ColorGradingModel.Settings newSettings;
@@ -26,16 +26,12 @@ public class Sketchbook : MonoBehaviour {
 		newSettings = pp.colorGrading.settings;
 	}
 
-	// Update is called once per frame
-	void Update() {
-	}
-
 	public void ShowImage(Texture image) {
 		IEnumerator cr = ChangeImage(image);
 		StartCoroutine(cr);
 	}
 
-		private IEnumerator ChangeImage(Texture image) {
+	private IEnumerator ChangeImage(Texture image) {
 		StartCoroutine("FadeOut");
 		for(int i = 0; i < fadeFrames; i++) yield return null;
 		r.material.SetTexture("_MainTex", image);

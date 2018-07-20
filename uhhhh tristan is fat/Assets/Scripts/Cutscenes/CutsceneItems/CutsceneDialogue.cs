@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CutsceneDialogue : EventItem {
 
-	protected DialogueBox dbox;
+	protected CutsceneDbox dbox;
 	[SerializeField] protected DialogueArray[] dialogue;
 
 	protected override void Reset() {
-		dbox = FindObjectOfType<DialogueBox>();
+		dbox = FindObjectOfType<CutsceneDbox>();
 	}
 	
 	protected override void Start () {
 		Reset();
-		dbox.ShowDialogue(dialogue[0].text, dialogue[0].faces);
+		dbox.ShowDialogue(dialogue[0].items);//text, dialogue[0].faces);
 		Destroy(gameObject);
 	}
 }

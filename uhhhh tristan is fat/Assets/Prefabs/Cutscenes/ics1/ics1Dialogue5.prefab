@@ -52,19 +52,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - faces:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    text:
-    - Okay, you're probably tired of reading by now, so instead of telling you the
-      rest of my story, why don't I show you?
-    - That's right. Now instead of overcoming walls of text in front of a static image,
-      you get to actually take the reins.
-    - Huh? You're ready for action? Let's not get carried away. I said you could take
-      the reins, not stop reading.
-    - No no no, we don't get to the actual gameplay for a good while.
-    - So make some popcorn. Get comfy. I don't like reading either, but you can tough
-      it out. Real gameplay is overrated, anyway.
+  - items:
+    - face: {fileID: 0}
+      text: Okay, you're probably tired of reading by now, so instead of telling you
+        the rest of my story, why don't I show you?
+    - face: {fileID: 0}
+      text: That's right. Now instead of overcoming walls of text in front of a static
+        image, you get to actually take the reins.
+    - face: {fileID: 0}
+      text: 'What''s that? You''re ready for action? Let''s not get carried away.
+        I said you could take the reins, not stop reading. '
+    - face: {fileID: 0}
+      text: No no no, we don't get to the actual gameplay for a good while.
+    - face: {fileID: 0}
+      text: So make some popcorn. Get comfy. I don't like reading either, but you
+        can tough it out. Real gameplay is overrated, anyway.
+    _event: {fileID: 0}

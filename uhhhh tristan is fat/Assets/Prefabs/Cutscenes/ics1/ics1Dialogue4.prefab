@@ -52,32 +52,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - faces:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    text:
-    - I lived at the orphanage with five other kids. It was on the small side.
-    - I'll tell you about the others later, but you should probably know a little
-      about me before we get going.
-    - Like I said, I was 8. I was the second youngest kid there. And I was also the
-      least interesting.
-    - I had no real personality. I was stupidly optimistic and naive, if that counts.
-      No one seemed to dislike me for it, at least.
-    - Over the past couple years, I'd been discovering this sort of power I had.
-    - I could make things get colder by willing them to do so.
-    - Ellie, my best friend at the time, told me it was magic, but I asked a caretaker
-      and she said magic wasn't real.
-    - Then Ellie told me I wasn't supposed to tell anyone, and she started helping
-      me figure out how to use it.
-    - She was able to explain some of it to me, but I still couldn't do much more
-      than make ice cubes.
-    - But I was confident we would figure it all out together. After all, Ellie was
-      the smartest person I knew.
+  - items:
+    - face: {fileID: 0}
+      text: I lived at the orphanage with five other kids. It was on the small side.
+    - face: {fileID: 0}
+      text: I'll tell you about the others later, but you should probably know a little
+        about me before we get going.
+    - face: {fileID: 0}
+      text: Like I said, I was 8. I was the second youngest kid there. And I was also
+        the least interesting.
+    - face: {fileID: 0}
+      text: I had no real personality. I was stupidly optimistic and naive, if that
+        counts. No one seemed to dislike me for it, at least.
+    - face: {fileID: 0}
+      text: Over the past couple years, I'd been discovering this sort of power I
+        had.
+    - face: {fileID: 0}
+      text: I could make things get colder by willing them to do so.
+    - face: {fileID: 0}
+      text: Ellie, my best friend at the time, told me it was magic, but I asked a
+        caretaker and she said magic wasn't real. Then Ellie told me I wasn't supposed
+        to tell anyone, and she started helping me figure out how to use it.
+    - face: {fileID: 0}
+      text: She was able to explain some of it to me, but I still couldn't do much
+        more than make ice cubes.
+    - face: {fileID: 0}
+      text: But I was confident we would figure it all out together. After all, Ellie
+        was the smartest person I knew.
+    _event: {fileID: 0}

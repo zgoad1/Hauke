@@ -25,7 +25,7 @@ public class NPC : Interactable {
 	}
 
 	public override void Interact() {
-		if(dialogue[0].text.Length != 0) {
+		if(dialogue[ttt].items.Length != 0) {
 			irot = transform.localRotation;
 			player.head.FaceTransform(head.transform);
 			dbox.heads.Add(player.head);
@@ -37,10 +37,12 @@ public class NPC : Interactable {
 				head.FaceTransform(player.head.transform);
 				dbox.heads.Add(head);
 			}
-			dbox.ShowDialogue(dialogue[ttt].text, dialogue[ttt].faces);
+			dbox.ShowDialogue(dialogue[ttt].items);
 			ttt++;
-		} else if(dialogue[0]._event != null) {
-			Instantiate(dialogue[0]._event);
+		} else if(dialogue[ttt]._event != null) {
+			Instantiate(dialogue[ttt]._event);
+			player.Pause();
+			Debug.Log("Starting event");
 		}
 	}
 
