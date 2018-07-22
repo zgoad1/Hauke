@@ -27,7 +27,7 @@ public class Door : MonoBehaviour {
 	}
 
 	public void SetDistance(float value) {
-		anim.SetFloat("playerDistance", value);
+		anim.SetBool("playerDistance", value > closeDistance);
 	}
 
 	public void AnimCloseFinish() {

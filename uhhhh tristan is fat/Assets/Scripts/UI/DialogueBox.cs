@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour {
 
-	protected Animator anim;
+	private static DialogueBox regDbox;
+	private static CutsceneDbox csDbox;
+
+	public Animator anim;
 	protected Text text;
 	protected Image face;
 	protected FaceText[] items;
@@ -69,7 +72,9 @@ public class DialogueBox : MonoBehaviour {
 		if(player != null) player.Pause();
 
 		// Start showing text
-		StartCoroutine("WaitForShowText");
+		if(!CheckSwitch(index)) {	// ...if we're not supposed to switch dbox styles
+			StartCoroutine("WaitForShowText");
+		}
 	}
 
 	protected void SetFace(Sprite faceSprite) {
@@ -93,7 +98,7 @@ public class DialogueBox : MonoBehaviour {
 			text.text = items[index].text;
 			StopCoroutine("ShowText");
 			typing = false;
-		// Else show the next page of dialogue
+			// Else show the next page of dialogue
 		} else {
 			// Increment dialogue page index
 			index++;
@@ -102,12 +107,60 @@ public class DialogueBox : MonoBehaviour {
 				Finish();
 				return;
 			}
-			// Go to the next face
-			SetFace(items[index].face);
 
-			// Start showing the dialogue
-			StartCoroutine("ShowText");
+			if(!CheckSwitch(index)) {
+				// Go to the next face
+				SetFace(items[index].face);
+
+				// Start showing the dialogue
+				StartCoroutine("ShowText");
+			}
 		}
+	}
+
+	// Switching dbox style
+	protected static bool CheckSwitch(int index) {
+		if(regDbox == null || csDbox == null) return false;	// If we only have one dbox, stop
+		// If the next item is supposed to use the other dbox, switch to that one
+		// switching regular to cutscene dbox
+		if(regDbox.anim.GetBool("active") == true && regDbox.items[index].useCutsceneDbox) {
+			regDbox.anim.SetBool("active", false);
+			// Call the csDbox's ShowDialogue with an array of the remaining items
+			FaceText[] newItems = new FaceText[regDbox.items.Length - regDbox.index];
+			for(int i = regDbox.index; i < regDbox.items.Length; i++) {
+				newItems[i - regDbox.index] = regDbox.items[i];
+			}
+			foreach(NPCHead h in regDbox.heads) {
+				csDbox.heads.Add(h);
+			}
+			foreach(NPC n in regDbox.bodies) {
+				csDbox.bodies.Add(n);
+			}
+			regDbox.Reset();
+			csDbox.ShowDialogue(newItems);
+
+			return true;
+
+			// switching cutscene to regular dbox
+		} else if(csDbox.anim.GetBool("active") == true && !csDbox.items[index].useCutsceneDbox) {
+			csDbox.anim.SetBool("active", false);
+			// Call the regDbox's ShowDialogue with an array of the remaining items
+			FaceText[] newItems = new FaceText[csDbox.items.Length - csDbox.index];
+			for(int i = csDbox.index; i < csDbox.items.Length; i++) {
+				newItems[i - csDbox.index] = csDbox.items[i];
+			}
+			foreach(NPCHead h in csDbox.heads) {
+				regDbox.heads.Add(h);
+			}
+			foreach(NPC n in csDbox.bodies) {
+				regDbox.bodies.Add(n);
+			}
+			csDbox.Reset();
+			regDbox.ShowDialogue(newItems);
+
+			return true;
+		}
+		return false;
 	}
 
 	protected virtual void Finish() {
@@ -116,22 +169,24 @@ public class DialogueBox : MonoBehaviour {
 		foreach(NPC n in bodies) {
 			n.TurnBack();
 		}
-		bodies.Clear();
 		foreach(NPCHead h in heads) {
 			h.FaceTransform(null);
 		}
-		heads.Clear();
 		// Unpause player
 		if(player != null) player.Unpause();
 		Reset();
 	}
 
 	protected void Reset() {
+		regDbox = GameObject.Find("Dbox") != null ? GameObject.Find("Dbox").GetComponent<DialogueBox>() : null;
+		csDbox = GameObject.Find("Cutscene Dbox") != null ? GameObject.Find("Cutscene Dbox").GetComponent<CutsceneDbox>() : null;
 		anim = GetComponent<Animator>();
-		text = GameObject.Find("DboxText").GetComponent<Text>();
+		if(gameObject.name == "Dbox") text = GameObject.Find("DboxText").GetComponent<Text>();
+		else text = GameObject.Find("CSDboxText").GetComponent<Text>();
 		player = FindObjectOfType<Controllable>();
 		foreach(Image i in GetComponentsInChildren<Image>()) {
-			if(i.name == "DboxFace") {
+			if(i.name == "DboxFace" || i.name == "CSDboxFace") {
+				//Debug.Log("Child name: " + i.name + "\nMy name: " + gameObject.name);
 				face = i;
 			}
 		}
@@ -139,6 +194,8 @@ public class DialogueBox : MonoBehaviour {
 		letters = 0;
 		text.text = "";
 		enabled = false;
+		heads.Clear();
+		bodies.Clear();
 	}
 
 	protected IEnumerator ShowText() {

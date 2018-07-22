@@ -53,127 +53,182 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - items:
-    - face: {fileID: 21300000, guid: 602b944dee1088a46857df136d14259d, type: 3}
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Hey, sis! What did you want to talk about? '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Oh, I''ll get to that. First, what did you do today? '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Oh, just the usual. Repairing factory machines and stuff. What about
         you? '
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Ah, yes. Today they put me at the front desk! '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: "Really? What\u2019s that like? "
+      useCutsceneDbox: 0
     - face: {fileID: 21300010, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Oh, it''s incredible. I love telling people they have the wrong number. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: Heh. 'Is this Miller Orphanage?'
+      useCutsceneDbox: 0
     - face: {fileID: 21300008, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: '''No, this is Ellie.'' Slam. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300004, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Heehee. Classic. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300010, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: '...So I guess no one''s getting adopted. And we''re not getting any new
         kids. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Not on my watch. Normally I''d encourage people to adopt us, but we''re
         about to escape, anyway. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300010, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Why do you hate the orphanage so much? '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Let me tell you a story, bro. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300010, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: Oh boy.
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'I wanted to wait until you were a little older to tell you this, but
         time''s about up. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: "I'm pretty old. I\u2019ll be 8 tomorrow. And it's your birthday too! "
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'That''s right. Do you know how old I''ll be? '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'You''ll be... 16! Right? '
+      useCutsceneDbox: 0
     - face: {fileID: 21300004, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Yeah! You''re so smart. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Anyway, story time. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "I was about your age when the old orphanage burned down. That\u2019s
         when I cracked my back, you know. "
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Back then, we had a different director instead of Mr. Faulkner. His name
         was George Miller. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: '...That name ring any bells? '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: '...No? '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "It\u2019s the same name that the orphanage has. "
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Oh! "Miller Orphanage!" '
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Yup. He founded the orphanage. Mr. Miller was the most caring guy you''d
         ever seen. He loved every single kid dearly, and he let us know it. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'This''ll blow your mind. He even played with the kids, and he ate with
         us almost every single day. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'What?! How much did he like you guys?! '
+      useCutsceneDbox: 0
     - face: {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'He treated us like his own kids. He was always there for us when we were
         sad or hurt. He was never too busy for us. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'That''s crazy... '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'But one day, a greedy businessman decided he wanted to own the orphanage
         so he could make more money. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'He sneaked into the orphanage, started a fire, and quickly left. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: '...'
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'The fire ate up the whole building until there were only ashes left.
         Some people died, but the rest escaped. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'And as you know, some people, like me and Harry, got hurt while escaping. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'When the fire started, Mr. Miller tried to escape, but then his stomach
         started to hurt. Then the pain spread all over. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'He fell to the floor, choking, and then he died. His meal had been poisoned. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'That''s so mean! Who did it?! '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "Hang on. I\u2019m getting there. "
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "For legal reasons, the rights to the orphanage went to Mr. Miller\u2019s
         family. But none of them knew how to run an orphanage. "
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Luckily for them, someone offered to buy the orphanage. He even had a
         new building and could move all the kids there right away. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Mr. Miller''s family would get a bunch of money and have a lot of trouble
         taken off their hands, so they happily accepted. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'But the man who bought the orphanage was the greedy businessman who only
         wanted money. '
+      useCutsceneDbox: 0
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'He was the one who poisoned Mr. Miller, too. And it was all part of his
         big plan to steal the orphanage. You know what his name was? '
-    - face: {fileID: 0}
-      text: '...No? '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'No, what? '
+      useCutsceneDbox: 0
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: Now this might be hard for you to believe, but his name was Mr. Faulkner.
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'He has the same name as Mr. Faulkner?! '
+      useCutsceneDbox: 0
     - face: {fileID: 21300008, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'No, Hauke. He IS Mr. Faulkner. Mr. Faulkner did everything I just said. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'No... '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Where''s your proof? '
+      useCutsceneDbox: 0
     - face: {fileID: 21300008, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'I knew you''d be hard to convince. That''s why I prepared this for you. '
-    - face: {fileID: 0}
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Huh? '
+      useCutsceneDbox: 0
     _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 1

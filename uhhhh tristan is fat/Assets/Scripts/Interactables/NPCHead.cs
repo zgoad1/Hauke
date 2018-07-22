@@ -24,7 +24,7 @@ public class NPCHead : MonoBehaviour {
 			Vector3 newRot = transform.localEulerAngles;
 			if(newRot.x >= 180) newRot.x = newRot.x - 360;
 			if(newRot.y >= 180) newRot.y = newRot.y - 360;
-			newRot.x = Mathf.Clamp(newRot.x, -70, 70);
+			newRot.x = Mathf.Clamp(newRot.x, -45, 45);
 			newRot.y = Mathf.Clamp(newRot.y, -30, 30);
 			newRot.z = 0;	// Unity likes to set z to ~350 for no distinguishable reason
 			transform.localRotation = Quaternion.Euler(newRot);

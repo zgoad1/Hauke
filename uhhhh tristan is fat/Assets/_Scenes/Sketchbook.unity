@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 789575180}
   - component: {fileID: 789575179}
   m_Layer: 5
-  m_Name: DboxFace
+  m_Name: CSDboxFace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 1766497816}
   - component: {fileID: 1766497815}
   m_Layer: 5
-  m_Name: Dbox
+  m_Name: Cutscene Dbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 1947939385}
   - component: {fileID: 1947939384}
   m_Layer: 5
-  m_Name: DboxText
+  m_Name: CSDboxText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

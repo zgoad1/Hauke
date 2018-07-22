@@ -8,14 +8,13 @@ public class NPC : Interactable {
 
 	protected Animator anim;
 	[HideInInspector] public NPCHead head;
-	[SerializeField] protected bool turnBody = false;
-	[SerializeField] protected bool turnHead = true;
 	protected Quaternion irot;
 
 	new protected void Reset() {
 		anim = GetComponent<Animator>();
 		Transform h = Array.Find(transform.GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Head");
 		head = h.gameObject.AddComponent<NPCHead>();
+		irot = transform.localRotation;
 		base.Reset();
 	}
 
@@ -26,14 +25,13 @@ public class NPC : Interactable {
 
 	public override void Interact() {
 		if(dialogue[ttt].items.Length != 0) {
-			irot = transform.localRotation;
 			player.head.FaceTransform(head.transform);
 			dbox.heads.Add(player.head);
-			if(turnBody) {
+			if(dialogue[ttt].turnBody) {
 				TurnBody(player.transform);
 				dbox.bodies.Add(this);
 			}
-			if(turnHead) {
+			if(dialogue[ttt].turnHead) {
 				head.FaceTransform(player.head.transform);
 				dbox.heads.Add(head);
 			}
@@ -48,7 +46,7 @@ public class NPC : Interactable {
 
 	// Turn body to pre-interaction rotation
 	public void TurnBack() {
-		if(turnBody) SmoothTurn(irot);
+		if(dialogue[ttt - 1].turnBody) SmoothTurn(irot);	// ttt increments immediately as you interact; the interaction in question will be the "previous" one
 	}
 
 	// SmoothTurn the body along the Y axis to face a target

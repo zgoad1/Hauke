@@ -6,4 +6,5 @@ using UnityEngine;
 public class FaceText {
 	public Sprite face;
 	public string text;
+	public bool useCutsceneDbox = false;
 }

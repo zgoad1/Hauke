@@ -146,7 +146,9 @@ public class Controllable : Ally {
 			hitNormal = Vector3.zero;
 			onGround = false;
 			canStillJump = false;
+			//Debug.Log("Sliding");
 		}
+		//Debug.Log("MovDirec: " + movDirec);
 		cc.Move(movDirec);  // T R I G G E R S   C O L L I S I O N   D E T E C T I O N  (AND CAN SET ONGROUND TO TRUE)
 
 		anim.SetFloat("speed", movDirec.magnitude);
@@ -187,6 +189,7 @@ public class Controllable : Ally {
 		// Interacting
 		if(readInput && Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
 			Interact(interactables[0]);
+			Debug.Log("Interacting");
 		}
 	}
 
@@ -240,6 +243,11 @@ public class Controllable : Ally {
 		i.Interact();
 	}
 
+	public void Interact() {
+		if(interactables.Count > 0) Interact(interactables[0]);
+		else Debug.LogWarning("Tried to continue an interaction with no one nearby");
+	}
+
 	public void AddInteractable(Interactable toAdd) {
 		interactables.Add(toAdd);
 	}
@@ -285,6 +293,8 @@ public class Controllable : Ally {
 	public void Pause() {
 		readInput = false;
 		movDirec = Vector3.zero;
+		rightMov = 0;
+		fwdMov = 0;
 		anim.SetFloat("speed", 0);
 	}
 

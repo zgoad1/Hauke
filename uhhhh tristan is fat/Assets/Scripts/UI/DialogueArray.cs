@@ -4,25 +4,14 @@ using UnityEngine;
 
 [System.Serializable]
 public class DialogueArray {
-	//public Sprite[] faces;
-	//public string[] text;
-	public FaceText[] items;
+	public FaceText[] items = new FaceText[1];
 	public GameObject _event;
+	public bool turnBody = false;
+	public bool turnHead = true;
 
 	public DialogueArray() {
 		items = new FaceText[0];
-		/*
-		faces = new Sprite[1];
-		text = new string[1];
-		*/
 	}
-
-	/*
-	public DialogueArray(Sprite[] f, string[] t) {
-		faces = f;
-		text = t;
-	}
-	*/
 
 	public DialogueArray(FaceText[] i) {
 		items = i;

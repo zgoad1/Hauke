@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Interactable : MonoBehaviour {
 	[SerializeField] protected float radius = 10;
 	protected Controllable player;
 	protected DialogueBox dbox;
+	protected CutsceneDbox dboxcs;
 	protected int t = 0;
 	protected int ttt {
 		get {
@@ -18,12 +20,14 @@ public class Interactable : MonoBehaviour {
 		}
 	}
 
-	public DialogueArray[] dialogue;
+	public DialogueArray[] dialogue = new DialogueArray[2];
 
 	// Use this for initialization
 	protected void Start () {
 		player = FindObjectOfType<Controllable>();
-		dbox = FindObjectOfType<DialogueBox>();
+		DialogueBox[] dboxes = FindObjectsOfType<DialogueBox>();
+		dbox = Array.Find(dboxes, db => db.name == "Dbox"); // We probably have "Dbox" and "Cutscene Dbox"
+		dboxcs = (CutsceneDbox)Array.Find(dboxes, db => db.name == "Cutscene Dbox");
 	}
 	
 	// Update is called once per frame

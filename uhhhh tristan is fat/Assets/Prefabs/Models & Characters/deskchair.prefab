@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23923697112773036}
   - component: {fileID: 64212721615370072}
   - component: {fileID: 114443953662564518}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: deskchair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,9 +36,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919522236279496}
-  m_LocalRotation: {x: -0.4055798, y: 0.579228, z: 0.579228, w: 0.4055798}
-  m_LocalPosition: {x: -6.07, y: 0.0000022481308, z: -17.86}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalRotation: {x: -0, y: -0, z: 0.819152, w: 0.57357645}
+  m_LocalPosition: {x: -1.5564095, y: 4.776919, z: 0}
+  m_LocalScale: {x: 0.15384609, y: 0.1538461, z: 0.15384607}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

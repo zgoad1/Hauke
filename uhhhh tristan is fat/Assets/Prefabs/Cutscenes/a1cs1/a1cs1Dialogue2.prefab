@@ -53,73 +53,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - items:
-    - face: {fileID: 21300000, guid: 602b944dee1088a46857df136d14259d, type: 3}
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: Wh-Wh-What was that?!
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'THAT was my magic.  '
-    - face: {fileID: 0}
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'It was?! I KNEW you had magic! '
     - face: {fileID: 21300004, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Oh, you did? I''m impressed! I didn''t think you''d figure it out.  '
-    - face: {fileID: 0}
+    - face: {fileID: 21300006, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Hmph. Don''t underdomesticate my intelligence. '
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Yep. I can read people''s minds, and I just learned how to share memories
         with other people. '
-    - face: {fileID: 0}
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: '...Can you make fake memories? '
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: No. I'm not that good yet. All that came straight from Faulkner's brain.
         He thinks about it all the time.
-    - face: {fileID: 0}
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'So that was real... '
     - face: {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Of course it was! I wouldn''t lie to you, little bro. '
-    - face: {fileID: 0}
+    - face: {fileID: 21300010, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'It''s just... It''s hard to believe Mr. Faulkner would do all that. He''s
         always so nice... '
     - face: {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'I know. I didn''t expect you to believe that he''s a filthy psychopath
         straight away. You''ve always been a little stubborn. '
-    - face: {fileID: 0}
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Hey! I''m not stubborn! Nothing you say will make me believe that! '
     - face: {fileID: 21300008, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: '...Right. '
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "\u2981Back to the matter at hand, do you see why I've always wanted to
         escape now?  "
-    - face: {fileID: 0}
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Well, yeah. I want to escape now, too. '
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'I was hoping you''d say that. '
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "\u2981I've been working out a plan with Ben. I'll make an excuse to come
         to the factory, and we should be able to steal the car. "
-    - face: {fileID: 0}
+    - face: {fileID: 21300008, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Really?! That would be so cool! Are you gonna drive?! '
     - face: {fileID: 21300008, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: '...Think about that question for a moment, Hauke. '
-    - face: {fileID: 0}
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'What do you--oh... '
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: Ben will be driving. All the other kids are on board; we just needed you.
         So now we're good to go.
     - face: {fileID: 21300006, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "\u2981...That is, as long as they give me a couple more days. "
-    - face: {fileID: 0}
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Huh? What do you mean? '
     - face: {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Oh, there are some folks who want to, uh, adopt me. '
-    - face: {fileID: 0}
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Really? At your age? '
     - face: {fileID: 21300008, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Hey now, watch your mouth. You don''t wanna go calling me old. '
-    - face: {fileID: 0}
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Oh, s-sorry. It''s just, people usually want to adopt the younger kids,
         right? '
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Yeah, usually. But this is... They have a different purpose in mind. '
-    - face: {fileID: 0}
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: Oh, like they'll make you work? I guess you can't really do work with
         your body, so maybe on a computer?
     - face: {fileID: 21300012, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
@@ -127,7 +127,7 @@ MonoBehaviour:
     - face: {fileID: 21300000, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: "\u2981But if we escape soon enough, we won't have to worry about that.
         Want to try to escape tomorrow? "
-    - face: {fileID: 0}
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: 'Sure! '
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: 'Excellent. I''ll go ahead and explain the plan in more detail so you

@@ -28,7 +28,7 @@ public class CutsceneDbox : DialogueBox {
 		yield return null;
 		yield return null;
 		// Dequeue next event
-		eq.Dequeue();
+		if(eq != null) eq.Dequeue();
 	}
 
 	public override void ShowDialogue(FaceText[] items) {
