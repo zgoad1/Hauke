@@ -7,6 +7,7 @@ public class DialogueBox : MonoBehaviour {
 
 	private static DialogueBox regDbox;
 	private static CutsceneDbox csDbox;
+	private CameraControl cam;
 
 	public Animator anim;
 	protected Text text;
@@ -174,12 +175,14 @@ public class DialogueBox : MonoBehaviour {
 		}
 		// Unpause player
 		if(player != null) player.Unpause();
+		cam.ZoomOut();
 		Reset();
 	}
 
 	protected void Reset() {
 		regDbox = GameObject.Find("Dbox") != null ? GameObject.Find("Dbox").GetComponent<DialogueBox>() : null;
 		csDbox = GameObject.Find("Cutscene Dbox") != null ? GameObject.Find("Cutscene Dbox").GetComponent<CutsceneDbox>() : null;
+		cam = FindObjectOfType<CameraControl>();
 		anim = GetComponent<Animator>();
 		if(gameObject.name == "Dbox") text = GameObject.Find("DboxText").GetComponent<Text>();
 		else text = GameObject.Find("CSDboxText").GetComponent<Text>();

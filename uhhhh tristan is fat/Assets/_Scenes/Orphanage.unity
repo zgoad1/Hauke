@@ -822,6 +822,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4775241140628568, guid: ed01dba3961fc0b4bbd31e73b563d7c2,
     type: 2}
   m_PrefabInternal: {fileID: 1549634719}
+--- !u!1 &145008910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 145008911}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &145008911
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 145008910}
+  m_LocalRotation: {x: 0.18413071, y: -0.79217994, z: 0.28871185, w: 0.5051656}
+  m_LocalPosition: {x: 11.215837, y: 16.9902, z: 13.115823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 857382625}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 37.128002, y: -144.41101, z: 0}
 --- !u!1 &149908713 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100028, guid: 6b2d1d289247fc644b88ad701b61c835, type: 3}
@@ -837,6 +865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872dec013b619145a5fd8a692c2504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
+  body: {fileID: 0}
 --- !u!1001 &154363614
 Prefab:
   m_ObjectHideFlags: 0
@@ -984,6 +1014,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4838566320923776, guid: ba837eb1478860648ad4a9f8604a820c,
     type: 2}
   m_PrefabInternal: {fileID: 1579810791}
+--- !u!1 &186143839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 186143840}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &186143840
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 186143839}
+  m_LocalRotation: {x: 0.10096673, y: 0.25740126, z: -0.027053958, w: 0.96063435}
+  m_LocalPosition: {x: -21, y: 17, z: -25.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2024258636}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 12, y: 30, z: 0}
 --- !u!4 &191702759 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4327138525419438, guid: 682b8a8f23bafe342aeaf1655cb4577a,
@@ -1058,6 +1116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872dec013b619145a5fd8a692c2504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
+  body: {fileID: 0}
 --- !u!1001 &206258406
 Prefab:
   m_ObjectHideFlags: 0
@@ -1344,6 +1404,34 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &267475244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 267475245}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &267475245
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267475244}
+  m_LocalRotation: {x: 0.09881943, y: 0.895934, z: -0.25086218, w: 0.35299447}
+  m_LocalPosition: {x: -9.328254, y: 17.361624, z: 13.344753}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 295375547}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &287190388 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: de17484e02b6b7b4abf0d88555d43f2e, type: 3}
@@ -1360,6 +1448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
   - items:
     - face: {fileID: 0}
@@ -1444,6 +1533,7 @@ MonoBehaviour:
     _event: {fileID: 0}
     turnBody: 0
     turnHead: 1
+  zoomTransform: {fileID: 0}
   head: {fileID: 530184965}
 --- !u!135 &287190390
 SphereCollider:
@@ -1477,6 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
   - items:
     - face: {fileID: 0}
@@ -1485,8 +1576,8 @@ MonoBehaviour:
       useCutsceneDbox: 1
     - face: {fileID: 0}
       text: It seemed like he was always trying to pull off this "cool dude" persona,
-        but even the tiniest little upset would blow away his facade, then the caring,
-        bright-eyed little nerd he really was would shine through.
+        but even the tiniest little upset would blow away his facade, revealing the
+        caring, bright-eyed little nerd he really was.
       useCutsceneDbox: 1
     - face: {fileID: 0}
       text: '''Sup, Hauke? '
@@ -1548,6 +1639,7 @@ MonoBehaviour:
     _event: {fileID: 0}
     turnBody: 0
     turnHead: 1
+  zoomTransform: {fileID: 0}
   head: {fileID: 200935508}
 --- !u!135 &295375546
 SphereCollider:
@@ -1670,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.84705883}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1968,6 +2060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872dec013b619145a5fd8a692c2504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
+  body: {fileID: 0}
 --- !u!1001 &423215109
 Prefab:
   m_ObjectHideFlags: 0
@@ -2875,6 +2969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872dec013b619145a5fd8a692c2504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 1
+  body: {fileID: 0}
 --- !u!1 &541998984 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 6b2d1d289247fc644b88ad701b61c835, type: 3}
@@ -2895,6 +2991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
   - items:
     - face: {fileID: 0}
@@ -2936,6 +3033,7 @@ MonoBehaviour:
     _event: {fileID: 0}
     turnBody: 0
     turnHead: 1
+  zoomTransform: {fileID: 0}
   head: {fileID: 149908715}
 --- !u!135 &541998988
 SphereCollider:
@@ -3430,6 +3528,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4669240009542446, guid: f8811799f7f685b4188b315f6403118c,
     type: 2}
   m_PrefabInternal: {fileID: 1106029510}
+--- !u!1 &642401094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 642401095}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &642401095
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 642401094}
+  m_LocalRotation: {x: 0.12109974, y: -0.76935333, z: 0.15314572, w: 0.6082572}
+  m_LocalPosition: {x: 19.946629, y: 16.304358, z: 6.548487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 541998986}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &647008223
 Prefab:
   m_ObjectHideFlags: 0
@@ -3816,6 +3942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
   - items:
     - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
@@ -3848,6 +3975,7 @@ MonoBehaviour:
     _event: {fileID: 0}
     turnBody: 0
     turnHead: 0
+  zoomTransform: {fileID: 0}
   head: {fileID: 0}
 --- !u!135 &694531731
 SphereCollider:
@@ -3860,7 +3988,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 10
-  m_Center: {x: 0, y: 8, z: 0}
+  m_Center: {x: 0, y: 8, z: 1.85}
 --- !u!4 &694531733 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: dc696f595d92b864a8a80fc9ead9be20, type: 3}
@@ -4034,6 +4162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872dec013b619145a5fd8a692c2504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
+  body: {fileID: 0}
 --- !u!1001 &746853655
 Prefab:
   m_ObjectHideFlags: 0
@@ -4763,6 +4893,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4155703613855336, guid: 172908b3ce5c7d14e9d6d21bed3aa851,
     type: 2}
   m_PrefabInternal: {fileID: 857309399}
+--- !u!1 &1017635606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1017635607}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017635607
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1017635606}
+  m_LocalRotation: {x: 0.037835017, y: 0.95189184, z: -0.27424115, w: 0.13138641}
+  m_LocalPosition: {x: -0.31794098, y: 17.44111, z: 17.926924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 287190392}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1023074078 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4838566320923776, guid: ba837eb1478860648ad4a9f8604a820c,
@@ -4889,6 +5047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
   - items:
     - face: {fileID: 0}
@@ -4919,6 +5078,7 @@ MonoBehaviour:
     _event: {fileID: 0}
     turnBody: 0
     turnHead: 1
+  zoomTransform: {fileID: 0}
   head: {fileID: 1560705452}
 --- !u!135 &1059778448
 SphereCollider:
@@ -6774,7 +6934,7 @@ Prefab:
         type: 2}
       propertyPath: dialogue.Array.data[1].items.Array.data[1].face
       value: 
-      objectReference: {fileID: 21300004, guid: 112cffebbcadbc0408ecc5dad47f1492,
+      objectReference: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492,
         type: 3}
     - target: {fileID: 114934412988408728, guid: 8ffa2b289168f2149bf34678cb8b2e0f,
         type: 2}
@@ -6896,7 +7056,7 @@ Prefab:
         type: 2}
       propertyPath: dialogue.Array.data[0].items.Array.data[31].face
       value: 
-      objectReference: {fileID: 21300004, guid: 112cffebbcadbc0408ecc5dad47f1492,
+      objectReference: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492,
         type: 3}
     - target: {fileID: 114934412988408728, guid: 8ffa2b289168f2149bf34678cb8b2e0f,
         type: 2}
@@ -6938,7 +7098,7 @@ Prefab:
         type: 2}
       propertyPath: dialogue.Array.data[0].items.Array.data[33].face
       value: 
-      objectReference: {fileID: 21300004, guid: 112cffebbcadbc0408ecc5dad47f1492,
+      objectReference: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492,
         type: 3}
     - target: {fileID: 114934412988408728, guid: 8ffa2b289168f2149bf34678cb8b2e0f,
         type: 2}
@@ -6992,6 +7152,11 @@ Prefab:
         type: 2}
       propertyPath: dialogue.Array.data[0].items.Array.data[36].text
       value: Sorry, Kris.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934412988408728, guid: 8ffa2b289168f2149bf34678cb8b2e0f,
+        type: 2}
+      propertyPath: zoomIn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ffa2b289168f2149bf34678cb8b2e0f, type: 2}
@@ -7369,6 +7534,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4838566320923776, guid: ba837eb1478860648ad4a9f8604a820c,
     type: 2}
   m_PrefabInternal: {fileID: 2128104499}
+--- !u!1 &1344683131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1344683132}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344683132
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1344683131}
+  m_LocalRotation: {x: 0.17191356, y: -0.29996353, z: 0.05503389, w: 0.93671703}
+  m_LocalPosition: {x: 9.0284815, y: 16.827087, z: -24.759356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1059778449}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1346547399
 Prefab:
   m_ObjectHideFlags: 0
@@ -7918,6 +8111,34 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 13700000, guid: 2757ea956b852d54daea4a135ae21fc3,
     type: 3}
   m_PrefabInternal: {fileID: 1851899871}
+--- !u!1 &1451622953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1451622954}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451622954
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1451622953}
+  m_LocalRotation: {x: 0.07336585, y: -0.9188003, z: 0.20449378, w: 0.32955393}
+  m_LocalPosition: {x: 14.331046, y: 18.560228, z: 17.407736}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694531733}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1485067205 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4578308102569122, guid: 695fe8ed0d0ca0d4f8bdb0f0c7e82fa2,
@@ -8212,6 +8433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872dec013b619145a5fd8a692c2504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
+  body: {fileID: 0}
 --- !u!1001 &1570077278
 Prefab:
   m_ObjectHideFlags: 0
@@ -8832,6 +9055,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4838566320923776, guid: ba837eb1478860648ad4a9f8604a820c,
     type: 2}
   m_PrefabInternal: {fileID: 2092908903}
+--- !u!1 &1761646001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1761646002}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761646002
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1761646001}
+  m_LocalRotation: {x: -0.030618962, y: -0.90638274, z: 0.06674885, w: -0.41602588}
+  m_LocalPosition: {x: -11.094176, y: 10.130715, z: 15.661824}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2035169468}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1763505337 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4838566320923776, guid: ba837eb1478860648ad4a9f8604a820c,
@@ -11100,6 +11351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
   - items:
     - face: {fileID: 0}
@@ -11155,6 +11407,7 @@ MonoBehaviour:
     _event: {fileID: 1554102918820206, guid: c3efca53b74dbcc4db039f22035f4953, type: 2}
     turnBody: 0
     turnHead: 1
+  zoomTransform: {fileID: 0}
   head: {fileID: 0}
 --- !u!135 &2024258638
 SphereCollider:
@@ -11264,6 +11517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
   - items:
     - face: {fileID: 0}
@@ -11373,6 +11627,7 @@ MonoBehaviour:
     _event: {fileID: 0}
     turnBody: 0
     turnHead: 0
+  zoomTransform: {fileID: 0}
   head: {fileID: 746702854}
 --- !u!135 &2035169470
 SphereCollider:

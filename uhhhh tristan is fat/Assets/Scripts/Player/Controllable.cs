@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Rigidbody))]
@@ -56,7 +57,6 @@ public class Controllable : Ally {
 	protected Transform facingTransform;
 	protected Quaternion iRotation;
 	public bool readInput = true;
-	protected IEnumerator HeadTurnCR;
 	#endregion
 
 	protected virtual void Reset() {
@@ -65,6 +65,10 @@ public class Controllable : Ally {
 		cam = FindObjectOfType<CameraControl>();
 		anim = GetComponent<Animator>();
 		iRotation = head.transform.localRotation;
+		Transform h = Array.Find(transform.GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Head");
+		if(h.GetComponent<NPCHead>() == null) head = h.gameObject.AddComponent<NPCHead>();
+		else head = h.GetComponent<NPCHead>();
+		head.body = transform;
 	}
 
 	// Use this for initialization
@@ -233,6 +237,7 @@ public class Controllable : Ally {
 	#region Interactable / Door functions
 	protected void Interact(Interactable i) {
 		Debug.Log("Interacting");
+		if(i.zoomIn) cam.ZoomIn(i);
 		if(i is NPC) {
 			TurnBody(((NPC)i).head.transform);
 			// head turning is handled by the NPC

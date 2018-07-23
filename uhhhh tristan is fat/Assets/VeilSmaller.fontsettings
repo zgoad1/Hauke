@@ -5,7 +5,7 @@ Font:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: VeilSmaller_copy
+  m_Name: VeilSmaller
   serializedVersion: 5
   m_LineSpacing: 12
   m_DefaultMaterial: {fileID: 2100000, guid: b282c7bfe555c8a418901fbc2e306208, type: 2}

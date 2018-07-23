@@ -10,7 +10,7 @@ public class DialogueArray {
 	public bool turnHead = true;
 
 	public DialogueArray() {
-		items = new FaceText[0];
+		items = new FaceText[1];
 	}
 
 	public DialogueArray(FaceText[] i) {

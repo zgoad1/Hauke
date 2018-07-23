@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour {
 
     [SerializeField] private Sound[] sounds;
 	private static int amount = 0;
-	public int number;
+	[HideInInspector] public int number;	//why is this public again?
 
 	// Use this for initialization
 	void Start () {

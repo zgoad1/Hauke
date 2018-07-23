@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class CameraControl : MonoBehaviour {
 
 	public Transform lookAt;
 	public Transform adjTransform;      // adjusted position
 	public Transform camTransform;      // camera position (lerps towards adjusted position)
+	private Transform zoomTransform;	// position to move to upon interactions
 	public float rad = 0.5f;            // distance from solid to stop at
 	[SerializeField] private float height = 4f;
 	[HideInInspector] public float lerpFac;
@@ -23,8 +25,11 @@ public class CameraControl : MonoBehaviour {
 	private Vector3 lookOffset;
 	private int inverted = 1;
 	private int raymask;
+	private bool zoomIn = false;
+	private float iZoomLerpFac = 0.05f;
+	private float zoomLerpFac = 1;
 
-		// Use this for initialization
+	// Use this for initialization
 	void Start() {
 		Reset();
 
@@ -40,8 +45,10 @@ public class CameraControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		currentX += sensitivityX * Input.GetAxis("Mouse X");
-		currentY = Mathf.Clamp(currentY - sensitivityY * inverted * Input.GetAxis("Mouse Y"), -60f, 75f);
+		if(!zoomIn) {
+			currentX += sensitivityX * Input.GetAxis("Mouse X");
+			currentY = Mathf.Clamp(currentY - sensitivityY * inverted * Input.GetAxis("Mouse Y"), -60f, 75f);
+		}
 
 		// invert y axis
 		if(Input.GetButtonDown("Invert")) {
@@ -50,27 +57,41 @@ public class CameraControl : MonoBehaviour {
 	}
 
 	void LateUpdate() {
-		if(!firstPerson) {
-			// keep the camera from going through solid colliders
-			RaycastHit hit;
-			Vector3 rayDir = Vector3.zero;
-			rayDir = transform.position - (lookAt.position + lookOffset);
-			if(Physics.Raycast(lookAt.position + lookOffset, rayDir, out hit, idistance, raymask)) {
-				Vector3 newPos = hit.point + hit.normal * rad;
-				distance = Mathf.Min(idistance, Vector3.Distance(lookAt.position + lookOffset, newPos));
-				//Debug.Log("Camera raycasted upon a " + hit.transform.gameObject);
-				setCam(distance);
-				adjTransform.position = newPos;
-			} else {
-				distance = idistance;
-				setCam(distance);
-			}
+		if(zoomIn) {
+			camTransform.position = Vector3.Lerp(camTransform.position, zoomTransform.position, 0.05f);
+			camTransform.rotation = Quaternion.Lerp(camTransform.rotation, zoomTransform.rotation, 0.05f);
 		} else {
-			setCam(idistance);
-		}
-		camTransform.position = Vector3.Lerp(camTransform.position, adjTransform.position, lerpFac);
-		if(!firstPerson) {
-			camTransform.LookAt(lookAt.position + lookOffset);
+			// lerp the zoomLerpFac back up to 1 so our camera rotation doesn't lag behind
+			zoomLerpFac = Mathf.Lerp(zoomLerpFac, 1, 0.01f);
+			if(!firstPerson) {
+				// keep the camera from going through solid colliders
+				RaycastHit hit;
+				Vector3 rayDir = Vector3.zero;
+				rayDir = transform.position - (lookAt.position + lookOffset);
+				if(Physics.Raycast(lookAt.position + lookOffset, rayDir, out hit, idistance, raymask)) {
+					Vector3 newPos = hit.point + hit.normal * rad;
+					distance = Mathf.Min(idistance, Vector3.Distance(lookAt.position + lookOffset, newPos));
+					//Debug.Log("Camera raycasted upon a " + hit.transform.gameObject);
+					SetCam(distance);
+					adjTransform.position = newPos;
+				} else {
+					distance = idistance;
+					SetCam(distance);
+				}
+			} else {
+				SetCam(idistance);
+			}
+			camTransform.position = Vector3.Lerp(camTransform.position, adjTransform.position, lerpFac * zoomLerpFac);
+			if(!firstPerson) {
+				if(1 - zoomLerpFac > 0.05f) {   // only bother with smooth rotation if the zoomLerpFac is still big
+					Quaternion iRot = camTransform.rotation;
+					camTransform.LookAt(lookAt.position + lookOffset);
+					Quaternion newRot = camTransform.rotation;
+					camTransform.rotation = Quaternion.Slerp(iRot, newRot, zoomLerpFac);
+				} else {
+					camTransform.LookAt(lookAt.position + lookOffset);
+				}
+			}
 		}
 	}
 
@@ -80,7 +101,7 @@ public class CameraControl : MonoBehaviour {
 		camTransform = FindObjectOfType<MainCamera>().transform;
 	}
 
-	void setCam(float distance) {
+	void SetCam(float distance) {
 		dir.z = -distance;
 		rot = Quaternion.Euler(currentY, currentX, 0);
 
@@ -105,5 +126,22 @@ public class CameraControl : MonoBehaviour {
 			firstPerson = false;
 			lerpFac = iLerpFac;
 		}
+	}
+
+	public void ZoomIn(Interactable i) {
+		zoomIn = true;
+		// find midpoint between player and interaction
+		// (interaction = 90, player = 270) try moving out at -45 (via raycast). If a wall is hit, save the distance we were able to move out and try left. Else use this position
+		// try moving out at 225. If a wall is hit, compare the distance with the other try and use whichever position had the bigger distance. Else, move left a bit (so the player and interaction
+		// are on the right side of the screen
+		// set zoomRotation to face the midpoint of the interaction
+
+		// or if you don't wanna die you could just set each interaction's zoom transform manually and use that
+		zoomTransform = i.zoomTransform;
+		zoomLerpFac = iZoomLerpFac;		// this is for smooth rotation back to where we were before the interaction
+	}
+
+	public void ZoomOut() {
+		zoomIn = false;
 	}
 }
