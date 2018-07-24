@@ -175,7 +175,7 @@ public class DialogueBox : MonoBehaviour {
 		}
 		// Unpause player
 		if(player != null) player.Unpause();
-		cam.ZoomOut();
+		if(cam != null) cam.ZoomOut();
 		Reset();
 	}
 

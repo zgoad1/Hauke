@@ -12,7 +12,7 @@ public class NPCHead : MonoBehaviour {
 	private bool outOfRange = false;
 	private Quaternion newRotation;
 	private float maxXRot = 45;
-	public bool debug = false;
+	//public bool debug = false;
 	[HideInInspector] public Transform body;
 
 	// Use this for initialization
@@ -23,6 +23,7 @@ public class NPCHead : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Facing interactables (head turning)
+		/*
 		if(debug) {
 			Debug.Log("body: " + body);
 			Transform p = FindObjectOfType<Controllable>().transform;
@@ -30,6 +31,7 @@ public class NPCHead : MonoBehaviour {
 			//Debug.Log("Side Y: " + (transform.position.z - p.position.z) + "\nSide X: " + (transform.position.x - p.position.x));
 			//Debug.Log("Arctan: " + angle + "\nrotationX: " + body.transform.localEulerAngles.x);
 		}
+		*/
 		if(toFace != null) {
 			// limit rotation along x to 45, y to 30
 			MTSBBI.LookAtXYZ(transform, toFace, 3, 0.1f);
@@ -74,14 +76,13 @@ public class NPCHead : MonoBehaviour {
 		if(HeadTurnCR != null) StopCoroutine(HeadTurnCR);
 		toFace = facingTransform;
 		if(toFace == null) LookBack();
-		else {
-			Debug.Log("body: " + body);
+		else if(body.GetComponent<Controllable>() == null) {	// there are bugs when the player tries to do this so I'm just doing this
 			float angle = (body.transform.localEulerAngles.x + (Mathf.Atan2(transform.position.z - toFace.position.z, transform.position.x - toFace.position.x) / Mathf.PI * 180)) % 360;
 			// if we're behind this head
 			if(angle >= 90 && angle <= 270) {
 				toFace = null;
 				outOfRange = true;
-				newRotation = Quaternion.Euler((int)Mathf.Sign(180 - angle) * maxXRot, 0, 0);
+				newRotation = Quaternion.Euler((int)Mathf.Sign(180 - angle) * (maxXRot + 10), 0, 0);
 				Debug.Log("newRotation.x: " + newRotation.eulerAngles.x);
 			}
 		}
