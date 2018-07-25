@@ -21,7 +21,7 @@ public class NPC : Interactable {
 		base.Reset();
 	}
 
-	new protected void Start() {
+	protected override void Start() {
 		Reset();
 		base.Start();
 	}

@@ -57,6 +57,7 @@ public class Controllable : Ally {
 	protected Transform facingTransform;
 	protected Quaternion iRotation;
 	public bool readInput = true;
+	protected Vector3 prevPosition;
 	#endregion
 
 	protected virtual void Reset() {
@@ -78,6 +79,7 @@ public class Controllable : Ally {
 		Reset();
 
 		ipos = transform.position;
+		prevPosition = transform.position;
 		camDist = cam.idistance;
 
 		Cursor.lockState = CursorLockMode.Locked;
@@ -113,7 +115,7 @@ public class Controllable : Ally {
 
 			// get movement direction vector
 			movDirec = tempForward.normalized * fwdMov + camTransform.right.normalized * rightMov;
-			anim.SetFloat("speed", movDirec.magnitude);
+			//anim.SetFloat("speed", movDirec.magnitude);
 
 			if(dodgeKey && (onGround || canStillJump)) {
 				StartCoroutine("Dodge");
@@ -152,12 +154,20 @@ public class Controllable : Ally {
 			canStillJump = false;
 			//Debug.Log("Sliding");
 		}
-		//Debug.Log("MovDirec: " + movDirec);
 		cc.Move(movDirec);  // T R I G G E R S   C O L L I S I O N   D E T E C T I O N  (AND CAN SET ONGROUND TO TRUE)
 
-		anim.SetFloat("speed", movDirec.magnitude);
+		// speed is the distance from where we were last frame to where we are now
+		//Debug.Log("MovDirec: " + movDirec);
+		float movDist = Vector3.Distance(prevPosition, transform.position);
+		if(movDist < 0.05) {
+			transform.position = prevPosition;
+		}
+		anim.SetFloat("speed", movDist);
+		movDirec = (transform.position - prevPosition).normalized;
+		movDirec.y = 0;
+		prevPosition = transform.position;
 		//Debug.Log("speed: " + anim.GetFloat("speed") + "\nmovDirec: " + movDirec);
-		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.6f);
+		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.4f);
 		playerRot.y = transform.rotation.y;
 		playerRot.w = transform.rotation.w;
 		transform.rotation = playerRot;

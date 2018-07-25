@@ -300,6 +300,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1546486078979160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4828953088216602}
+  m_Layer: 2
+  m_Name: Zoom Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1554167353903028
 GameObject:
   m_ObjectHideFlags: 1
@@ -649,6 +664,7 @@ Transform:
   m_Children:
   - {fileID: 4260954689051916}
   - {fileID: 4434866747587028}
+  - {fileID: 4828953088216602}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -125.11, z: 0}
@@ -805,6 +821,19 @@ Transform:
   m_Father: {fileID: 4311951124866624}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4828953088216602
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546486078979160}
+  m_LocalRotation: {x: 0.18413071, y: -0.79217994, z: 0.28871185, w: 0.5051656}
+  m_LocalPosition: {x: 11.215837, y: 16.9902, z: 13.115823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4331232291814924}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 37.128002, y: -144.41101, z: 0}
 --- !u!4 &4912489952335898
 Transform:
   m_ObjectHideFlags: 1
@@ -930,6 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872dec013b619145a5fd8a692c2504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
 --- !u!114 &114868516836995144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -955,16 +985,138 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 10
+  zoomIn: 1
   dialogue:
-  - faces:
-    - {fileID: 0}
-    - {fileID: 21300000, guid: 2e8cb7ef76177634dbeb3e368e0ac67e, type: 3}
-    text:
-    - Go away
-    - ok
+  - items:
+    - face: {fileID: 0}
+      text: The newest kid, a girl named Kris, got here when I was around 3. She was
+        a year older than me.
+      useCutsceneDbox: 1
+    - face: {fileID: 0}
+      text: Apparently she was on a vacation from her hometown in Hyavere, our neighboring
+        nation, when her parents were suddenly found dead.
+      useCutsceneDbox: 1
+    - face: {fileID: 0}
+      text: 'Due to Hyavere not keeping census data and the fact that she always refused
+        to speak, none of her other family members could be found. '
+      useCutsceneDbox: 1
+    - face: {fileID: 0}
+      text: No one was sure why she wouldn't talk. Maybe she was still in shock after
+        losing her parents. Maybe she was just antisocial.
+      useCutsceneDbox: 1
+    - face: {fileID: 0}
+      text: Whatever it was, as far as I knew, no one had ever heard her voice. Until...
+      useCutsceneDbox: 1
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'Hauke. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Whoa! Did you just talk? '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: '*sigh* Hauke. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300008, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Man, I need to get the others! Everyone should-- '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'Shut up, Hauke. I need you to listen. This is serious. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Huh? What is it? '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'You need to get out of here as soon as possible. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Oh, sorry. I was just passing through, anyway. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'I mean the orphanage, stupid. You need to escape. We all do. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Ellie''s been telling me that. Maybe we''ll get adopted soon. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'Why would you want to leave one trap just to get caught in another? '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: '...Huh? '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: '*sigh* Your adoptive family might treat you worse than the orphanage. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Huh? But the orphanage doesn''t treat us bad! I like the orphanage! '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'You won''t for long. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'I don''t know what you''re talking about, but Mr. Faulkner is nice. He
+        won''t let anything happen to us. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: You shouldn't throw respect at people who've done nothing to earn it.
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'You need to learn how to use your magic. Use it to escape. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Waaaait. How do you know I have magic? '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: I didn't until you just told me. But I was suspicious because you spend
+        so much time with Ellie. I know of her magic because she told me herself.
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'Oh... '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: But Ellie told me not to tell anyone about magic! Why would she tell you?
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'I guess she neglected to tell you all Colorless can use magic. Or that
+        you only need to keep it a secret from those without magic. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Well if you have magic too, why don't you team up with the others and
+        try to escape? You'd be unbeatable!
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'That''s the plan. You should come. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'I told you I don''t wanna leave the orphanage! I like it here, and you
+        can''t make me leave! '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: '...'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Kris? ...Did I make you upset?
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: '...'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Sorry, Kris.
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 1
+  - items:
+    - face: {fileID: 21300000, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Sorry if I made you upset, Kris.
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: '...'
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 0
+  zoomTransform: {fileID: 0}
   head: {fileID: 114319240235841814}
-  turnBody: 0
-  turnHead: 1
 --- !u!135 &135192408859465582
 SphereCollider:
   m_ObjectHideFlags: 1

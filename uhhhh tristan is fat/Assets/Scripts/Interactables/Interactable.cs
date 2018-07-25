@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour {
 	protected DialogueBox dbox;
 	protected CutsceneDbox dboxcs;
 	protected int t = 0;
-	protected int ttt {
+	[HideInInspector] public int ttt {
 		get {
 			return t;
 		}
@@ -27,7 +27,7 @@ public class Interactable : MonoBehaviour {
 	private Vector3 defaultZoomRotation = new Vector3(20, 135, 0);
 
 	// Use this for initialization
-	protected void Start () {
+	protected virtual void Start () {
 		player = FindObjectOfType<Controllable>();
 		DialogueBox[] dboxes = FindObjectsOfType<DialogueBox>();
 		dbox = Array.Find(dboxes, db => db.name == "Dbox"); // We probably have "Dbox" and "Cutscene Dbox"
