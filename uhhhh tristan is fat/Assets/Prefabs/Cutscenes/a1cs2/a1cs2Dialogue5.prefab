@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1816553462223208}
+  m_IsPrefabAsset: 1
+--- !u!1 &1816553462223208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4170816319015240}
+  - component: {fileID: 114938347887560028}
+  m_Layer: 0
+  m_Name: a1cs2Dialogue5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4170816319015240
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114938347887560028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c727588e8006a84caf790adc9274176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - items:
+    - face: {fileID: 0}
+      text: 'I looked up from the note, my resolve strengthened more than ever before.
+        I knew we had to escape that day. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'But there was one glaring problem. Ellie played a vital role with her
+        Psychic magic in the original escape plan. Going without her would put someone
+        in danger. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'In the original plan, that someone was Harry. I knew I''d have to take
+        his part. I had the Arc stones to protect me, after all. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'I met up with Kris to fix the broken parts of the plan. Why Kris? Because
+        she could also use magic. It''s forbidden among magic users to reveal magic
+        to non-magical folks. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'With Kris, I could talk about the full plan, magic and all. As far as
+        the others knew, the plan was a lot more risky. And they were okay with that.  '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'Kris warned me about the risks of taking Harry''s part without Ellie
+        to help me, and I told her I''d be fine, showing her the Arc stones. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'Then she asked me if I knew how to use them. I told her I didn''t, and
+        she explained I simply had to hold one in my hand and wave it in an arc shape.
+        Easy enough. '
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 0
+  useCutsceneDbox: 1

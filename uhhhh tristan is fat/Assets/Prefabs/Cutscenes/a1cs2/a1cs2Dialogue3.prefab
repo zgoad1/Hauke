@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1816553462223208}
+  m_IsPrefabAsset: 1
+--- !u!1 &1816553462223208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4170816319015240}
+  - component: {fileID: 114938347887560028}
+  m_Layer: 0
+  m_Name: a1cs2Dialogue3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4170816319015240
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.54876685, y: 0.78589535, z: -4.959589}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114938347887560028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c727588e8006a84caf790adc9274176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - items:
+    - face: {fileID: 0}
+      text: I sat against the door in my bedroom, crying, for what seemed like hours.
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: Eventually, Amelia was let in. She'd stopped crying, but she was clearly
+        still sad. This whole ordeal must have just torn her apart.
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: Amelia tried her best to cheer me up, but I wasn't having it. Eventually,
+        she convinced me to read the note from Ellie.
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '''The safe under my bed. 02-16-97.'''
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '''I''m so sorry, Hauke. I wi'''
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: Even before I'd jammed it down into my pocket, the paper was wrinkled.
+        It must have been folded in a hurry.
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: Amelia went into the girls' bedroom to get the safe. She came back with
+        it and set it down in front of me. It was no bigger than a toaster.
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 0
+  useCutsceneDbox: 1

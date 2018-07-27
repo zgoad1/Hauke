@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1017330316523740}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1017330316523740
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4817770784050586}
   - component: {fileID: 114077052042898298}
@@ -30,7 +30,7 @@ GameObject:
 --- !u!4 &4817770784050586
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1017330316523740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -43,7 +43,7 @@ Transform:
 --- !u!114 &114077052042898298
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1017330316523740}
   m_Enabled: 1
@@ -150,7 +150,8 @@ MonoBehaviour:
       text: 'FAULKNER: SILENCE, ALL OF YOU!!! '
       useCutsceneDbox: 0
     - face: {fileID: 0}
-      text: '*For a good few seconds, I didn''t hear anything but the crappy air conditioner.*'
+      text: '*For a good few seconds, I didn''t hear anything but the crappy air conditioner
+        and Amelia''s sniffles.*'
       useCutsceneDbox: 0
     - face: {fileID: 0}
       text: 'FAULKNER: ...Right.'

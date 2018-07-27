@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1816553462223208}
+  m_IsPrefabAsset: 1
+--- !u!1 &1816553462223208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4170816319015240}
+  - component: {fileID: 114938347887560028}
+  m_Layer: 0
+  m_Name: a1cs2Dialogue6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4170816319015240
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114938347887560028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c727588e8006a84caf790adc9274176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - items:
+    - face: {fileID: 0}
+      text: 'We gathered all the remaining kids upstairs to review the plan. Some
+        were hesitant to go without Ellie, but we knew we didn''t have a choice. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'We''d all get in the car to go to the factory, like any other day. According
+        to Kris''s calculations, the fuel meter would be low and we''d have to stop
+        for gas.  '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'But of course, Kris isn''t actually that good at math. In reality, Kris
+        would use magic to bend the light around the fuel meter to make it appear
+        low. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'Then we''d stop at the gas station and the driver would get out to fuel
+        up. Harry would then pickpocket the driver for his keys, somehow not getting
+        caught. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'What was really happening here was Ellie using her Psychic magic to distract
+        the driver. This was why it was dangerous without her. Harry would almost
+        definitely get caught. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'I told him I''d be taking his part, and he let me. He seemed hesitant,
+        but my confidence must have convinced him that I''d be okay. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'Ben would have scooched into the driver''s seat by the time I had the
+        keys. I''d hand them over and get in the car, then we''d be on our merry way.
+        It was that simple. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: Not long after we finished discussing the final details of the plan, the
+        caretaker started calling for us. It was time to go. I grabbed our boomerang
+        and hid it in my overalls.
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 0
+  useCutsceneDbox: 1

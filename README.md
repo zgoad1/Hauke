@@ -7,7 +7,7 @@
 - uhhhh tristan is fat: the game files, including all assets and code
 
 ## How to Play
-- Download all the files in one of the numbered test build folders. Place them all in the same folder and run the .exe.
+- Download the .zip of the desired test build (higher numbers are more recent). Extract all files and run the .exe (make sure all extracted files are in the same folder).
 
 ***Controls***
 - *WASD: move*
@@ -29,6 +29,10 @@
 
 ***C***
 
+- The player can move the camera when paused
+- Fireplace wood holder is discolored
+- Ben's leg in his sitting animation needs keyframes
+- Caretaker Maggie doesn't turn her head in the first scene
 - Clicking before the dbox entry animation is finished will make the dbox exit and leave the text on screen
 - SmoothTurnCR messes with NPC (and Player???) rotation in the 60 frames after you exit dialogue
 
