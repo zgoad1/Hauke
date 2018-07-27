@@ -50,7 +50,7 @@ public class Controllable : Ally {
 	protected CameraControl cam;
 	protected float camDist;
 	protected Animator anim;
-	[HideInInspector] public List<Interactable> interactables = new List<Interactable>();
+	[HideInInspector] public List<GameObject> interactables = new List<GameObject>();
 	protected List<Door> doors = new List<Door>();
 	[HideInInspector] public bool canStillJump = false; // whether we're in the grace period in which we can still jump after walking off an edge
 	protected bool facing = false;    // whether we're facing an interactable
@@ -92,6 +92,10 @@ public class Controllable : Ally {
 		//controls
 		rightKey = Input.GetAxisRaw("Horizontal");
 		fwdKey = Input.GetAxisRaw("Vertical");
+		if(Mathf.Abs(rightKey) == 1 && Mathf.Abs(fwdKey) == 1) {
+			rightKey = Mathf.Sign(rightKey) * 0.707f;
+			fwdKey = Mathf.Sign(fwdKey) * 0.707f;
+		}
 		jKey = Input.GetButtonDown("Jump") ? true : jKey;
 		dodgeKey = Input.GetButtonDown("Run") ? true : dodgeKey;
 
@@ -202,7 +206,7 @@ public class Controllable : Ally {
 
 		// Interacting
 		if(readInput && Input.GetButtonDown("Fire1") && !FindObjectOfType<DialogueBox>().enabled && interactables.Count != 0) {
-			Interact(interactables[0]);
+			Interact();
 			Debug.Log("Interacting");
 		}
 	}
@@ -259,16 +263,16 @@ public class Controllable : Ally {
 	}
 
 	public void Interact() {
-		if(interactables.Count > 0) Interact(interactables[0]);
-		else Debug.LogWarning("Tried to continue an interaction with no one nearby");
+		if(interactables.Count > 0) Interact(MTSBBI.Closest(gameObject, interactables).GetComponent<Interactable>());
+		else Debug.LogWarning("Tried to start an interaction with no one nearby");
 	}
 
 	public void AddInteractable(Interactable toAdd) {
-		interactables.Add(toAdd);
+		interactables.Add(toAdd.gameObject);
 	}
 
 	public void RemoveInteractable(Interactable toRemove) {
-		interactables.Remove(toRemove);
+		interactables.Remove(toRemove.gameObject);
 	}
 
 	public void AddDoor(Door toAdd) {

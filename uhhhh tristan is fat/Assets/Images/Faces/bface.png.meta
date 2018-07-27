@@ -7,6 +7,9 @@ TextureImporter:
     21300000: bface_0
     21300002: bface_1
     21300004: bface_2
+    21300006: bface_3
+    21300008: bface_4
+    21300010: bface_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,6 +118,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 220
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bface_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bface_4
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bface_5
+      rect:
+        serializedVersion: 2
+        x: 550
         y: 0
         width: 110
         height: 110

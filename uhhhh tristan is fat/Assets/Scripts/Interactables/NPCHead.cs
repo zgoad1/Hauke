@@ -77,16 +77,16 @@ public class NPCHead : MonoBehaviour {
 		toFace = facingTransform;
 		if(toFace == null) LookBack();
 		else if(body.GetComponent<Controllable>() == null) {	// there are bugs when the player tries to do this so I'm just doing this
-			float angle = (body.transform.localEulerAngles.x + (Mathf.Atan2(transform.position.z - toFace.position.z, transform.position.x - toFace.position.x) / Mathf.PI * 180)) % 360;
+			float angle = (body.transform.localEulerAngles.y + Mathf.Atan2(transform.position.z - toFace.position.z, transform.position.x - toFace.position.x) / Mathf.PI * 180 + 360) % 360;
 			// if we're behind this head
-			if(angle >= 90 && angle <= 270) {
+			Debug.Log("Angle: " + angle);
+			if(angle >= 0 && angle <= 180) {
 				toFace = null;
 				outOfRange = true;
-				newRotation = Quaternion.Euler((int)Mathf.Sign(180 - angle) * (maxXRot + 10), 0, 0);
-				Debug.Log("newRotation.x: " + newRotation.eulerAngles.x);
+				newRotation = Quaternion.Euler((int)Mathf.Sign(90 - angle) * (maxXRot + 10), 0, 0);
 			}
 		}
-		if(facingTransform != null) Debug.Log("Setting face target of " + this + " to " + facingTransform.gameObject);
+		if(facingTransform != null) Debug.Log("Setting face target of " + this.body.gameObject.name + " to " + facingTransform.gameObject.name);
 	}
 	#endregion
 }

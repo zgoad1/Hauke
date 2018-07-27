@@ -43,7 +43,6 @@ public class Interactable : MonoBehaviour {
 		sphere = GetComponent<SphereCollider>();
 		sphere.isTrigger = true;
 		sphere.radius = radius;
-		sphere.center = new Vector3(0, 8, 0);
 		zoomTransform = Array.Find(transform.GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Zoom Transform");
 		if(zoomTransform == null) zoomTransform = MakeZoomTransform();
 	}

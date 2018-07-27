@@ -6,7 +6,7 @@
 - notable test builds: runnable builds of the game
 - uhhhh tristan is fat: the game files, including all assets and code
 
-## How to PLay
+## How to Play
 - Download all the files in one of the numbered test build folders. Place them all in the same folder and run the .exe.
 
 ***Controls***
@@ -26,10 +26,10 @@
 ***B***
 
 - dodging takes y-axis into account; dodging downward would effectively do nothing
-- directional movement uses square math instead of circular
 
 ***C***
 
+- Clicking before the dbox entry animation is finished will make the dbox exit and leave the text on screen
 - SmoothTurnCR messes with NPC (and Player???) rotation in the 60 frames after you exit dialogue
 
 *About bug ranks*

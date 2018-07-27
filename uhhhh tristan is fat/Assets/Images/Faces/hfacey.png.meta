@@ -10,6 +10,8 @@ TextureImporter:
     21300006: hfacey_3
     21300008: hfacey_4
     21300010: hfacey_5
+    21300012: hfacey_6
+    21300014: hfacey_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -160,6 +162,34 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 550
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hfacey_6
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hfacey_7
+      rect:
+        serializedVersion: 2
+        x: 770
         y: 0
         width: 110
         height: 110

@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1017330316523740}
+  m_IsPrefabParent: 1
+--- !u!1 &1017330316523740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4817770784050586}
+  - component: {fileID: 114077052042898298}
+  m_Layer: 0
+  m_Name: a1cs2Dialogue1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4817770784050586
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1017330316523740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.027740845, y: 1.9786168, z: -5.5508776}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114077052042898298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1017330316523740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c727588e8006a84caf790adc9274176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - items:
+    - face: {fileID: 21300004, guid: 08dc4824335bbff4f9575caba3afcaf8, type: 3}
+      text: '*sniffle* Hauke, it''s... It''s so terrible! Ellie, she--'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: --was adopted and is now off to live a happy life with her
+        new family. Is that really so terrible?'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 08dc4824335bbff4f9575caba3afcaf8, type: 3}
+      text: 'No, no, no, you bad man! You said they BOUGHT her! '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: It costs money to adopt! It was a slip of the tongue! '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 08dc4824335bbff4f9575caba3afcaf8, type: 3}
+      text: 'Hauke... She wanted you to have this... '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*Amelia gave me a piece of paper with words on it. I didn''t feel like
+        reading. I shoved it in my pocket.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: You... You filthy psychopath!!
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*Being the intelligent young child I was, I charged Faulkner with no
+        particular plan in mind.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: Stand still, laddie! '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*Faulkner took his cane and poked me in the chest, which kinda hurt since
+        I charged right into it. I fell on my butt.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: Now, obviously, there has been a misunderstanding here. That
+        girl was legally adopted. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: You LIAR!!!
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*I grabbed the cane and started a tug of war with Faulkner.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*It was around that time Ben got out of bed and came down to see what
+        all the yelling was about.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: fcbc5bc7d55eb0547a69fa9beff63d1e, type: 3}
+      text: '...What''s going on down here?'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: See for yourself.
+      useCutsceneDbox: 0
+    - face: {fileID: 21300008, guid: e6984f8f86842654d8872244f9c2573f, type: 3}
+      text: Ellie was just taken away.
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: fcbc5bc7d55eb0547a69fa9beff63d1e, type: 3}
+      text: She what?!
+      useCutsceneDbox: 0
+    - face: {fileID: 21300012, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'BRING HER BACK! BRING ELLIE BACK NOW! '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: You! Caretaker! Restrain this child! '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'MAGGIE: ...'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: NOW!'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'MAGGIE: Sorry, Hauke...'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*Maggie grabbed my arms and held me back.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'You... You''re DISGUSTING! '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: 'I''ll also add twisted, cruel, and miserable. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300010, guid: fcbc5bc7d55eb0547a69fa9beff63d1e, type: 3}
+      text: 'I concur. He''s a poor excuse for a man. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300008, guid: e6984f8f86842654d8872244f9c2573f, type: 3}
+      text: 'Yeah. This is really not cool, man. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 08dc4824335bbff4f9575caba3afcaf8, type: 3}
+      text: '*sniffle* I can''t believe you... Waaaah... '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: SILENCE, ALL OF YOU!!! '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*For a good few seconds, I didn''t hear anything but the crappy air conditioner.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: ...Right.'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: That girl was legally adopted, and is now gone out of your
+        lives forever. There is no reason to worry about her anymore. '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300010, guid: fcbc5bc7d55eb0547a69fa9beff63d1e, type: 3}
+      text: Hmm...
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: I''ll hear nothing more. Please escort that child up to his
+        room this instant.'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*Maggie started to carry me, kicking and screaming, back upstairs.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300012, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: 'NO! YOU! FAULKNER! I''M GONNA KILL YOU! I''M GONNA KILL YOU! I''m gonna...  '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300014, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Ellie...
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 0
+  useCutsceneDbox: 1

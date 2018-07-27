@@ -38,4 +38,21 @@ public class MTSBBI {
 		}
 		t1.localRotation = Quaternion.Lerp(t1.localRotation, Quaternion.Euler(oldRot), lerpFac);
 	}
+
+	public static GameObject Closest(GameObject me, GameObject[] obs) {
+		GameObject ans = obs[0];
+		float ansDist = Vector3.Distance(me.transform.position, ans.transform.position);
+		foreach(GameObject g in obs) {
+			float thisDist = Vector3.Distance(me.transform.position, g.transform.position);
+			if(thisDist < ansDist) {
+				ans = g;
+				ansDist = thisDist;
+			}
+		}
+		return ans;
+	}
+
+	public static GameObject Closest(GameObject me, List<GameObject> obs) {
+		return Closest(me, obs.ToArray());
+	}
 }
