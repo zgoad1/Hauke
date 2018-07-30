@@ -31,4 +31,8 @@ public class BattlePlayer : Controllable {
 
 		base.Update();
 	}
+
+	public virtual void CatchWeapon() {
+
+	}
 }

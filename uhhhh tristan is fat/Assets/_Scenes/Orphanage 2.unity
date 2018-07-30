@@ -386,13 +386,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 23544505593260578, guid: 7c3108dbdd8e93a4aa758636d37aac19,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 272eb4a0011fc514288338770005f4ed, type: 2}
-    m_RemovedComponents:
-    - {fileID: 95115140225450396, guid: 7c3108dbdd8e93a4aa758636d37aac19, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c3108dbdd8e93a4aa758636d37aac19, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &27334671
@@ -10639,41 +10633,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1552886644 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1277130754112884, guid: 7c3108dbdd8e93a4aa758636d37aac19,
-    type: 2}
-  m_PrefabInternal: {fileID: 20226503}
---- !u!114 &1552886646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1552886644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a2b4a8b79361543b4995e651349668, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visible: 1
-  r: {fileID: 1552886647}
---- !u!23 &1552886647 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23544505593260578, guid: 7c3108dbdd8e93a4aa758636d37aac19,
-    type: 2}
-  m_PrefabInternal: {fileID: 20226503}
---- !u!65 &1552886649
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1552886644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.282844, y: 0.56568635, z: 10.491311}
-  m_Center: {x: 1.3585783, y: 0.0000008401295, z: 5.2456555}
 --- !u!1 &1554819962
 GameObject:
   m_ObjectHideFlags: 0
@@ -12062,7 +12021,7 @@ GameObject:
   - component: {fileID: 1788282372}
   - component: {fileID: 1788282374}
   - component: {fileID: 1788282373}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cutscene 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

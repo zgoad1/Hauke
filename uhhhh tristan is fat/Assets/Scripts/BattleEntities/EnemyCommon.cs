@@ -7,20 +7,23 @@ using UnityEngine.AI;
 public class EnemyCommon : Enemy {
 
 	private NavMeshAgent agent;
-	private BattlePlayer player;
 	//private Companion companion;
 	private Ally target;
 	private Vector3 knockbackOffset = new Vector3(0f, 0.5f, 0f);
 
+	protected override void Reset() {
+		base.Reset();
+		agent = GetComponent<NavMeshAgent>();
+	}
+
 	// Use this for initialization
 	void Start () {
+		Reset();
 		attacking = new bool[1];
 		atkDamage = new int[] { 10 };	// hack
 
 		maxHp = 100;
 
-		agent = GetComponent<NavMeshAgent>();
-		player = FindObjectOfType<BattlePlayer>();
 		//companion = FindObjectOfType<BattleCompanion>();
 		target = player;								// TODO: Choose the player or the companion for target
 	}
@@ -46,6 +49,6 @@ public class EnemyCommon : Enemy {
 	}
 
 	public override void Attack() {
-		throw new System.NotImplementedException();
+		Debug.Log("Enemy attacking");
 	}
 }

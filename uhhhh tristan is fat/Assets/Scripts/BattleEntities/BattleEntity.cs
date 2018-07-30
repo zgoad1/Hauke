@@ -38,6 +38,13 @@ public class BattleEntity : MonoBehaviour {
 	public int[] atkDamage;						// list of damage for each attack
 	protected bool invincible = false;
 	protected Vector3 verticalForce = new Vector3(0, 2000, 0);
+	protected Animator anim;
+	protected BattlePlayer player;
+
+	protected virtual void Reset() {
+		anim = GetComponent<Animator>();
+		player = FindObjectOfType<BattlePlayer>();
+	}
 
 	public virtual void TakeDamage(int damage) {
 		if(!invincible) {

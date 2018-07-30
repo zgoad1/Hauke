@@ -8,7 +8,12 @@ public class FadeWhenClose : MonoBehaviour {
 	[SerializeField] private Renderer r;
 
 	private void Reset() {
-		r = GetComponentInChildren<Renderer>();
+		Renderer[] rs = GetComponentsInChildren<Renderer>();
+		foreach(Renderer rend in rs) {
+			FadeWhenClose f;
+			if(rend.gameObject.GetComponent<FadeWhenClose>() == null) f = rend.gameObject.AddComponent<FadeWhenClose>();
+		}
+		r = GetComponent<Renderer>();
 	}
 
 	void Start () {

@@ -63,8 +63,8 @@ MonoBehaviour:
         in danger. '
       useCutsceneDbox: 0
     - face: {fileID: 0}
-      text: 'In the original plan, that someone was Harry. I knew I''d have to take
-        his part. I had the Arc stones to protect me, after all. '
+      text: 'That someone was Harry. I knew I''d have to take his part. I had the
+        Arc stones to protect me, after all. '
       useCutsceneDbox: 0
     - face: {fileID: 0}
       text: 'I met up with Kris to fix the broken parts of the plan. Why Kris? Because
@@ -83,6 +83,10 @@ MonoBehaviour:
       text: 'Then she asked me if I knew how to use them. I told her I didn''t, and
         she explained I simply had to hold one in my hand and wave it in an arc shape.
         Easy enough. '
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: As for people who might see me use the stones' magic? As long as too many
+        people didn't see, they'd probably be dismissed as some crazy folks who hallucinated.
       useCutsceneDbox: 0
     _event: {fileID: 0}
     turnBody: 0

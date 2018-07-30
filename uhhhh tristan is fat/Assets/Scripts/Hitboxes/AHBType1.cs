@@ -14,12 +14,18 @@ public class AHBType1 : AtkHitbox {
 	 */
 
 	protected List<Rigidbody> collision = new List<Rigidbody>();
+	public bool attacking = false;
 
 	private void FixedUpdate() {
-		if(isAttacking()) {
+		if(IsAttacking()) {
 			Hit(null);
-			me.attacking[hbIndex] = false;
+			attacking = false;
+			//me.attacking[hbIndex] = false;
 		}
+	}
+
+	protected override bool IsAttacking() {
+		return attacking;
 	}
 
 	// A list of Rigidbodies is kept so we can damage them all at once.
@@ -27,7 +33,7 @@ public class AHBType1 : AtkHitbox {
 
 	// Add objects entering the collision box to the list
 	private void OnTriggerEnter(Collider other) {
-		if(other.GetComponent<Rigidbody>() != null && isAlly? other.GetComponent<Enemy>() != null : other.GetComponent<Ally>() != null) {
+		if(other.GetComponent<Rigidbody>() != null && isAlly ? other.GetComponent<Enemy>() != null : other.GetComponent<Ally>() != null) {
 			collision.Add(other.GetComponent<Rigidbody>());
 		}
 	}

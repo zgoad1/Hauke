@@ -32,16 +32,6 @@ public class DialogueBox : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start () {
-		/*
-		anim = GetComponent<Animator>();
-		text = GameObject.Find("DboxText").GetComponent<Text>();
-		foreach(Image i in GetComponentsInChildren<Image>()) {
-			if(i.name == "DboxFace") {
-				face = i;
-			}
-		}
-		enabled = false;
-		*/
 		Reset();
 		if(am == null) am = AudioManager.instance;	// NOTE: SINGLETON OBJECTS THAT PERSIST BETWEEN ROOMS AND HAVE INSTANCES IN EACH ROOM CANNOT BE SET IN RESET()
 		faceColor = face.color;
@@ -94,27 +84,29 @@ public class DialogueBox : MonoBehaviour {
 	// Button pressed to show next dialogue
 	protected void AdvanceDialogue() {
 		// If the dialogue is still typing out, advance to the end
-		if(typing) {
-			letters = items[index].text.Length;
-			text.text = items[index].text;
-			StopCoroutine("ShowText");
-			typing = false;
-			// Else show the next page of dialogue
-		} else {
-			// Increment dialogue page index
-			index++;
-			// Check if we've passed the end
-			if(index >= items.Length) {
-				Finish();
-				return;
-			}
+		if(anim.GetCurrentAnimatorStateInfo(0).IsName("dbox_stay")) {
+			if(typing) {
+				letters = items[index].text.Length;
+				text.text = items[index].text;
+				StopCoroutine("ShowText");
+				typing = false;
+				// Else show the next page of dialogue
+			} else {
+				// Increment dialogue page index
+				index++;
+				// Check if we've passed the end
+				if(index >= items.Length) {
+					Finish();
+					return;
+				}
 
-			if(!CheckSwitch(index)) {
-				// Go to the next face
-				SetFace(items[index].face);
+				if(!CheckSwitch(index)) {
+					// Go to the next face
+					SetFace(items[index].face);
 
-				// Start showing the dialogue
-				StartCoroutine("ShowText");
+					// Start showing the dialogue
+					StartCoroutine("ShowText");
+				}
 			}
 		}
 	}

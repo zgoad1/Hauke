@@ -12,8 +12,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	 */
 
 	/* FOR FUTURE POLISH:
-	 * Height of boomerang increases exponentially with distance from player.
-	 * Tilt increases slightly with lower velocity (lookAt player and tilt)
+	 * Tilt increases slightly with lower velocity (lookAt player and tilt on x-axis)
 	 */
 
 	[SerializeField] private Transform parentT;
@@ -26,7 +25,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	private Rigidbody rb;
 	private Animator anim;
 	private Vector3 prevPos = Vector3.zero;
-	private Vector3 playerOffset = new Vector3(0f, 3f, 0f);	// how high up to throw from
+	[SerializeField] private Vector3 playerOffset = new Vector3(0f, 3f, 0f);	// how high up to throw from
 	private float startOffset = 3f;	// how far forward from the player we should start
 	private float iFollowFactor = 0f;
 	private float followFactor = 0f;
@@ -35,14 +34,33 @@ public class HaukeAtkHitbox1 : AHBType2 {
 
 	// Use this for initialization
 	void Start () {
+		Reset();
 		isAlly = true;
-		me = FindObjectOfType<HaukePlayer>();
 		hbIndex = 1;
-		rb = GetComponent<Rigidbody>();
-		anim = GetComponent<Animator>();
 		prevPos = transform.position;
 	}
-	
+
+	protected override void Reset() {
+		base.Reset();
+		rb = GetComponent<Rigidbody>();
+		anim = GetComponent<Animator>();
+		camT = FindObjectOfType<MainCamera>().transform;
+	}
+
+	/* Resets the transform, stops
+	 * the animation, and deactivates the object.
+	 */
+	protected void ResetBoomerang() {
+		Debug.Log("Resetting boomerang");
+		anim.enabled = true;
+		rb.isKinematic = true;
+		s = state.animating;
+		MTSBBI.SetActiveChildren(parentT, false);
+		me.attacking[hbIndex] = false;
+		followFactor = iFollowFactor;
+		((BattlePlayer)me).CatchWeapon();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		switch(s) {
@@ -71,8 +89,8 @@ public class HaukeAtkHitbox1 : AHBType2 {
 
 	protected void OnTriggerEnter(Collider other) {
 		// reset if we collide with Hauke or we hit the ground
-		if(other.GetComponent<HaukePlayer>() != null || LayerMask.LayerToName(other.gameObject.layer) == "Ground") {
-			Reset();
+		if(other.GetComponent<BattlePlayer>() != null || LayerMask.LayerToName(other.gameObject.layer) == "Ground") {
+			ResetBoomerang();
 		}
 	}
 
@@ -83,13 +101,12 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	}
 
 	public void Begin() {
-		camT = FindObjectOfType<MainCamera>().transform;
-		me = FindObjectOfType<HaukePlayer>();    // this is necessary because it can't find it in Start() (?????????????????)
+		Reset();
 		Vector3 newForward = new Vector3(camT.forward.x, 0f, camT.forward.z).normalized;
-		me.transform.forward = newForward;
+		//me.transform.forward = newForward;
 		parentT.position = me.transform.position + playerOffset + startOffset * newForward;
 		parentT.forward = camT.forward;
-		if(((HaukePlayer)me).onGround || ((HaukePlayer)me).canStillJump) {
+		if(((BattlePlayer)me).onGround || ((BattlePlayer)me).canStillJump) {
 			Vector3 newEuler = parentT.rotation.eulerAngles;
 			newEuler.x = newEuler.x < 180 ? 0 : newEuler.x;
 			parentT.rotation = Quaternion.Euler(newEuler);
@@ -101,18 +118,5 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		anim.enabled = false;
 		rb.isKinematic = false;
 		s = state.returning;
-	}
-
-	/* Resets the transform, stops
-	 * the animation, and deactivates the object.
-	 */
-	private void Reset() {
-		Debug.Log("Resetting boomerang");
-		anim.enabled = true;
-		rb.isKinematic = true;
-		s = state.animating;
-		MTSBBI.SetActiveChildren(parentT, false);
-		me.attacking[hbIndex] = false;
-		followFactor = iFollowFactor;
 	}
 }

@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: cd7ccc1d2701a2b429d4c30467178ae0
-timeCreated: 1528865573
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Armature
     100002: Calf_L
@@ -75,6 +73,12 @@ ModelImporter:
     7400002: haukey_natural_idle
     7400004: haukey_natural_idle_001
     7400006: haukey_natural_jog
+    7400008: haukey_weapon_idle
+    7400010: haukey_weapon_jog
+    7400012: haukey_battle_idle
+    7400014: haukey_battle_jog
+    7400016: haukey_weapon_throw
+    7400018: haukey_weapon_hack
     9500000: //RootNode
     13700000: Hauke
   externalObjects: {}
@@ -92,34 +96,11 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Neck' is inbetween humanoid transforms and
-      has rotation animation that will be discarded.\n\t'Thigh_L' has scale animation
-      that will be discarded.\n\t'Calf_L' has scale animation that will be discarded.\n\t'Foot_L'
-      has scale animation that will be discarded.\n\t'Thigh_R' has scale animation
-      that will be discarded.\n\t'Calf_R' has scale animation that will be discarded.\n\t'Foot_R'
-      has scale animation that will be discarded.\n\nClip 'haukey_natural_idle' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'Chest' has scale
-      animation that will be discarded.\n\t'Neck' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Neck' has scale animation
-      that will be discarded.\n\t'Shoulder_L' has scale animation that will be discarded.\n\t'Shoulder_R'
-      has scale animation that will be discarded.\n\t'Thigh_L' has scale animation
-      that will be discarded.\n\t'Calf_L' has scale animation that will be discarded.\n\t'Foot_L'
-      has scale animation that will be discarded.\n\t'Thigh_R' has scale animation
-      that will be discarded.\n\t'Calf_R' has scale animation that will be discarded.\n\t'Foot_R'
-      has scale animation that will be discarded.\n\nClip 'haukey_natural_jog' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'Neck' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Thigh_L'
-      has scale animation that will be discarded.\n\t'Calf_L' has scale animation
-      that will be discarded.\n\t'Foot_L' has scale animation that will be discarded.\n\t'Thigh_R'
-      has scale animation that will be discarded.\n\t'Calf_R' has scale animation
-      that will be discarded.\n\t'Foot_R' has scale animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -152,8 +133,68 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask: []
-      maskType: 3
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 0
+      - path: Armature/Root
+        weight: 0
+      - path: Armature/Root/Waist
+        weight: 0
+      - path: Armature/Root/Waist/Chest
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Neck
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Neck/Head
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L/Fingers2_L
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Thumb_L
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_R
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R/Fingers2_R
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Thumb_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L/Toes_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
+        weight: 0
+      - path: Hauke
+        weight: 0
+      maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
@@ -212,6 +253,322 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_weapon_idle
+      takeName: haukey_weapon_idle
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_weapon_jog
+      takeName: haukey_weapon_jog
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_battle_idle
+      takeName: haukey_battle_idle
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_battle_jog
+      takeName: haukey_battle_jog
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_weapon_throw
+      takeName: haukey_weapon_throw
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: AddThrowWeight
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.83113456
+        functionName: RemoveThrowWeight
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 0
+      - path: Armature/Root/Waist
+        weight: 0
+      - path: Armature/Root/Waist/Chest
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck/Head
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L/Fingers2_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Thumb_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R/Fingers2_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Thumb_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L/Toes_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
+        weight: 0
+      - path: Hauke
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_weapon_hack
+      takeName: haukey_weapon_hack
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: AddThrowWeight
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.83113456
+        functionName: RemoveThrowWeight
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 0
+      - path: Armature/Root/Waist
+        weight: 0
+      - path: Armature/Root/Waist/Chest
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck/Head
+        weight: 0
+      - path: Armature/Root/Waist/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L/Fingers2_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Thumb_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R/Fingers2_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Thumb_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L/Toes_L
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R
+        weight: 0
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
+        weight: 0
+      - path: Hauke
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -235,6 +592,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

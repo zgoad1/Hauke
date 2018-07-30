@@ -19,24 +19,30 @@
 
 ## Known Bugs
 
+***S***
+
+- none
+
 ***A***
 
 - None
 
 ***B***
 
-- dodging takes y-axis into account; dodging downward would effectively do nothing
+- None
 
 ***C***
 
-- The player can move the camera when paused
-- Fireplace wood holder is discolored
-- Ben's leg in his sitting animation needs keyframes
-- Caretaker Maggie doesn't turn her head in the first scene
-- Clicking before the dbox entry animation is finished will make the dbox exit and leave the text on screen
+- None
+
+***D***
+
+- If you start moving immediately after throwing the boomerang, Hauke jitters
 - SmoothTurnCR messes with NPC (and Player???) rotation in the 60 frames after you exit dialogue
 
 *About bug ranks*
+- *S rank: FATAL IF LEFT UNFIXED - NOT JUST TO THE GAME, BUT TO YOUR LIFE*
 - *A rank: Causes the game to become completely unplayable*
 - *B rank: Negatively affects gameplay*
 - *C rank: Visual error, doesn't affect gameplay at all*
+- *D rank: Don't bother*

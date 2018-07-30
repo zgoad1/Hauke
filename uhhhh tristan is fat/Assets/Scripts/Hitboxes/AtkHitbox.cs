@@ -16,7 +16,11 @@ public class AtkHitbox : MonoBehaviour {
 	protected int hbIndex;
 	protected bool isAlly;
 
-	protected bool isAttacking() {
+	protected virtual void Reset() {
+		me = FindObjectOfType<BattlePlayer>();
+	}
+
+	protected virtual bool IsAttacking() {
 		return me.attacking[hbIndex];
 	}
 

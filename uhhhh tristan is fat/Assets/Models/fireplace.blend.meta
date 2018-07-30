@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 48063f004606003448ff03a4e7188a5b
-timeCreated: 1527271545
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
@@ -12,6 +10,11 @@ ModelImporter:
     2100004: MidWhite__fireplace_ao
     2100006: DarkWhite__fireplace_ao
     2100008: LightWhite__fireplace_ao
+    2100010: Wood__fireplace_ao_png
+    2100012: Metal__fireplace_ao_png
+    2100014: MidWhite__fireplace_ao_png
+    2100016: DarkWhite__fireplace_ao_png
+    2100018: LightWhite__fireplace_ao_png
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube_001
@@ -37,6 +40,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -68,6 +72,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

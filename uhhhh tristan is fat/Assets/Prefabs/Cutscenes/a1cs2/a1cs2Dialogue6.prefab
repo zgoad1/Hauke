@@ -63,9 +63,8 @@ MonoBehaviour:
         for gas.  '
       useCutsceneDbox: 0
     - face: {fileID: 0}
-      text: 'But of course, Kris isn''t actually that good at math. In reality, Kris
-        would use magic to bend the light around the fuel meter to make it appear
-        low. '
+      text: 'But of course, Kris wasn''t actually that good at math. In reality, she''d
+        use magic to bend the light around the fuel meter to make it appear low. '
       useCutsceneDbox: 0
     - face: {fileID: 0}
       text: 'Then we''d stop at the gas station and the driver would get out to fuel
@@ -88,8 +87,8 @@ MonoBehaviour:
       useCutsceneDbox: 0
     - face: {fileID: 0}
       text: Not long after we finished discussing the final details of the plan, the
-        caretaker started calling for us. It was time to go. I grabbed our boomerang
-        and hid it in my overalls.
+        caretakers started calling for us. It was time to go. I grabbed the good old
+        boomerang and hid it in my overalls.
       useCutsceneDbox: 0
     _event: {fileID: 0}
     turnBody: 0

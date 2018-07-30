@@ -150,6 +150,18 @@ MonoBehaviour:
       text: 'FAULKNER: SILENCE, ALL OF YOU!!! '
       useCutsceneDbox: 0
     - face: {fileID: 0}
+      text: 'FAULKNER: I give you FOOD! I give you SHELTER! I give you EMPLOYMENT!
+        I give you all the love I have, and THIS is what I get when I give one of
+        you a loving FAMILY?!'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: All of you UNGRATEFUL children must learn to RESPECT those
+        who provide for you!'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'FAULKNER: Good GOD! Are all children completely mad these days?!'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
       text: '*For a good few seconds, I didn''t hear anything but the crappy air conditioner
         and Amelia''s sniffles.*'
       useCutsceneDbox: 0

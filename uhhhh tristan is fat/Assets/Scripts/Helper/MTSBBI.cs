@@ -55,4 +55,9 @@ public class MTSBBI {
 	public static GameObject Closest(GameObject me, List<GameObject> obs) {
 		return Closest(me, obs.ToArray());
 	}
+
+	public static bool AnyInArray(bool[] a) {
+		foreach(bool b in a) if(b) return true;
+		return false;
+	}
 }

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1816553462223208}
+  m_IsPrefabAsset: 1
+--- !u!1 &1816553462223208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4170816319015240}
+  - component: {fileID: 114938347887560028}
+  m_Layer: 0
+  m_Name: a1cs2Dialogue11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4170816319015240
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114938347887560028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c727588e8006a84caf790adc9274176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - items:
+    - face: {fileID: 0}
+      text: Alright, remember when I said the real gameplay wasn't for a good while?
+        Well, now we're here. Kind of. It's the tutorial battle, so it's easy, but
+        it's better than endlessly talking to people, right?
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: I hope you looked at the controls when you started the game. If not, you
+        can figure them out. They're pretty generic.
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: You'll be controlling little me. I can swing my boomerang like a club,
+        and I can throw it. But of course, if I've thrown it, I can't swing it until
+        it comes back. Remember that.
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: I'm not good enough at my magic to use it for combat just yet, so that's
+        it. 2 attacks. Oh, and I can also jump and dodge.
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '''Shut up, Hauke! Let me play!'' I hear you. So without further ado,
+        here you go.'
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 0
+  useCutsceneDbox: 1

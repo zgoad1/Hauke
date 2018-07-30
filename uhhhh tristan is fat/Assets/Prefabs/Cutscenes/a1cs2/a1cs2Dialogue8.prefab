@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1816553462223208}
+  m_IsPrefabAsset: 1
+--- !u!1 &1816553462223208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4170816319015240}
+  - component: {fileID: 114938347887560028}
+  m_Layer: 0
+  m_Name: a1cs2Dialogue8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4170816319015240
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114938347887560028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816553462223208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c727588e8006a84caf790adc9274176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - items:
+    - face: {fileID: 21300010, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: (...We're here.)
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'DRIVER: Hang tight, kids.'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*The driver got out of the car. It was my time to shine.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300000, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: Hauke.
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: On it!
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*I opened the door as quietly as I could and slipped out, leaving it
+        open. Ben started making his way into the driver''s seat.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*Holding my breath to keep myself dead quiet, I reached into the driver''s
+        pocket.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*He immediately noticed.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'DRIVER: Hey, what do you think you''re--'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*I forced my hand in until I felt cold metal. I grabbed the keys and
+        tossed them to Ben, who snatched them out of the air.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'DRIVER: What--My keys! Give those back, you little son of a--'
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*To perpetuate an overused metaphor, the engine ''roared to life.'' I
+        grabbed the door, trying to get into the car, but the driver got ahold of
+        my overalls.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300012, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Let me go, cycle path!
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'DRIVER: What the hell do you kids think you''re doing?! '
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Ben! Start driving!
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: fcbc5bc7d55eb0547a69fa9beff63d1e, type: 3}
+      text: What about you?!
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: Just go! I'll meet you at the little park we always pass!
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
+      text: I'll take care of this! Don't worry about me!
+      useCutsceneDbox: 0
+    - face: {fileID: 21300006, guid: 08dc4824335bbff4f9575caba3afcaf8, type: 3}
+      text: No! Hauke, we can't leave you!
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: '*The driver let go of me and ran towards the car.*'
+      useCutsceneDbox: 0
+    - face: {fileID: 21300002, guid: 112cffebbcadbc0408ecc5dad47f1492, type: 3}
+      text: Looks like we'll have to.
+      useCutsceneDbox: 0
+    - face: {fileID: 21300004, guid: fcbc5bc7d55eb0547a69fa9beff63d1e, type: 3}
+      text: Good luck, Hauke! I'm trusting you!
+      useCutsceneDbox: 0
+    - face: {fileID: 21300008, guid: e6984f8f86842654d8872244f9c2573f, type: 3}
+      text: I believe in you, Hauke! See you soon!
+      useCutsceneDbox: 0
+    - face: {fileID: 0}
+      text: 'DRIVER: NO! DAMMIT, STOP THAT CAR!'
+      useCutsceneDbox: 0
+    _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 0
+  useCutsceneDbox: 1

@@ -12,13 +12,17 @@ public class HaukeAtkHitbox0 : AHBType1 {
 
 	// Use this for initialization
 	void Start () {
+		Reset();
 		isAlly = true;
-		me = FindObjectOfType<BattlePlayer>();
 		hbIndex = 0;
-		camT = FindObjectOfType<MainCamera>().transform;
-		meT = me.transform;
 	}
-	
+
+	protected override void Reset() {
+		base.Reset();
+		meT = me.transform;
+		camT = FindObjectOfType<MainCamera>().transform;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		float newx = camT.rotation.eulerAngles.x + rotOffset;

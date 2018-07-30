@@ -49,27 +49,28 @@ public class Controllable : Ally {
 	protected float stopSpeed = 0.075f;
 	protected CameraControl cam;
 	protected float camDist;
-	protected Animator anim;
 	[HideInInspector] public List<GameObject> interactables = new List<GameObject>();
 	protected List<Door> doors = new List<Door>();
 	[HideInInspector] public bool canStillJump = false; // whether we're in the grace period in which we can still jump after walking off an edge
 	protected bool facing = false;    // whether we're facing an interactable
 	protected Transform facingTransform;
 	protected Quaternion iRotation;
-	public bool readInput = true;
+	[HideInInspector] public bool readInput = true;
 	protected Vector3 prevPosition;
+	protected Vector3 forwardTarget;
 	#endregion
 
-	protected virtual void Reset() {
+	protected override void Reset() {
+		base.Reset();
 		camTransform = FindObjectOfType<MainCamera>().transform;
 		cc = GetComponent<CharacterController>();
 		cam = FindObjectOfType<CameraControl>();
-		anim = GetComponent<Animator>();
 		iRotation = head.transform.localRotation;
 		Transform h = Array.Find(transform.GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Head");
 		if(h.GetComponent<NPCHead>() == null) head = h.gameObject.AddComponent<NPCHead>();
 		else head = h.GetComponent<NPCHead>();
 		head.body = transform;
+		forwardTarget = movDirec;
 	}
 
 	// Use this for initialization
@@ -170,8 +171,9 @@ public class Controllable : Ally {
 		movDirec = (transform.position - prevPosition).normalized;
 		movDirec.y = 0;
 		prevPosition = transform.position;
+		SetForwardTarget();
 		//Debug.Log("speed: " + anim.GetFloat("speed") + "\nmovDirec: " + movDirec);
-		transform.forward = Vector3.Lerp(transform.forward, movDirec, 0.4f);
+		transform.forward = Vector3.Lerp(transform.forward, forwardTarget, 0.4f);
 		playerRot.y = transform.rotation.y;
 		playerRot.w = transform.rotation.w;
 		transform.rotation = playerRot;
@@ -246,6 +248,10 @@ public class Controllable : Ally {
 		//Debug.Log("Fell for 0.2 seconds, setting CSJ to false.");
 		canStillJump = false;
 	}
+
+	protected virtual void SetForwardTarget() {
+		forwardTarget = movDirec;
+	}
 	#endregion
 
 	#region Interactable / Door functions
@@ -315,9 +321,11 @@ public class Controllable : Ally {
 		rightMov = 0;
 		fwdMov = 0;
 		anim.SetFloat("speed", 0);
+		cam.enabled = false;
 	}
 
 	public void Unpause() {
 		readInput = true;
+		cam.enabled = true;
 	}
 }
