@@ -15,8 +15,12 @@ EditorBuildSettings:
     path: Assets/_Scenes/Battlefield 1.unity
     guid: b1e97482d3b996341a28b0cb59a2de3c
   - enabled: 1
+    path: Assets/_Scenes/Battlefield 2.unity
+    guid: 7ca2090d7dce48f468a1176377ede0be
+  - enabled: 1
     path: Assets/_Scenes/Orphanage.unity
     guid: 0e91f9d0898945f429a7232d9af2401f
   - enabled: 1
     path: Assets/_Scenes/Orphanage 2.unity
     guid: ab326e0c958402c4ab639aefbe6532e5
+  m_configObjects: {}

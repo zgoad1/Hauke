@@ -33,7 +33,10 @@
 
 ***C***
 
-- None
+- Boomerang throw player turning is still unfixed
+- Maggie still says "for overtime" in Orphanage 1 even though I definitely changed that
+- Hauke tells Ben he wants to escape in Orphanage 1
+- Kris doesn't turn her head in O1
 
 ***D***
 

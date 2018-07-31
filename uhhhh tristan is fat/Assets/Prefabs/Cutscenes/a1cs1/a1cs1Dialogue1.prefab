@@ -225,7 +225,7 @@ MonoBehaviour:
       useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: The ad showed pictures of some of the children looking sad and lied about
-        trauma they'd faced before coming to the orphanage.
+        trauma they'd faced before being 'saved' by the orphanage.
       useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 3997bb0b173089d49a9c9a1a5431c44b, type: 3}
       text: '''They didn''t ask for punishment. They didn''t ask for abuse. Please,

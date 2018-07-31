@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1556844178939800}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1556844178939800
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4808133611634502}
   - component: {fileID: 114993975288102494}
@@ -30,7 +30,7 @@ GameObject:
 --- !u!4 &4808133611634502
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556844178939800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -43,7 +43,7 @@ Transform:
 --- !u!114 &114993975288102494
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556844178939800}
   m_Enabled: 1
@@ -55,11 +55,18 @@ MonoBehaviour:
   - items:
     - face: {fileID: 0}
       text: They call me Hauke.
+      useCutsceneDbox: 0
     - face: {fileID: 0}
       text: I don't have the slightest idea where my name came from or who gave it
         to me, but none of that matters to me.
+      useCutsceneDbox: 0
     - face: {fileID: 0}
-      text: It doesn't have any real significance. It's just a name.
+      text: It doesn't have any real significance. Names are overrated.
+      useCutsceneDbox: 0
     - face: {fileID: 0}
       text: If you really want to know who I am, listen up. This is my story.
+      useCutsceneDbox: 0
     _event: {fileID: 0}
+    turnBody: 0
+    turnHead: 1
+  useCutsceneDbox: 1

@@ -28,6 +28,7 @@ public class CameraControl : MonoBehaviour {
 	private bool zoomIn = false;
 	private float iZoomLerpFac = 0.05f;
 	private float zoomLerpFac = 1;
+	public bool readInput = true;
 
 	// Use this for initialization
 	void Start() {
@@ -45,7 +46,7 @@ public class CameraControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if(!zoomIn) {
+		if(!zoomIn && readInput) {
 			currentX += sensitivityX * Input.GetAxis("Mouse X");
 			currentY = Mathf.Clamp(currentY - sensitivityY * inverted * Input.GetAxis("Mouse Y"), -60f, 75f);
 		}

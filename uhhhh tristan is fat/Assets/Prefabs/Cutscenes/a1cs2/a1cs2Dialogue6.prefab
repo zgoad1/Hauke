@@ -82,13 +82,13 @@ MonoBehaviour:
       useCutsceneDbox: 0
     - face: {fileID: 0}
       text: 'Ben would have scooched into the driver''s seat by the time I had the
-        keys. I''d hand them over and get in the car, then we''d be on our merry way.
+        keys. I''d hand them over and hop in the car, then we''d be on our merry way.
         It was that simple. '
       useCutsceneDbox: 0
     - face: {fileID: 0}
       text: Not long after we finished discussing the final details of the plan, the
         caretakers started calling for us. It was time to go. I grabbed the good old
-        boomerang and hid it in my overalls.
+        boomerang and hid it in my overalls, just in case.
       useCutsceneDbox: 0
     _event: {fileID: 0}
     turnBody: 0

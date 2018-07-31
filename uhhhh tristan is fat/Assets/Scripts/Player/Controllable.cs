@@ -321,11 +321,11 @@ public class Controllable : Ally {
 		rightMov = 0;
 		fwdMov = 0;
 		anim.SetFloat("speed", 0);
-		cam.enabled = false;
+		cam.readInput = false;
 	}
 
 	public void Unpause() {
 		readInput = true;
-		cam.enabled = true;
+		cam.readInput = true;
 	}
 }
