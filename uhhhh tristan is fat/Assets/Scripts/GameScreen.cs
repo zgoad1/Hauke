@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameScreen : MonoBehaviour {
 
-	private static int count = 0;
+	//private static int count = 0;
 
 	// Use this for initialization
 	void Start () {

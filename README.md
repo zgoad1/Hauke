@@ -21,7 +21,7 @@
 
 ***S***
 
-- none
+- None
 
 ***A***
 
@@ -33,13 +33,12 @@
 
 ***C***
 
-- Boomerang throw player turning is still unfixed
-- Maggie still says "for overtime" in Orphanage 1 even though I definitely changed that
-- Hauke tells Ben he wants to escape in Orphanage 1
-- Kris doesn't turn her head in O1
+- Doors should be able to open both ways
 
 ***D***
 
+- Kris doesn't turn her head in O1
+- Boomerang throw turns player back a bit too soon
 - If you start moving immediately after throwing the boomerang, Hauke jitters
 - SmoothTurnCR messes with NPC (and Player???) rotation in the 60 frames after you exit dialogue
 

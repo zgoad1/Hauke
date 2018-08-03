@@ -15,14 +15,11 @@ public class HaukeyPlayer : BattlePlayer {
 	private int[] iAtkDamage;
 	private Renderer r;     // for making the player flash for the charge effect
 	private HandWeapon handBoomerang;
-	private HaukeAtkHitbox1 boomerangHitbox;
-	bool setForward = false;
 							//private Animator anim;
 
 	// Use this for initialization
 	protected override void Start() {
 		handBoomerang = GetComponentInChildren<HandWeapon>();
-		boomerangHitbox = boomerang.GetComponentInChildren<HaukeAtkHitbox1>();
 		attacking = new bool[2];
 		atkDamage = new int[] { 35, 25 };   // hack, boomerang
 		iAtkDamage = new int[atkDamage.Length];
@@ -152,10 +149,14 @@ public class HaukeyPlayer : BattlePlayer {
 	// set the vector for transform.forward to lerp to
 	protected override void SetForwardTarget() {
 		// Set forwardTarget to the camera's forward from this frame for a few moments, then set it back
-		if(handBoomerang.gameObject.activeSelf && attacking[1] && !setForward) {
-			StartCoroutine("WaitForTurnBack");
-			Debug.Log("Calling WFTB coroutine");
-			setForward = true;
+		if(handBoomerang.gameObject.activeSelf && attacking[1]) {
+			forwardTarget.x = camTransform.forward.x;
+			if(Mathf.Abs(transform.forward.x - camTransform.forward.x) < 0.05f) {
+				// turn the player a bit so they don't get stuck in one of those funky rotation lerps
+				transform.forward = new Vector3(transform.forward.x + 0.5f, 0, transform.forward.z).normalized;
+			}
+			forwardTarget.z = camTransform.forward.z;
+			forwardTarget = forwardTarget.normalized;
 		} else {
 			base.SetForwardTarget();
 		}
@@ -183,7 +184,7 @@ public class HaukeyPlayer : BattlePlayer {
 	}
 
 	private IEnumerator WaitForThrowAnim() {
-		yield return new WaitForSeconds(0.12f);
+		yield return new WaitForSeconds(0.15f);
 		if(!boomerang.gameObject.activeSelf) {
 			MTSBBI.SetActiveChildren(boomerang.transform, true);
 			boomerang.GetComponentInChildren<HaukeAtkHitbox1>().Begin();
@@ -191,20 +192,6 @@ public class HaukeyPlayer : BattlePlayer {
 		// turn hand boomerang invisible
 		handBoomerang.gameObject.SetActive(false);
 		st -= 5;
-	}
-
-	private IEnumerator WaitForTurnBack() {
-		Debug.Log("Doing WFTB coroutine");
-		forwardTarget.x = camTransform.forward.x;
-		if(Mathf.Abs(transform.forward.x - camTransform.forward.x) < 0.05f) {
-			// turn the player a bit so they don't get stuck in one of those funky rotation lerps
-			transform.forward = new Vector3(transform.forward.x + 0.5f, 0, transform.forward.z).normalized;
-		}
-		forwardTarget.z = camTransform.forward.z;
-		forwardTarget = forwardTarget.normalized;
-		yield return new WaitForSeconds(0.5f);
-		Debug.Log("Finishing WFTB coroutine");
-		setForward = false;
 	}
 
 	public void AddThrowWeight() {

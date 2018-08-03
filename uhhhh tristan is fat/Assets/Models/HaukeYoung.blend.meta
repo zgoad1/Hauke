@@ -79,6 +79,10 @@ ModelImporter:
     7400014: haukey_battle_jog
     7400016: haukey_weapon_throw
     7400018: haukey_weapon_hack
+    7400020: haukey_weapon_jump_up
+    7400022: haukey_weapon_jump_down
+    7400024: haukey_natural_jump_up
+    7400026: haukey_natural_jump_down
     9500000: //RootNode
     13700000: Hauke
   externalObjects: {}
@@ -564,6 +568,358 @@ ModelImporter:
         weight: 0
       - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
         weight: 0
+      - path: Hauke
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_weapon_jump_up
+      takeName: haukey_weapon_jump_up
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Waist
+        weight: 1
+      - path: Armature/Root/Waist/Chest
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L/Fingers2_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Thumb_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R/Fingers2_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Thumb_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L/Toes_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
+        weight: 1
+      - path: Hauke
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_weapon_jump_down
+      takeName: haukey_weapon_jump_down
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Waist
+        weight: 1
+      - path: Armature/Root/Waist/Chest
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L/Fingers2_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Thumb_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R/Fingers2_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Thumb_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L/Toes_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
+        weight: 1
+      - path: Hauke
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_natural_jump_up
+      takeName: haukey_natural_jump_up
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Waist
+        weight: 1
+      - path: Armature/Root/Waist/Chest
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L/Fingers2_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Thumb_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R/Fingers2_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Thumb_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L/Toes_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
+        weight: 1
+      - path: Hauke
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: haukey_natural_jump_down
+      takeName: haukey_natural_jump_down
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Waist
+        weight: 1
+      - path: Armature/Root/Waist/Chest
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Hand_L/Fingers1_L/Fingers2_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_L/UpperArm_L/Forearm_L/Thumb_L
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Hand_R/Fingers1_R/Fingers2_R
+        weight: 1
+      - path: Armature/Root/Waist/Chest/Shoulder_R/UpperArm_R/Forearm_R/Thumb_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_L/Calf_L/Foot_L/Toes_L
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Waist/Thigh_R/Calf_R/Foot_R/Toes_R
+        weight: 1
       - path: Hauke
         weight: 1
       maskType: 3

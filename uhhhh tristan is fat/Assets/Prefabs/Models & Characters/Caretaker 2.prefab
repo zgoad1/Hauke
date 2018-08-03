@@ -616,8 +616,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355517378918804}
-  m_LocalRotation: {x: 0.17191358, y: -0.29996356, z: 0.055033892, w: 0.9367171}
-  m_LocalPosition: {x: -2.7224634, y: 16.8271, z: -23.343964}
+  m_LocalRotation: {x: -0.033800885, y: -0.29705817, z: 0.010510493, w: -0.95420307}
+  m_LocalPosition: {x: -9.738378, y: 10.985638, z: -11.964857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4133213307614574}
@@ -971,8 +971,8 @@ MonoBehaviour:
         if I ever saw one. '
       useCutsceneDbox: 0
     - face: {fileID: 0}
-      text: I don't get paid for overtime; I never get any bonus when I put in extra
-        work. It makes me so mad...
+      text: I don't get paid overtime; I never get any bonus when I put in extra work.
+        It makes me so mad...
       useCutsceneDbox: 0
     - face: {fileID: 21300002, guid: 8462074c6a6244c4c8c3a926deea71ac, type: 3}
       text: Why do you like money so much, Ms. Maggie?

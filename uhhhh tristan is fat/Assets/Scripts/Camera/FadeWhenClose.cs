@@ -10,10 +10,9 @@ public class FadeWhenClose : MonoBehaviour {
 	private void Reset() {
 		Renderer[] rs = GetComponentsInChildren<Renderer>();
 		foreach(Renderer rend in rs) {
-			FadeWhenClose f;
-			if(rend.gameObject.GetComponent<FadeWhenClose>() == null) f = rend.gameObject.AddComponent<FadeWhenClose>();
+			if(rend.gameObject.GetComponent<FadeWhenClose>() == null) rend.gameObject.AddComponent<FadeWhenClose>();
 		}
-		r = GetComponent<Renderer>();
+		r = GetComponentInChildren<Renderer>();
 	}
 
 	void Start () {

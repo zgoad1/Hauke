@@ -58,6 +58,8 @@ public class Controllable : Ally {
 	[HideInInspector] public bool readInput = true;
 	protected Vector3 prevPosition;
 	protected Vector3 forwardTarget;
+	private Vector2 vec1 = Vector2.zero;
+	private Vector2 vec2 = Vector2.zero;
 	#endregion
 
 	protected override void Reset() {
@@ -163,11 +165,19 @@ public class Controllable : Ally {
 
 		// speed is the distance from where we were last frame to where we are now
 		//Debug.Log("MovDirec: " + movDirec);
-		float movDist = Vector3.Distance(prevPosition, transform.position);
-		if(movDist < 0.05) {
+		// remove y components of positions and set movDist to the distance between
+		// (we have to do it this way because we need their y components later) (also you can't set transform.position.y)
+		vec1.x = prevPosition.x;
+		vec1.y = prevPosition.z;
+		vec2.x = transform.position.x;
+		vec2.y = transform.position.z;
+		float movDist = Vector2.Distance(vec1, vec2);
+		float yDist = transform.position.y - prevPosition.y;
+		if(movDist < 0.05 && onGround) {	// stop if we're (presumably) running into a wall
 			transform.position = prevPosition;
 		}
 		anim.SetFloat("speed", movDist);
+		anim.SetFloat("yVelocity", yDist);
 		movDirec = (transform.position - prevPosition).normalized;
 		movDirec.y = 0;
 		prevPosition = transform.position;
@@ -190,7 +200,7 @@ public class Controllable : Ally {
 			if(jKey) Debug.LogWarning("Falling\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
 		} else {
 			upMov = -grav;
-			if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+			//if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
 		}
 		jKey = false;       // keep these true after they're pressed until FixedUpdate is called
 		dodgeKey = false;
@@ -211,6 +221,8 @@ public class Controllable : Ally {
 			Interact();
 			Debug.Log("Interacting");
 		}
+
+		anim.SetBool("onGround", onGround);
 	}
 
 	protected virtual void OnControllerColliderHit(ControllerColliderHit hit) {
