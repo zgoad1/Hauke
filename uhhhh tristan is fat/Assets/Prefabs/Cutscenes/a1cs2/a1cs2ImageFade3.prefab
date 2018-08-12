@@ -51,5 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10ba62bb653e5d47bc1e1b6e8075eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2800000, guid: f5eb93180ad216042a8b02bdd8137aa9, type: 3}
+  image: {fileID: 2800000, guid: 081b7ebd35730274ab63c5b4a491bdcc, type: 3}
   fadeFrames: 120

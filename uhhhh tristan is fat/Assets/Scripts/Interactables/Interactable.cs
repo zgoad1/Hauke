@@ -29,6 +29,7 @@ public class Interactable : MonoBehaviour {
 	// Use this for initialization
 	protected virtual void Start () {
 		player = FindObjectOfType<Controllable>();
+		Debug.Log("NPC player: " + player);
 		DialogueBox[] dboxes = FindObjectsOfType<DialogueBox>();
 		dbox = Array.Find(dboxes, db => db.name == "Dbox"); // We probably have "Dbox" and "Cutscene Dbox"
 		dboxcs = (CutsceneDbox)Array.Find(dboxes, db => db.name == "Cutscene Dbox");

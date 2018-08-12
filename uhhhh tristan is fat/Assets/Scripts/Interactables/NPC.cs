@@ -13,8 +13,12 @@ public class NPC : Interactable {
 	new protected void Reset() {
 		anim = GetComponent<Animator>();
 		Transform h = Array.Find(transform.GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Head");
-		if(h.GetComponent<NPCHead>() == null) head = h.gameObject.AddComponent<NPCHead>();
-		else head = h.GetComponent<NPCHead>();
+		if(h != null) {
+			if(h.GetComponent<NPCHead>() == null) head = h.gameObject.AddComponent<NPCHead>();
+			else head = h.GetComponent<NPCHead>();
+		} else {
+			head = gameObject.AddComponent<NPCHead>();
+		}
 		head.body = transform;
 		Debug.Log("setting head.body to: " + head.body);
 		irot = transform.localRotation;

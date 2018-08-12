@@ -9,11 +9,11 @@ public class GrassBillboard : MonoBehaviour {
 
 	private void Reset() {
 		lookAtt = FindObjectOfType<MainCamera>().transform;
+		lookAt = lookAtt;
 	}
 
 	private void Start() {
 		Reset();
-		lookAt = lookAtt;
 	}
 
 	// Update is called once per frame

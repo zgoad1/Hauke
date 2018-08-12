@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -213,7 +214,11 @@ public class DialogueBox : MonoBehaviour {
 			// Show the next character
 			text.text = items[index].text.Substring(0, letters); // Can't let letters reach items[index].text.length or chaos ensues. Another Unity bug? Probably.
 			if(items[index].text[Mathf.Min(items[index].text.Length - 1, letters)] != ' ' && letters % 3 == 0) {
-				am.Play("textbeep" + (letters % 2));    // use alternating text beep sounds because Unity assumes you want to make a weird pop sound if you call Play() on a sound before it's finished playing
+				try {
+					am.Play("textbeep" + (letters % 2));    // use alternating text beep sounds because Unity assumes you want to make a weird pop sound if you call Play() on a sound before it's finished playing
+				} catch(NullReferenceException e) {
+					Debug.LogError("You forgot your audio manager");
+				}
 			}
 
 			yield return null;
