@@ -14,7 +14,7 @@ public class AHBType1 : AtkHitbox {
 	 */
 
 	protected List<Rigidbody> collision = new List<Rigidbody>();
-	public bool attacking = false;
+	[HideInInspector] public bool attacking = false;
 
 	private void FixedUpdate() {
 		if(IsAttacking()) {
@@ -48,9 +48,9 @@ public class AHBType1 : AtkHitbox {
 	protected override void Hit(Rigidbody hit) {
 		List<Rigidbody> toRemove = new List<Rigidbody>();
 		foreach(Rigidbody rb in collision) {
-			Enemy enemy = rb.gameObject.GetComponent<Enemy>();
-			enemy.TakeDamage(me.atkDamage[hbIndex]);
-			if(enemy.hp == 0) toRemove.Add(rb);
+			BattleEntity entity = rb.gameObject.GetComponent<BattleEntity>();
+			entity.TakeDamage(me.atkDamage[hbIndex]);
+			if(entity.hp == 0) toRemove.Add(rb);
 		}
 		foreach(Rigidbody rb in toRemove) collision.Remove(rb);
 		base.Hit(hit);

@@ -6,18 +6,21 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyCommon : Enemy {
 
-	private NavMeshAgent agent;
-	//private Companion companion;
-	private Ally target;
-	private Vector3 knockbackOffset = new Vector3(0f, 0.5f, 0f);
+	protected NavMeshAgent agent;
+	//protected Companion companion;
+	protected Ally target;
+	protected Vector3 knockbackOffset = new Vector3(0f, 0.5f, 0f);
+	protected Vector2 prevPosition;
+	protected Vector2 thisPosition;
 
 	protected override void Reset() {
 		base.Reset();
 		agent = GetComponent<NavMeshAgent>();
+		anim = GetComponent<Animator>();
 	}
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		Reset();
 		attacking = new bool[1];
 		atkDamage = new int[] { 10 };	// hack
@@ -27,7 +30,18 @@ public class EnemyCommon : Enemy {
 		//companion = FindObjectOfType<BattleCompanion>();
 		target = player;								// TODO: Choose the player or the companion for target
 	}
-	
+
+	protected virtual void Update() {
+		thisPosition.x = transform.position.x;
+		thisPosition.y = transform.position.z;
+		float speed = Vector2.Distance(prevPosition, thisPosition);
+		prevPosition.x = transform.position.x;
+		prevPosition.y = transform.position.z;
+		if(anim != null) {
+			anim.SetFloat("speed", speed);
+		}
+	}
+
 	void FixedUpdate () {
 		if(agent.enabled) {
 			agent.SetDestination(target.transform.position);
@@ -42,7 +56,7 @@ public class EnemyCommon : Enemy {
 		}
 	}
 	
-	private void OnCollisionEnter(Collision collision) {
+	protected void OnCollisionEnter(Collision collision) {
 		if(LayerMask.LayerToName(collision.gameObject.layer) == "Ground") {
 			agent.enabled = true;
 		}

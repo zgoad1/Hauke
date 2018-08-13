@@ -13,7 +13,7 @@ public class Enemy : BattleEntity {
 	protected bool frozen;
 
 	public override void TakeDamage(int damage) {
-		base.TakeDamage(frozen? damage * 2 : damage);
+		base.TakeDamage(frozen ? damage * 2 : damage);
 	}
 
 	/** Exerts a hitbox and checks for player. Applies appropriate methods if hit.

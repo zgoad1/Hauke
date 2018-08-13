@@ -12,7 +12,7 @@ public class FadeWhenClose : MonoBehaviour {
 		foreach(Renderer rend in rs) {
 			if(rend.gameObject.GetComponent<FadeWhenClose>() == null) rend.gameObject.AddComponent<FadeWhenClose>();
 		}
-		r = GetComponentInChildren<Renderer>();
+		if(r == null) r = GetComponentInChildren<Renderer>();
 	}
 
 	void Start () {

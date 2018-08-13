@@ -35,7 +35,6 @@
 
 - Doors should be able to open both ways
 - Dialogue box can't find audio manager in battlefield2
-- Player's FadeWhenClose is broken in battlefield2
 
 ***D***
 
