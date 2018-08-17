@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(FadeWhenClose))]
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 public class BattleEntity : MonoBehaviour {
 
 	/* Anything that can partake in a battle, including the player, their companion,
