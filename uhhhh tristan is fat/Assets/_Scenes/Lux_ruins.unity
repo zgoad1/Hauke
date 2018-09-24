@@ -16,8 +16,8 @@ RenderSettings:
   serializedVersion: 9
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
-  m_FogMode: 1
-  m_FogDensity: 0.01
+  m_FogMode: 3
+  m_FogDensity: 0.008
   m_LinearFogStart: 0
   m_LinearFogEnd: 250
   m_AmbientSkyColor: {r: 0.07111071, g: 0.3207547, b: 0.14996631, a: 1}
