@@ -3519,6 +3519,10 @@ Prefab:
       propertyPath: m_Name
       value: lux_tower1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -4178,6 +4182,10 @@ Prefab:
       propertyPath: m_Name
       value: lux_tower1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -4617,6 +4625,10 @@ Prefab:
     - target: {fileID: 100006, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
       propertyPath: m_Name
       value: lux_tower1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -5338,6 +5350,10 @@ Prefab:
       propertyPath: m_Name
       value: lux_tower1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -5845,6 +5861,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[6]
       value: 
       objectReference: {fileID: 2100000, guid: 84766da9f27da1c4c853dd84b43b2304, type: 2}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -6373,6 +6393,10 @@ Prefab:
     - target: {fileID: 100006, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
       propertyPath: m_Name
       value: lux_tower1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -7208,6 +7232,10 @@ Prefab:
       propertyPath: m_Name
       value: lux_tower1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -7484,6 +7512,10 @@ Prefab:
     - target: {fileID: 100006, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
       propertyPath: m_Name
       value: lux_tower1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
@@ -8315,6 +8347,10 @@ Prefab:
     - target: {fileID: 100006, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
       propertyPath: m_Name
       value: lux_tower1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: a1515b98830e2104580ba0da110dea7f, type: 3}

@@ -6,9 +6,4 @@ using UnityEngine;
 public class BattleWave {
     public int seconds = 90;
     public EnemyInfo[] enemies;
-    /*
-    public Enemy[] enemyTypes;
-    public int[] enemyAmounts;
-    [Range(0, 1)] public float[] spawnTime;
-    */
 }
