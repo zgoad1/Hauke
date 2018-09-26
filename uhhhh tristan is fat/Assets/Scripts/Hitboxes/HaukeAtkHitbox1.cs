@@ -17,11 +17,11 @@ public class HaukeAtkHitbox1 : AHBType2 {
 
 	[SerializeField] private Transform parentT;
 
-	private enum state {
+	private enum State {
 		animating = 1,
 		returning = 2
 	}
-	private state s = state.animating;
+	private State s = State.animating;
 	private Rigidbody rb;
 	private Animator anim;
 	private Vector3 prevPos = Vector3.zero;
@@ -36,12 +36,13 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	void Start () {
 		Reset();
 		isAlly = true;
-		hbIndex = 1;
+		hbIndex = 3;
 		prevPos = transform.position;
 	}
 
 	protected override void Reset() {
 		base.Reset();
+		me = FindObjectOfType<BattlePlayer>();
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 		camT = FindObjectOfType<MainCamera>().transform;
@@ -54,9 +55,10 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		Debug.Log("Resetting boomerang");
 		anim.enabled = true;
 		rb.isKinematic = true;
-		s = state.animating;
-		MTSBBI.SetActiveChildren(parentT, false);
-		me.attacking[hbIndex] = false;
+		s = State.animating;
+		//MTSBBI.SetActiveChildren(parentT, false);
+		parentT.gameObject.SetActive(false);
+		//if(((BattlePlayer)me).GetActiveWeapons().Count == ((BattlePlayer)me).numWeapons) me.attacking[hbIndex] = false;
 		followFactor = iFollowFactor;
 		((BattlePlayer)me).CatchWeapon();
 	}
@@ -64,11 +66,11 @@ public class HaukeAtkHitbox1 : AHBType2 {
 	// Update is called once per frame
 	void Update () {
 		switch(s) {
-			case state.animating:
+			case State.animating:
 				rb.velocity = (transform.position - prevPos) * 60;
 				//Debug.Log("velocity: " + rb.velocity);
 				break;
-			case state.returning:
+			case State.returning:
 				Debug.Log("attepmtnthing to return boomeroh");
 				Vector3 distance = (me.transform.position + playerOffset) - transform.position;
 				Vector3 toPlayer;
@@ -104,7 +106,7 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		Reset();
 		Vector3 newForward = new Vector3(camT.forward.x, 0f, camT.forward.z).normalized;
 		//me.transform.forward = newForward;
-		parentT.position = me.transform.position + playerOffset + startOffset * newForward;
+		parentT.localPosition = me.transform.position + playerOffset + startOffset * newForward;
 		parentT.forward = camT.forward;
 		if(((BattlePlayer)me).onGround || ((BattlePlayer)me).canStillJump) {
 			Vector3 newEuler = parentT.rotation.eulerAngles;
@@ -117,6 +119,6 @@ public class HaukeAtkHitbox1 : AHBType2 {
 		Debug.Log("Finished boomerang animation");
 		anim.enabled = false;
 		rb.isKinematic = false;
-		s = state.returning;
+		s = State.returning;
 	}
 }

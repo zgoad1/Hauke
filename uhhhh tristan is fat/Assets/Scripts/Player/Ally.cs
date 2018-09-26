@@ -24,7 +24,8 @@ public class Ally : BattleEntity {
 		}
 	}
 
-	protected virtual void Start() {
+	protected override void Start() {
+		base.Start();
 		Transform h = Array.Find(GetComponentsInChildren<Transform>(), t => t.gameObject.name == "Head");
 		head = h.GetComponent<NPCHead>();
 		if(head == null) {

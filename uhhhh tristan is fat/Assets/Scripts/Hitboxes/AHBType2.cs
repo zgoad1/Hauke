@@ -17,7 +17,8 @@ public class AHBType2 : AtkHitbox {
 	// hit enemies every collision frame, rely on enemy grace periods to not damage them every frame
 	protected void OnTriggerStay(Collider other) {
 		Rigidbody rb = other.GetComponent<Rigidbody>();
-		if(IsAttacking() && rb != null && isAlly ? other.GetComponent<Enemy>() != null : other.GetComponent<Ally>() != null) {
+		if(IsAttacking() && rb != null && (isAlly ? other.GetComponent<Enemy>() != null : other.GetComponent<Ally>() != null)) {
+			Debug.Log("AHB2 hit a " + rb.gameObject.name + "\nisAlly: " + isAlly + ", getComponent<Enemy>: " + other.GetComponent<Enemy>());
 			Hit(rb);
 		}
 	}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FadeWhenClose : MonoBehaviour {
 
 	[HideInInspector] public bool visible = true;
-	[SerializeField] private Renderer r;
+	public Renderer r;
 
 	private void Reset() {
 		Renderer[] rs = GetComponentsInChildren<Renderer>();

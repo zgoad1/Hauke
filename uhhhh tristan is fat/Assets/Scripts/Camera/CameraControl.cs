@@ -29,6 +29,9 @@ public class CameraControl : MonoBehaviour {
 	private float iZoomLerpFac = 0.05f;
 	private float zoomLerpFac = 1;
 	public bool readInput = true;
+	private float screenShake;
+	private Vector3 shakeVec = Vector3.zero;
+	private float shakeStart;
 
 	// Use this for initialization
 	void Start() {
@@ -94,6 +97,13 @@ public class CameraControl : MonoBehaviour {
 				}
 			}
 		}
+		if(screenShake > 0.01f) {
+			float timeDiff = Time.time - shakeStart + 0.1f;	// this'll be 0 the first frame, so I just added 0.1 so we don't divide by 0
+			shakeVec.y = -screenShake * (0.2f / timeDiff) * Mathf.Sin(2 * Mathf.PI / (0.4f * timeDiff));
+			camTransform.position += shakeVec;
+			//Debug.Log("ShakeVec.y: " + shakeVec.y);
+			screenShake = Mathf.Lerp(screenShake, 0, 0.03f);
+		}
 	}
 
 	private void Reset() {
@@ -144,5 +154,10 @@ public class CameraControl : MonoBehaviour {
 
 	public void ZoomOut() {
 		zoomIn = false;
+	}
+
+	public void ScreenShake(float intensity) {
+		screenShake = intensity;
+		shakeStart = Time.time;
 	}
 }

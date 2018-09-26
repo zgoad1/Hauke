@@ -17,7 +17,7 @@ public class AtkHitbox : MonoBehaviour {
 	protected bool isAlly;
 
 	protected virtual void Reset() {
-		me = FindObjectOfType<BattlePlayer>();
+		//me = FindObjectOfType<BattlePlayer>();
 	}
 
 	protected virtual bool IsAttacking() {
@@ -25,6 +25,6 @@ public class AtkHitbox : MonoBehaviour {
 	}
 
 	protected virtual void Hit(Rigidbody hit) {
-		Debug.Log("Damaging enemy for " + me.atkDamage[hbIndex]);
+		Debug.Log("Attempting to damage someone for " + me.atkDamage[hbIndex]);
 	}
 }

@@ -33,6 +33,8 @@
 
 ***C***
 
+- the water in BF1 is now still for some reason
+- HaukeYoung's FadeWhenClose only sees his mesh and not the boomerang. Should fade out all child objects.
 - Doors should be able to open both ways
 - Dialogue box can't find audio manager in battlefield2
 

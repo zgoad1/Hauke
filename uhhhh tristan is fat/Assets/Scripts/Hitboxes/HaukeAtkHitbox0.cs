@@ -6,19 +6,23 @@ public class HaukeAtkHitbox0 : AHBType1 {
 
 	// hitbox for Hauke's standard hack
 
-	private Transform camT;
-	private Transform meT;
-	private int rotOffset = -90;	// to keep the rotation from aiming towards the ground
+	protected Transform camT;
+	protected Transform meT;
+	protected int rotOffset = -90;	// to keep the rotation from aiming towards the ground
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+		base.Start();
 		Reset();
-		isAlly = true;
-		hbIndex = 0;
+		if(!(this is HaukeAtkHitbox3)) {    // darn my bad coding
+			isAlly = true;
+			hbIndex = 0;
+		}
 	}
 
 	protected override void Reset() {
 		base.Reset();
+		me = FindObjectOfType<BattlePlayer>();
 		meT = me.transform;
 		camT = FindObjectOfType<MainCamera>().transform;
 	}
@@ -30,10 +34,15 @@ public class HaukeAtkHitbox0 : AHBType1 {
 	}
 
 	protected override void Hit(Rigidbody hit) {
-		foreach(Rigidbody rb in collision) {
-			Enemy enemy = rb.gameObject.GetComponent<Enemy>();
-			enemy.Knockback(meT.forward * 2000);
+		if(!(this is HaukeAtkHitbox3)) {	// HAHB3 has its own knockback formula so it needs to skip this part
+			Debug.Log(gameObject.name + ": exerting hitbox");
+			// apply knockback to all enemies in range...
+			foreach(Rigidbody rb in collision) {
+				Enemy enemy = rb.gameObject.GetComponent<Enemy>();
+				enemy.Knockback(meT.forward * 2000);
+			}
 		}
+		// ...in addition to the standard procedures
 		base.Hit(hit);
 	}
 }

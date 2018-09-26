@@ -40,6 +40,12 @@ public class BattleEntity : MonoBehaviour {
 	protected Vector3 verticalForce = new Vector3(0, 2000, 0);
 	protected Animator anim;
 	protected BattlePlayer player;
+	protected Rigidbody rb;
+
+	protected virtual void Start() {
+		attacking = new bool[atkDamage.Length];
+		rb = GetComponent<Rigidbody>();
+	}
 
 	protected virtual void Reset() {
 		anim = GetComponent<Animator>();
