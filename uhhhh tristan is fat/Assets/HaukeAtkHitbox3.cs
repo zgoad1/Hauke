@@ -16,7 +16,7 @@ public class HaukeAtkHitbox3 : HaukeAtkHitbox0 {
 		foreach(Rigidbody rb in collision) {
 			//Debug.Log("Damaging enemy: " + rb.gameObject.name);
 			Enemy enemy = rb.gameObject.GetComponent<Enemy>();
-			enemy.Knockback((rb.transform.position - meT.position).normalized * 2000);
+			enemy.Knockback((rb.transform.position - meT.position).normalized * 4000);
 		}
 		// ...in addition to the standard procedures
 		base.Hit(hit);

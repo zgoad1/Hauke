@@ -29,7 +29,7 @@
 
 ***B***
 
-- Holding the attack button while an attack animation is playing should start charging
+- HaukeAtkHitbox2 stays active?????????
 
 ***C***
 

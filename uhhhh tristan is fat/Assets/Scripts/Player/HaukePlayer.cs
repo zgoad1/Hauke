@@ -171,7 +171,7 @@ public class HaukePlayer : BattlePlayer {
 		if(st >= stCost) {                                              // if we can afford the stamina...
 			Debug.Log("Performing attack1");
 			attacking[0] = true;
-			anim.SetTrigger("attack1");
+			anim.SetTrigger("attack0");
 			yield return new WaitForSeconds(0.2f);                      // wait for part of animation to finish
 			ahb1.attacking = true;                                      // exert hitbox and damage enemies
 			st -= stCost;                                               // take some stamina
@@ -190,7 +190,10 @@ public class HaukePlayer : BattlePlayer {
 				Debug.Log("Accepting input after attack1");
 			}
 			if(keepGoing) StartCoroutine("ComboAttack2");
+			else anim.SetTrigger("toIdle");
 			attacking[0] = false;
+		} else {
+			anim.SetTrigger("toIlde");
 		}
 	}
 
@@ -199,7 +202,7 @@ public class HaukePlayer : BattlePlayer {
 		if(st >= stCost) {                          // if we can afford the stamina...
 			Debug.Log("Performing attack2");
 			attacking[1] = true;
-			// [set animation trigger]
+			anim.SetTrigger("attack1a");
 			// [move Hauke towards camera's forward]
 			yield return new WaitForSeconds(0.1f);  // wait for part of animation
 			ahb2.enabled = true;                    // begin exerting hitbox
@@ -225,7 +228,10 @@ public class HaukePlayer : BattlePlayer {
 				StartCoroutine("ComboAttack2");                 // ...keep doing this attack
 			} else {
 				attacking[1] = false;                           // else stop the combo
+				anim.SetTrigger("toIdle");
 			}
+		} else {
+			anim.SetTrigger("toIlde");
 		}
 	}
 
@@ -252,6 +258,8 @@ public class HaukePlayer : BattlePlayer {
 				m.DisableKeyword("_EMISSION");
 			}
 			attacking[2] = false;
+		} else {
+			anim.SetTrigger("toIdle");
 		}
 	}
 
