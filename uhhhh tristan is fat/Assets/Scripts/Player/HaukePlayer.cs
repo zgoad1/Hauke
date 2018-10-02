@@ -15,14 +15,15 @@ public class HaukePlayer : BattlePlayer {
 	private int[] iAtkDamage;			// keep track of original attack damage so we can reset to it if it changes
 	private Renderer r;					// for making the player flash for the charge effect
 	private HaukeAtkHitbox0 ahb1;		// hitboxes for parts of the combo
-	private AHBType2 ahb2;
-	private HaukeAtkHitbox0 ahb3;
+	private HaukeAtkHitbox2 ahb2;
+	private HaukeAtkHitbox3 ahb3;
 	private Boomerang[] realRangs;      // boomerangs that actually fly around and do damage
 	
 	protected override void Start() {
 		r = GetComponent<FadeWhenClose>().r;    // this is usually the right renderer
 		ahb1 = GetComponentInChildren<HaukeAtkHitbox0>();	// combo 1
-		ahb2 = GetComponentInChildren<HaukeAtkHitbox2>();	// combo 2 (skip HAHB1, which is boomerang hitbox)
+		ahb2 = GetComponentInChildren<HaukeAtkHitbox2>();   // combo 2 (skip HAHB1, which is boomerang hitbox)
+		ahb2.enabled = false;
 		ahb3 = GetComponentInChildren<HaukeAtkHitbox3>();	// combo 3
 		realRangs = boomerangs.GetComponentsInChildren<Boomerang>();
 		foreach(Boomerang b in realRangs) b.gameObject.SetActive(false);
@@ -150,8 +151,8 @@ public class HaukePlayer : BattlePlayer {
 
 	#region Attacks
 	private void ThrowBoomerang() {
-		if(GetActiveWeapons().Count == 0) anim.SetBool("hasWeapon", false);
-		anim.SetTrigger("throwWeapon");
+		//if(GetActiveWeapons().Count == 0) anim.SetBool("hasWeapon", false);
+		//anim.SetTrigger("throwWeapon");
 		StartCoroutine("BoomerangAttack");
 		attacking[3] = true;
 	}
@@ -176,7 +177,6 @@ public class HaukePlayer : BattlePlayer {
 			ahb1.attacking = true;                                      // exert hitbox and damage enemies
 			st -= stCost;                                               // take some stamina
 			// [special effects]
-			yield return new WaitForSeconds(0.3f);                      // wait for some more of animation
 			bool keepGoing = false;
 			for(int i = 0; i < 20; i++) {
 				if(Input.GetButtonDown("Fire1")) {
@@ -187,31 +187,32 @@ public class HaukePlayer : BattlePlayer {
 					break;
 				}
 				yield return new WaitForSeconds(1/60f);
-				Debug.Log("Accepting input after attack1");
+				//Debug.Log("Accepting input after attack1");
 			}
 			if(keepGoing) StartCoroutine("ComboAttack2");
 			else anim.SetTrigger("toIdle");
 			attacking[0] = false;
+			Debug.Log("Finishing attack 1");
 		} else {
-			anim.SetTrigger("toIlde");
+			//anim.SetTrigger("toIdle");
+			Debug.Log("No stamina; stopping attack 1");
 		}
 	}
 
 	private IEnumerator ComboAttack2() {
+		Debug.Log("Attempting attack 2");
 		int stCost = 20;
 		if(st >= stCost) {                          // if we can afford the stamina...
 			Debug.Log("Performing attack2");
-			attacking[1] = true;
+			attacking[1] = true;					// begin exerting hitbox
 			anim.SetTrigger("attack1a");
-			// [move Hauke towards camera's forward]
 			yield return new WaitForSeconds(0.1f);  // wait for part of animation
-			ahb2.enabled = true;                    // begin exerting hitbox
 			st -= stCost;
 			// [special effects]
-			yield return new WaitForSeconds(0.4f);  // wait some more
+			yield return new WaitForSeconds(0.2f);  // wait some more
 			bool keepGoing = false;                 // whether we'll keep doing attack2
 			int maxFrames = 0;                      // how many frames we've been holding Fire1 at the end of the loop
-			for(int i = 0; i < 20; i++) {
+			for(int i = 0; i < 15; i++) {
 				if(Input.GetButton("Fire1")) {
 					keepGoing = true;
 					maxFrames++;
@@ -219,19 +220,20 @@ public class HaukePlayer : BattlePlayer {
 					maxFrames = 0;
 				}
 				yield return new WaitForSeconds(1 / 60f);
-				Debug.Log("Accepting input after attack2");
+				//Debug.Log("Accepting input after attack2");
 			}
 			if(maxFrames >= 5 && Input.GetButton("Fire1")) {    // if we were holding LMB for a good amount of time, we probably want to...
-				attacking[1] = false;
 				StartCoroutine("ComboAttack3");                 // ...do the attack for that
-			} else if(keepGoing) {                              // else if we clicked at all (and were probably tapping)...
+				attacking[1] = false;
+			} else if(keepGoing && st >= stCost) {              // else if we clicked at all (and were probably tapping) (and can afford the stamina)...
 				StartCoroutine("ComboAttack2");                 // ...keep doing this attack
 			} else {
-				attacking[1] = false;                           // else stop the combo
-				anim.SetTrigger("toIdle");
+				attacking[1] = false;
+				anim.SetTrigger("toIdle");						// else stop the combo
 			}
 		} else {
-			anim.SetTrigger("toIlde");
+			attacking[1] = false;
+			anim.SetTrigger("toIdle");
 		}
 	}
 
@@ -247,7 +249,7 @@ public class HaukePlayer : BattlePlayer {
 				ahb3.transform.localScale = ahb3.iScale * scale;    // make hitbox bigger based on how long we held LMB (has to go here so it can detect trigger collisions)
 				yield return new WaitForSeconds(0.1f);
 			}
-			// [set animation trigger]			
+			anim.SetTrigger("attack2");
 			yield return new WaitForSeconds(0.5f);                  // wait for part of animation
 			ahb3.attacking = true;									// exert hitbox
 			st -= stCost;
@@ -257,15 +259,16 @@ public class HaukePlayer : BattlePlayer {
 			foreach(Material m in r.materials) {	// ensure our emission doesn't stay on
 				m.DisableKeyword("_EMISSION");
 			}
+			yield return new WaitForSeconds(0.5f);
 			attacking[2] = false;
-		} else {
-			anim.SetTrigger("toIdle");
 		}
+		anim.SetTrigger("toIdle");
 	}
 
 	private IEnumerator BoomerangAttack() {
 		if(st >= 5) {
-			yield return new WaitForSeconds(0.15f);                             // wait for part of animation
+			anim.SetTrigger("throwWeapon");
+			yield return new WaitForSeconds(0.2f);                             // wait for part of animation
 			Boomerang b = Array.Find(realRangs, r => !r.gameObject.activeSelf); // find an inactive (actual) boomerang
 			Debug.Log("realRangs[0]: " + realRangs[0]);
 			b.gameObject.SetActive(true);                                       // activate it	// might need to use MTSBBI.SetActiveChildren here if this messes up

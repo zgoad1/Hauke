@@ -147,67 +147,69 @@ public class Controllable : Ally {
 		#endregion
 
 		#region Calculate movement
-		onGround = false;
-
-		// calculate movement
-		movDirec.y = upMov;
-		//Character sliding of surfaces
-		float slideFriction = 0.5f;
-		if(!notOnSlope) {
-			movDirec.x += -upMov * hitNormal.x * (1f - slideFriction);
-			movDirec.z += -upMov * hitNormal.z * (1f - slideFriction);
-			hitNormal = Vector3.zero;
+		if(!MTSBBI.AnyInArray(attacking)) {
 			onGround = false;
-			canStillJump = false;
-			//Debug.Log("Sliding");
-		}
-		cc.Move(movDirec);  // T R I G G E R S   C O L L I S I O N   D E T E C T I O N  (AND CAN SET ONGROUND TO TRUE)
 
-		// speed is the distance from where we were last frame to where we are now
-		//Debug.Log("MovDirec: " + movDirec);
-		// remove y components of positions and set movDist to the distance between
-		// (we have to do it this way because we need their y components later) (also you can't set transform.position.y)
-		vec1.x = prevPosition.x;
-		vec1.y = prevPosition.z;
-		vec2.x = transform.position.x;
-		vec2.y = transform.position.z;
-		float movDist = Vector2.Distance(vec1, vec2);
-		float yDist = transform.position.y - prevPosition.y;
-		if(movDist < 0.05 && onGround) {	// stop if we're (presumably) running into a wall
-			transform.position = prevPosition;
-		}
-		anim.SetFloat("speed", movDist);
-		anim.SetFloat("yVelocity", yDist);
-		movDirec = (transform.position - prevPosition).normalized;
-		movDirec.y = 0;
-		prevPosition = transform.position;
-		SetForwardTarget();
-		//Debug.Log("speed: " + anim.GetFloat("speed") + "\nmovDirec: " + movDirec);
-		transform.forward = Vector3.Lerp(transform.forward, forwardTarget, 0.4f);
-		playerRot.y = transform.rotation.y;
-		playerRot.w = transform.rotation.w;
-		transform.rotation = playerRot;
+			// calculate movement
+			movDirec.y = upMov;
+			//Character sliding of surfaces
+			float slideFriction = 0.5f;
+			if(!notOnSlope) {
+				movDirec.x += -upMov * hitNormal.x * (1f - slideFriction);
+				movDirec.z += -upMov * hitNormal.z * (1f - slideFriction);
+				hitNormal = Vector3.zero;
+				onGround = false;
+				canStillJump = false;
+				//Debug.Log("Sliding");
+			}
+			cc.Move(movDirec);  // T R I G G E R S   C O L L I S I O N   D E T E C T I O N  (AND CAN SET ONGROUND TO TRUE)
 
-		// jumping & falling
-		if(jKey && (onGround || canStillJump) && !dodging) {
-			onGround = false;
-			//Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-			upMov = jumpForce;
-			canStillJump = false;
-		} else if(!onGround || !notOnSlope) {
-			upMov -= grav;
-			//Debug.Log("Increasing gravity: " + upMov);
-			if(jKey) Debug.LogWarning("Falling\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-		} else {
-			upMov = -grav;
-			//if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
-		}
-		jKey = false;       // keep these true after they're pressed until FixedUpdate is called
-		dodgeKey = false;
+			// speed is the distance from where we were last frame to where we are now
+			//Debug.Log("MovDirec: " + movDirec);
+			// remove y components of positions and set movDist to the distance between
+			// (we have to do it this way because we need their y components later) (also you can't set transform.position.y)
+			vec1.x = prevPosition.x;
+			vec1.y = prevPosition.z;
+			vec2.x = transform.position.x;
+			vec2.y = transform.position.z;
+			float movDist = Vector2.Distance(vec1, vec2);
+			float yDist = transform.position.y - prevPosition.y;
+			if(movDist < 0.05 && onGround) {    // stop if we're (presumably) running into a wall
+				transform.position = prevPosition;
+			}
+			anim.SetFloat("speed", movDist);
+			//anim.SetFloat("yVelocity", yDist);
+			movDirec = (transform.position - prevPosition).normalized;
+			movDirec.y = 0;
+			prevPosition = transform.position;
+			SetForwardTarget();
+			//Debug.Log("speed: " + anim.GetFloat("speed") + "\nmovDirec: " + movDirec);
+			transform.forward = Vector3.Lerp(transform.forward, forwardTarget, 0.4f);
+			playerRot.y = transform.rotation.y;
+			playerRot.w = transform.rotation.w;
+			transform.rotation = playerRot;
 
-		if(!dodging) {
-			movDirec.x = 0f;
-			movDirec.z = 0f;
+			// jumping & falling
+			if(jKey && (onGround || canStillJump) && !dodging) {
+				onGround = false;
+				//Debug.LogWarning("Jumping\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+				upMov = jumpForce;
+				canStillJump = false;
+			} else if(!onGround || !notOnSlope) {
+				upMov -= grav;
+				//Debug.Log("Increasing gravity: " + upMov);
+				if(jKey) Debug.LogWarning("Falling\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+			} else {
+				upMov = -grav;
+				//if(jKey) Debug.LogWarning("Apex\njKey = " + jKey + "\nonGround = " + onGround + "\ncanStillJump = " + canStillJump);
+			}
+			jKey = false;       // keep these true after they're pressed until FixedUpdate is called
+			dodgeKey = false;
+
+			if(!dodging) {
+				movDirec.x = 0f;
+				movDirec.z = 0f;
+			}
 		}
 		#endregion
 
@@ -222,7 +224,7 @@ public class Controllable : Ally {
 			Debug.Log("Interacting");
 		}
 
-		anim.SetBool("onGround", onGround);
+		//anim.SetBool("onGround", onGround);
 	}
 
 	protected virtual void OnControllerColliderHit(ControllerColliderHit hit) {

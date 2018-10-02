@@ -10,7 +10,7 @@ public class HaukeAtkHitbox2 : AHBType2 {
 		me = FindObjectOfType<BattlePlayer>();
 	}
 
-	protected void Start() {
+	protected void Awake() {
 		Reset();
 		hbIndex = 1;
 		isAlly = true;
